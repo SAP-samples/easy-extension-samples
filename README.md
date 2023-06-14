@@ -5,7 +5,7 @@ This repository provides sample extensions that can be deployed on SAP Commerce 
 These sample extensions illustrate Easy features and capabilities.
 These extensions can be used for demo purpose and may be extended to meet customer needs.
 
-## How to Get Access
+## How to get access
 This repository is only available to SAP employees who have linked their github.com personal account with their SAP identity and joined the SAP organizations on GitHub.
 
 ## How to obtain support
