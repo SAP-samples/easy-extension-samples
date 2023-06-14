@@ -1,6 +1,9 @@
 # SAP-samples/repository-template
 This default template for SAP Samples repositories includes files for README, LICENSE, and .reuse/dep5. All repositories on github.com/SAP-samples will be created based on this template.
 
+# How to Get Access
+This repository is only available to SAP employees who have linked their github.com personal account with their SAP identity and joined the SAP organizations on GitHub. 
+
 # Containing Files
 
 1. The LICENSE file:
