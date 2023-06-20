@@ -1,0 +1,697 @@
+INSERT_UPDATE EasyRestGroup; Name[unique=true]; allowedAuthorities(uid);
+; Easy API; ; 
+
+INSERT_UPDATE EasyRest; Name[unique = true]; Path; SSL; CSRF; Method(code); Format(code); ContentType(code); AuthenticationMethod(code); Secret; SpringBean; Script; CacheControl(code); CacheControlMaxAge; CacheTTL; SwaggerSummary; SwaggerParameters; SwaggerRequestBody; SwaggerResponses;
+; swagger; swagger; true; false; GET; NONE; JSON; NONE; ; swaggerController; ; NO_CACHE; 0; -1; ; ; ; ; 
+
+INSERT_UPDATE EasyRest; Name[unique = true]; Path; SSL; CSRF; Method(code); Format(code); ContentType(code); AuthenticationMethod(code); Secret; SpringBean; Script; CacheControl(code); CacheControlMaxAge; CacheTTL; SwaggerSummary; SwaggerParameters; SwaggerRequestBody; SwaggerResponses;
+; updateRepository; easyapi/repository/{repositoryCode}/update; true; false; POST; NONE; JSON; NONE; "123456" ; updateRepositoryController; ; NO_CACHE; 0; -1; ; "[
+    {
+        ""in"":""path"",
+        ""name"":""repositoryCode"",
+        ""description"":""Repository code"",
+        ""required"": true,
+        ""type"":""string""
+    },
+    {
+        ""in"": ""query"",
+        ""name"": ""async"",
+        ""description"": ""Flag to determine if repository should update asynchronously"",
+        ""required"": false,
+        ""type"": ""boolean"",
+        ""default"": true
+    }
+]"; ; "
+{
+  ""200"": {
+    ""content"": {
+      ""application/json"": {
+        ""example"": {
+            ""eventId"": ""00000001"",
+            ""message"": ""Update request for repository repositoryCode submitted""
+            }
+        }
+    }
+ }
+}"; 
+; getExtensions; easyapi/repository/{repositoryCode}/extensions; true; false; GET; NONE; JSON; NONE; "123456" ; getExtensionsController; ; NO_CACHE; 0; -1; ; "[
+    {
+        ""in"":""path"",
+        ""name"":""repositoryCode"",
+        ""description"":""Repository code"",
+        ""required"":true,
+        ""type"":""string""
+    }
+]"; ; "
+{
+  ""200"": {
+    ""content"": {
+      ""application/json"": {
+        ""example"": [
+                    {
+                        ""groupId"": ""com.sap.cx.boosters.easy"",
+                        ""id"": ""extention-one"",
+                        ""version"": {
+                            ""installed"": ""0.0.1"",
+                            ""available"": ""0.0.1""
+                        },
+                        ""easyVersion"": {
+                            ""installed"": ""0.2"",
+                            ""available"": ""0.2""
+                        },
+                        ""revision"": {
+                            ""installed"": ""j9hj9h89y9h"",
+                            ""available"": ""j9hj9h89y9h""
+                        },
+                        ""name"": ""Extension One"",
+                        ""thumbnail"": ""https://www.xxx.com/easy-extensions/extension-one.png"",
+                        ""installed"": false,
+                        ""description"": ""Extension One Description"",
+                        ""authors"": [
+                            ""Author""
+                        ],
+                        ""vendor"": ""Vendor"",
+                        ""tags"": [""tag"", ""extension"", ""one""],
+                        ""requires"": {
+                            ""commerce"": [""commerceservices""]
+                        },
+                        ""documentation"": ""https://www.xxx.com/docs/extension-one.md"",
+                        ""path"": ""/extention-one"",
+                        ""init"": ""Init.groovy"",
+                        ""groovy_main_path"": ""src/main/groovy"",
+                        ""groovy_test_path"": ""src/test/groovy"",
+                        ""repoCode"": ""repoCode"",
+                        ""orphaned"": false
+                    },
+                    {
+                        ""groupId"": ""com.sap.cx.boosters.easy"",
+                        ""id"": ""extention-two"",
+                        ""version"": {
+                            ""available"": ""0.0.1""
+                        },
+                        ""easyVersion"": {
+                            ""available"": ""0.2""
+                        },
+                        ""revision"": {
+                            ""available"": ""j9hj9h89y9h""
+                        },
+                        ""name"": ""Extension Two"",
+                        ""thumbnail"": ""https://www.xxx.com/easy-extensions/extension-one.png"",
+                        ""installed"": false,
+                        ""description"": ""Extension Two Description"",
+                        ""authors"": [
+                            ""Author""
+                        ],
+                        ""vendor"": ""Vendor"",
+                        ""tags"": [""tag"", ""extension"", ""two""],
+                        ""requires"": {
+                            ""easy"": [""com.sap.cx.boosters.easy:extention-one""],
+                            ""commerce"": [""commerceservices""]
+                        },
+                        ""documentation"": ""https://www.xxx.com/docs/extension-two.md"",
+                        ""path"": ""/extention-two"",
+                        ""init"": ""Init.groovy"",
+                        ""groovy_main_path"": ""src/main/groovy"",
+                        ""groovy_test_path"": ""src/test/groovy"",
+                        ""repoCode"": ""repoCode"",
+                        ""orphaned"": false
+                    }
+                ]
+            }
+        }
+    }
+}"; 
+; installExtension; easyapi/repository/{repositoryCode}/extension/{extensionCode}/install; true; false; POST; NONE; JSON; NONE; "123456" ; installExtensionController; ; NO_CACHE; 0; -1; ; "[
+    {
+        ""in"":""path"",
+        ""name"":""repositoryCode"",
+        ""description"":""Repository code"",
+        ""required"":true,
+        ""type"":""string""
+    },
+    {
+        ""in"":""path"",
+        ""name"":""extensionCode"",
+        ""description"":""Extension code"",
+        ""required"":true,
+        ""type"":""string""
+    },
+    {
+        ""in"": ""query"",
+        ""name"": ""async"",
+        ""description"": ""Flag to determine if extension should install asynchronously"",
+        ""required"": false,
+        ""type"": ""boolean"",
+        ""default"": true
+    }
+]"; ; "
+{
+  ""200"": {
+    ""content"": {
+      ""application/json"": {
+        ""example"": {
+            ""eventId"": ""0000000X "",
+            ""message"": ""Installation request for extension demo submitted.""
+            }
+        }
+    }
+ }
+}"; 
+; reinstallExtension; easyapi/repository/{repositoryCode}/extension/{extensionCode}/reinstall; true; false; POST; NONE; JSON; NONE; "123456" ; reinstallExtensionController; ; NO_CACHE; 0; -1; ; "[
+    {
+        ""in"":""path"",
+        ""name"":""repositoryCode"",
+        ""description"":""Repository code"",
+        ""required"":true,
+        ""type"":""string""
+    },
+    {
+        ""in"":""path"",
+        ""name"":""extensionCode"",
+        ""description"":""Extension code"",
+        ""required"":true,
+        ""type"":""string""
+    },
+    {
+        ""in"": ""query"",
+        ""name"": ""async"",
+        ""description"": ""Flag to determine if extension should reinstall asynchronously"",
+        ""required"": false,
+        ""type"": ""boolean"",
+        ""default"": true
+    }
+]"; ; "
+{
+  ""200"": {
+    ""content"": {
+      ""application/json"": {
+        ""example"": {
+            ""eventId"": ""0000000X "",
+            ""message"": ""Re-Installation request for extension demo submitted.""
+            }
+        }
+    }
+ }
+}"; 
+; unstallExtension; easyapi/repository/{repositoryCode}/extension/{extensionCode}/uninstall; true; false; POST; NONE; JSON; NONE; "123456" ; uninstallExtensionController; ; NO_CACHE; 0; -1; ; "[
+    {
+        ""in"":""path"",
+        ""name"":""repositoryCode"",
+        ""description"":""Repository code"",
+        ""required"":true,
+        ""type"":""string""
+    },
+    {
+        ""in"":""path"",
+        ""name"":""extensionCode"",
+        ""description"":""Extension code"",
+        ""required"":true,
+        ""type"":""string""
+    },
+    {
+        ""in"": ""query"",
+        ""name"": ""async"",
+        ""description"": ""Flag to determine if extension should uninstall asynchronously"",
+        ""required"": false,
+        ""type"": ""boolean"",
+        ""default"": true
+    }
+]"; ; "
+{
+  ""200"": {
+    ""content"": {
+      ""application/json"": {
+        ""example"": {
+            ""eventId"": ""0000000X "",
+            ""message"": ""Uninstallation request for extension demo submitted.""
+            }
+        }
+    }
+ }
+}"; 
+; getRepositories; easyapi/repositories; true; false; GET; NONE; JSON; NONE; "123456" ;getRepositoriesController ; ; NO_CACHE; 0; -1; ; ; ; "
+{
+  ""200"": {
+    ""content"": {
+      ""application/json"": {
+        ""example"": [
+                {
+                ""code"": ""easy-repository-one"",
+                ""name"": ""Name of Easy Repository One""
+                },
+                {
+                ""code"": ""easy-repository-two"",
+                ""name"": ""Name of Easy Repository Two""
+                }
+            ]
+        }
+    }
+ }
+ 
+}"; 
+; getEasyEventLogs; easyapi/geteasyeventlogs/{eventId}; true; false; GET; NONE; JSON; NONE; "123456" ; getEasyEventStatusController; ; NO_CACHE; 0; -1; ; "[
+    {
+        ""in"":""path"",
+        ""name"":""eventId"",
+        ""description"":""Event Id"",
+        ""required"":true,
+        ""type"":""string""
+    }
+]"; ; "
+{
+    ""200"": {
+        ""content"": {
+            ""application/json"": {
+                ""example"": {
+                    ""eventId"": ""0000000X"",
+                    ""type"": ""INSTALL_EXTENSION"",
+                    ""status"": ""SUCCESS"",
+                    ""startedAt"": ""2023-05-29T06:54:24Z"",
+                    ""finishedAt"": ""2023-05-29T06:54:36Z"",
+                    ""userId"": ""xxxxx"",
+                    ""masterNodeId"": ""3"",
+                    ""masterNodeType"": ""backoffice"",
+                    ""clusterLogData"": {
+                        ""accstorefront-1"": {
+                            ""localEventId"": ""0000000X-1"",
+                            ""status"": ""SUCCESS"",
+                            ""nodeId"": ""1"",
+                            ""nodeType"": ""accstorefront"",
+                            ""startedAt"": ""2023-05-29T06:54:32Z"",
+                            ""finishedAt"": ""2023-05-29T06:54:36Z"",
+                            ""taskLogs"": {
+                                ""EXTENSIONCOPY"": {
+                                    ""status"": ""SUCCESS"",
+                                    ""logs"": [
+                                        ""2023-05-29T06:54:32Z - [INFO] - Starting to process task 'EXTENSIONCOPY' for event '0000000X-1' at cluster node '1' "",
+                                        ""2023-05-29T06:54:32Z - [INFO] - Starting task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:32Z - [INFO] - Completed task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:32Z - [INFO] - Processed task 'EXTENSIONCOPY' for event '0000000X-1' at cluster node '1' ""
+                                    ]
+                                },
+                                ""LOADPROPERTIES"": {
+                                    ""status"": ""SUCCESS"",
+                                    ""logs"": [
+                                        ""2023-05-29T06:54:32Z - [INFO] - Starting to process task 'LOADPROPERTIES' for event '0000000X-1' at cluster node '1' "",
+                                        ""2023-05-29T06:54:32Z - [INFO] - Starting task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:32Z - [INFO] - 'easy.properties' file doesn't exist for easy extension 'extension-one' of repository 'repoCode'. Skipping ... "",
+                                        ""2023-05-29T06:54:32Z - [INFO] - Completed task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:32Z - [INFO] - Processed task 'LOADPROPERTIES' for event '0000000X-1' at cluster node '1' ""
+                                    ]
+                                },
+                                ""LOADMODELCLASSES"": {
+                                    ""status"": ""SUCCESS"",
+                                    ""logs"": [
+                                        ""2023-05-29T06:54:32Z - [INFO] - Starting to process task 'LOADMODELCLASSES' for event '0000000X-1' at cluster node '1' "",
+                                        ""2023-05-29T06:54:32Z - [INFO] - Starting task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:32Z - [INFO] - No model classes directory found. Ignoring loading of model classes for extension 'extension-one' of repository 'repoCode'. Skipping ... "",
+                                        ""2023-05-29T06:54:32Z - [INFO] - Completed task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:32Z - [INFO] - Processed task 'LOADMODELCLASSES' for event '0000000X-1' at cluster node '1' ""
+                                    ]
+                                },
+                                ""EASYTYPE"": {
+                                    ""status"": ""SUCCESS"",
+                                    ""logs"": [
+                                        ""2023-05-29T06:54:32Z - [INFO] - Starting to process task 'EASYTYPE' for event '0000000X-1' at cluster node '1' "",
+                                        ""2023-05-29T06:54:32Z - [INFO] - Starting task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:32Z - [INFO] - No easy type configured for easy extension 'extension-one' of repository 'repoCode'. Skipping ... "",
+                                        ""2023-05-29T06:54:32Z - [INFO] - Completed task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:32Z - [INFO] - Processed task 'EASYTYPE' for event '0000000X-1' at cluster node '1' ""
+                                    ]
+                                },
+                                ""LOADBEANS"": {
+                                    ""status"": ""SUCCESS"",
+                                    ""logs"": [
+                                        ""2023-05-29T06:54:32Z - [INFO] - Starting to process task 'LOADBEANS' for event '0000000X-1' at cluster node '1' "",
+                                        ""2023-05-29T06:54:32Z - [INFO] - Starting task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:33Z - [INFO] - Completed task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:33Z - [INFO] - Processed task 'LOADBEANS' for event '0000000X-1' at cluster node '1' ""
+                                    ]
+                                },
+                                ""IMPEXIMPORT"": {
+                                    ""status"": ""SUCCESS"",
+                                    ""logs"": [
+                                        ""2023-05-29T06:54:33Z - [INFO] - Starting to process task 'IMPEXIMPORT' for event '0000000X-1' at cluster node '1' "",
+                                        ""2023-05-29T06:54:33Z - [INFO] - Starting task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:33Z - [INFO] - Starting impex import for 'easy.impex' "",
+                                        ""2023-05-29T06:54:35Z - [INFO] - Finished impex import for 'easy.impex'. "",
+                                        ""2023-05-29T06:54:35Z - [INFO] - Completed task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:35Z - [INFO] - Processed task 'IMPEXIMPORT' for event '0000000X-1' at cluster node '1' ""
+                                    ]
+                                },
+                                ""INITSCRIPT"": {
+                                    ""status"": ""SUCCESS"",
+                                    ""logs"": [
+                                        ""2023-05-29T06:54:35Z - [INFO] - Starting to process task 'INITSCRIPT' for event '0000000X-1' at cluster node '1' "",
+                                        ""2023-05-29T06:54:35Z - [INFO] - Starting task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:35Z - [INFO] - Init script is not available in extension 'extension-one' of repository 'repoCode'. Skipping ... "",
+                                        ""2023-05-29T06:54:35Z - [INFO] - Completed task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:35Z - [INFO] - Processed task 'INITSCRIPT' for event '0000000X-1' at cluster node '1' ""
+                                    ]
+                                },
+                                ""VERSIONUPDATE"": {
+                                    ""status"": ""SUCCESS"",
+                                    ""logs"": [
+                                        ""2023-05-29T06:54:35Z - [INFO] - Starting to process task 'VERSIONUPDATE' for event '0000000X-1' at cluster node '1' "",
+                                        ""2023-05-29T06:54:35Z - [INFO] - Starting task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:35Z - [INFO] - Version information updated for extension 'extension-one' of repository 'repoCode' after installation. "",
+                                        ""2023-05-29T06:54:35Z - [INFO] - Completed task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:35Z - [INFO] - Processed task 'VERSIONUPDATE' for event '0000000X-1' at cluster node '1' ""
+                                    ]
+                                },
+                                ""BACKOFFICECONFIGUPDATE"": {
+                                    ""status"": ""SUCCESS"",
+                                    ""logs"": [
+                                        ""2023-05-29T06:54:35Z - [INFO] - Starting to process task 'BACKOFFICECONFIGUPDATE' for event '0000000X-1' at cluster node '1' "",
+                                        ""2023-05-29T06:54:35Z - [INFO] - Starting task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:35Z - [INFO] - Initializing backoffice configuration update for extension 'Easy API' "",
+                                        ""2023-05-29T06:54:35Z - [INFO] - No backoffice directory exists in the easy extension to update backoffice configuration. Skipping... "",
+                                        ""2023-05-29T06:54:36Z - [INFO] - Completed task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:36Z - [INFO] - Processed task 'BACKOFFICECONFIGUPDATE' for event '0000000X-1' at cluster node '1' ""
+                                    ]
+                                }
+                            }
+                        },
+                        ""backoffice-3"": {
+                            ""localEventId"": ""0000000X-3"",
+                            ""status"": ""SUCCESS"",
+                            ""nodeId"": ""3"",
+                            ""nodeType"": ""backoffice"",
+                            ""startedAt"": ""2023-05-29T06:54:24Z"",
+                            ""finishedAt"": ""2023-05-29T06:54:28Z"",
+                            ""taskLogs"": {
+                                ""EXTENSIONCOPY"": {
+                                    ""status"": ""SUCCESS"",
+                                    ""logs"": [
+                                        ""2023-05-29T06:54:24Z - [INFO] - Starting to process task 'EXTENSIONCOPY' for event '0000000X-3' at cluster node '3' "",
+                                        ""2023-05-29T06:54:24Z - [INFO] - Starting task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:24Z - [INFO] - Completed task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:24Z - [INFO] - Processed task 'EXTENSIONCOPY' for event '0000000X-3' at cluster node '3' ""
+                                    ]
+                                },
+                                ""LOADPROPERTIES"": {
+                                    ""status"": ""SUCCESS"",
+                                    ""logs"": [
+                                        ""2023-05-29T06:54:24Z - [INFO] - Starting to process task 'LOADPROPERTIES' for event '0000000X-3' at cluster node '3' "",
+                                        ""2023-05-29T06:54:24Z - [INFO] - Starting task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:24Z - [INFO] - 'easy.properties' file doesn't exist for easy extension 'extension-one' of repository 'repoCode'. Skipping ... "",
+                                        ""2023-05-29T06:54:24Z - [INFO] - Completed task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:24Z - [INFO] - Processed task 'LOADPROPERTIES' for event '0000000X-3' at cluster node '3' ""
+                                    ]
+                                },
+                                ""LOADMODELCLASSES"": {
+                                    ""status"": ""SUCCESS"",
+                                    ""logs"": [
+                                        ""2023-05-29T06:54:24Z - [INFO] - Starting to process task 'LOADMODELCLASSES' for event '0000000X-3' at cluster node '3' "",
+                                        ""2023-05-29T06:54:24Z - [INFO] - Starting task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:24Z - [INFO] - No model classes directory found. Ignoring loading of model classes for extension 'extension-one' of repository 'repoCode'. Skipping ... "",
+                                        ""2023-05-29T06:54:24Z - [INFO] - Completed task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:24Z - [INFO] - Processed task 'LOADMODELCLASSES' for event '0000000X-3' at cluster node '3' ""
+                                    ]
+                                },
+                                ""EASYTYPE"": {
+                                    ""status"": ""SUCCESS"",
+                                    ""logs"": [
+                                        ""2023-05-29T06:54:24Z - [INFO] - Starting to process task 'EASYTYPE' for event '0000000X-3' at cluster node '3' "",
+                                        ""2023-05-29T06:54:24Z - [INFO] - Starting task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:24Z - [INFO] - No easy type configured for easy extension 'extension-one' of repository 'repoCode'. Skipping ... "",
+                                        ""2023-05-29T06:54:24Z - [INFO] - Completed task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:24Z - [INFO] - Processed task 'EASYTYPE' for event '0000000X-3' at cluster node '3' ""
+                                    ]
+                                },
+                                ""LOADBEANS"": {
+                                    ""status"": ""SUCCESS"",
+                                    ""logs"": [
+                                        ""2023-05-29T06:54:24Z - [INFO] - Starting to process task 'LOADBEANS' for event '0000000X-3' at cluster node '3' "",
+                                        ""2023-05-29T06:54:24Z - [INFO] - Starting task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:25Z - [INFO] - Loading beans for application '/backoffice' "",
+                                        ""2023-05-29T06:54:26Z - [INFO] - Loaded beans for application '/backoffice' "",
+                                        ""2023-05-29T06:54:26Z - [INFO] - Completed task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:26Z - [INFO] - Processed task 'LOADBEANS' for event '0000000X-3' at cluster node '3' ""
+                                    ]
+                                },
+                                ""IMPEXIMPORT"": {
+                                    ""status"": ""SUCCESS"",
+                                    ""logs"": [
+                                        ""2023-05-29T06:54:26Z - [INFO] - Starting to process task 'IMPEXIMPORT' for event '0000000X-3' at cluster node '3' "",
+                                        ""2023-05-29T06:54:26Z - [INFO] - Starting task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:26Z - [INFO] - Starting impex import for 'easy.impex' "",
+                                        ""2023-05-29T06:54:28Z - [INFO] - Finished impex import for 'easy.impex'. "",
+                                        ""2023-05-29T06:54:28Z - [INFO] - Completed task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:28Z - [INFO] - Processed task 'IMPEXIMPORT' for event '0000000X-3' at cluster node '3' ""
+                                    ]
+                                },
+                                ""INITSCRIPT"": {
+                                    ""status"": ""SUCCESS"",
+                                    ""logs"": [
+                                        ""2023-05-29T06:54:28Z - [INFO] - Starting to process task 'INITSCRIPT' for event '0000000X-3' at cluster node '3' "",
+                                        ""2023-05-29T06:54:28Z - [INFO] - Starting task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:28Z - [INFO] - Init script is not available in extension 'extension-one' of repository 'repoCode'. Skipping ... "",
+                                        ""2023-05-29T06:54:28Z - [INFO] - Completed task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:28Z - [INFO] - Processed task 'INITSCRIPT' for event '0000000X-3' at cluster node '3' ""
+                                    ]
+                                },
+                                ""VERSIONUPDATE"": {
+                                    ""status"": ""SUCCESS"",
+                                    ""logs"": [
+                                        ""2023-05-29T06:54:28Z - [INFO] - Starting to process task 'VERSIONUPDATE' for event '0000000X-3' at cluster node '3' "",
+                                        ""2023-05-29T06:54:28Z - [INFO] - Starting task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:28Z - [INFO] - Version information updated for extension 'extension-one' of repository 'repoCode' after installation. "",
+                                        ""2023-05-29T06:54:28Z - [INFO] - Completed task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:28Z - [INFO] - Processed task 'VERSIONUPDATE' for event '0000000X-3' at cluster node '3' ""
+                                    ]
+                                },
+                                ""BACKOFFICECONFIGUPDATE"": {
+                                    ""status"": ""SUCCESS"",
+                                    ""logs"": [
+                                        ""2023-05-29T06:54:28Z - [INFO] - Starting to process task 'BACKOFFICECONFIGUPDATE' for event '0000000X-3' at cluster node '3' "",
+                                        ""2023-05-29T06:54:28Z - [INFO] - Starting task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:28Z - [INFO] - Initializing backoffice configuration update for extension 'Easy API' "",
+                                        ""2023-05-29T06:54:28Z - [INFO] - No backoffice directory exists in the easy extension to update backoffice configuration. Skipping... "",
+                                        ""2023-05-29T06:54:28Z - [INFO] - Completed task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:28Z - [INFO] - Processed task 'BACKOFFICECONFIGUPDATE' for event '0000000X-3' at cluster node '3' ""
+                                    ]
+                                }
+                            }
+                        },
+                        ""api-0"": {
+                            ""localEventId"": ""0000000X-0"",
+                            ""status"": ""SUCCESS"",
+                            ""nodeId"": ""0"",
+                            ""nodeType"": ""api"",
+                            ""startedAt"": ""2023-05-29T06:54:32Z"",
+                            ""finishedAt"": ""2023-05-29T06:54:36Z"",
+                            ""taskLogs"": {
+                                ""EXTENSIONCOPY"": {
+                                    ""status"": ""SUCCESS"",
+                                    ""logs"": [
+                                        ""2023-05-29T06:54:32Z - [INFO] - Starting to process task 'EXTENSIONCOPY' for event '0000000X-0' at cluster node '0' "",
+                                        ""2023-05-29T06:54:32Z - [INFO] - Starting task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:32Z - [INFO] - Completed task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:32Z - [INFO] - Processed task 'EXTENSIONCOPY' for event '0000000X-0' at cluster node '0' ""
+                                    ]
+                                },
+                                ""LOADPROPERTIES"": {
+                                    ""status"": ""SUCCESS"",
+                                    ""logs"": [
+                                        ""2023-05-29T06:54:32Z - [INFO] - Starting to process task 'LOADPROPERTIES' for event '0000000X-0' at cluster node '0' "",
+                                        ""2023-05-29T06:54:32Z - [INFO] - Starting task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:32Z - [INFO] - 'easy.properties' file doesn't exist for easy extension 'extension-one' of repository 'repoCode'. Skipping ... "",
+                                        ""2023-05-29T06:54:32Z - [INFO] - Completed task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:32Z - [INFO] - Processed task 'LOADPROPERTIES' for event '0000000X-0' at cluster node '0' ""
+                                    ]
+                                },
+                                ""LOADMODELCLASSES"": {
+                                    ""status"": ""SUCCESS"",
+                                    ""logs"": [
+                                        ""2023-05-29T06:54:32Z - [INFO] - Starting to process task 'LOADMODELCLASSES' for event '0000000X-0' at cluster node '0' "",
+                                        ""2023-05-29T06:54:32Z - [INFO] - Starting task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:32Z - [INFO] - No model classes directory found. Ignoring loading of model classes for extension 'extension-one' of repository 'repoCode'. Skipping ... "",
+                                        ""2023-05-29T06:54:32Z - [INFO] - Completed task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:32Z - [INFO] - Processed task 'LOADMODELCLASSES' for event '0000000X-0' at cluster node '0' ""
+                                    ]
+                                },
+                                ""EASYTYPE"": {
+                                    ""status"": ""SUCCESS"",
+                                    ""logs"": [
+                                        ""2023-05-29T06:54:32Z - [INFO] - Starting to process task 'EASYTYPE' for event '0000000X-0' at cluster node '0' "",
+                                        ""2023-05-29T06:54:32Z - [INFO] - Starting task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:32Z - [INFO] - No easy type configured for easy extension 'extension-one' of repository 'repoCode'. Skipping ... "",
+                                        ""2023-05-29T06:54:32Z - [INFO] - Completed task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:32Z - [INFO] - Processed task 'EASYTYPE' for event '0000000X-0' at cluster node '0' ""
+                                    ]
+                                },
+                                ""LOADBEANS"": {
+                                    ""status"": ""SUCCESS"",
+                                    ""logs"": [
+                                        ""2023-05-29T06:54:32Z - [INFO] - Starting to process task 'LOADBEANS' for event '0000000X-0' at cluster node '0' "",
+                                        ""2023-05-29T06:54:33Z - [INFO] - Starting task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:33Z - [INFO] - Loading beans for application '/easyrest' "",
+                                        ""2023-05-29T06:54:33Z - [INFO] - Loaded beans for application '/easyrest' "",
+                                        ""2023-05-29T06:54:33Z - [INFO] - Completed task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:33Z - [INFO] - Processed task 'LOADBEANS' for event '0000000X-0' at cluster node '0' ""
+                                    ]
+                                },
+                                ""IMPEXIMPORT"": {
+                                    ""status"": ""SUCCESS"",
+                                    ""logs"": [
+                                        ""2023-05-29T06:54:33Z - [INFO] - Starting to process task 'IMPEXIMPORT' for event '0000000X-0' at cluster node '0' "",
+                                        ""2023-05-29T06:54:33Z - [INFO] - Starting task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:33Z - [INFO] - Starting impex import for 'easy.impex' "",
+                                        ""2023-05-29T06:54:36Z - [INFO] - Finished impex import for 'easy.impex'. "",
+                                        ""2023-05-29T06:54:36Z - [INFO] - Completed task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:36Z - [INFO] - Processed task 'IMPEXIMPORT' for event '0000000X-0' at cluster node '0' ""
+                                    ]
+                                },
+                                ""INITSCRIPT"": {
+                                    ""status"": ""SUCCESS"",
+                                    ""logs"": [
+                                        ""2023-05-29T06:54:36Z - [INFO] - Starting to process task 'INITSCRIPT' for event '0000000X-0' at cluster node '0' "",
+                                        ""2023-05-29T06:54:36Z - [INFO] - Starting task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:36Z - [INFO] - Init script is not available in extension 'extension-one' of repository 'repoCode'. Skipping ... "",
+                                        ""2023-05-29T06:54:36Z - [INFO] - Completed task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:36Z - [INFO] - Processed task 'INITSCRIPT' for event '0000000X-0' at cluster node '0' ""
+                                    ]
+                                },
+                                ""VERSIONUPDATE"": {
+                                    ""status"": ""SUCCESS"",
+                                    ""logs"": [
+                                        ""2023-05-29T06:54:36Z - [INFO] - Starting to process task 'VERSIONUPDATE' for event '0000000X-0' at cluster node '0' "",
+                                        ""2023-05-29T06:54:36Z - [INFO] - Starting task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:36Z - [INFO] - Version information updated for extension 'extension-one' of repository 'repoCode' after installation. "",
+                                        ""2023-05-29T06:54:36Z - [INFO] - Completed task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:36Z - [INFO] - Processed task 'VERSIONUPDATE' for event '0000000X-0' at cluster node '0' ""
+                                    ]
+                                },
+                                ""BACKOFFICECONFIGUPDATE"": {
+                                    ""status"": ""SUCCESS"",
+                                    ""logs"": [
+                                        ""2023-05-29T06:54:36Z - [INFO] - Starting to process task 'BACKOFFICECONFIGUPDATE' for event '0000000X-0' at cluster node '0' "",
+                                        ""2023-05-29T06:54:36Z - [INFO] - Starting task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:36Z - [INFO] - Initializing backoffice configuration update for extension 'Easy API' "",
+                                        ""2023-05-29T06:54:36Z - [INFO] - No backoffice directory exists in the easy extension to update backoffice configuration. Skipping... "",
+                                        ""2023-05-29T06:54:36Z - [INFO] - Completed task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:36Z - [INFO] - Processed task 'BACKOFFICECONFIGUPDATE' for event '0000000X-0' at cluster node '0' ""
+                                    ]
+                                }
+                            }
+                        },
+                        ""integration-2"": {
+                            ""localEventId"": ""0000000X-2"",
+                            ""status"": ""SUCCESS"",
+                            ""nodeId"": ""2"",
+                            ""nodeType"": ""integration"",
+                            ""startedAt"": ""2023-05-29T06:54:32Z"",
+                            ""finishedAt"": ""2023-05-29T06:54:35Z"",
+                            ""taskLogs"": {
+                                ""EXTENSIONCOPY"": {
+                                    ""status"": ""SUCCESS"",
+                                    ""logs"": [
+                                        ""2023-05-29T06:54:32Z - [INFO] - Starting to process task 'EXTENSIONCOPY' for event '0000000X-2' at cluster node '2' "",
+                                        ""2023-05-29T06:54:32Z - [INFO] - Starting task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:32Z - [INFO] - Completed task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:32Z - [INFO] - Processed task 'EXTENSIONCOPY' for event '0000000X-2' at cluster node '2' ""
+                                    ]
+                                },
+                                ""LOADPROPERTIES"": {
+                                    ""status"": ""SUCCESS"",
+                                    ""logs"": [
+                                        ""2023-05-29T06:54:32Z - [INFO] - Starting to process task 'LOADPROPERTIES' for event '0000000X-2' at cluster node '2' "",
+                                        ""2023-05-29T06:54:32Z - [INFO] - Starting task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:32Z - [INFO] - 'easy.properties' file doesn't exist for easy extension 'extension-one' of repository 'repoCode'. Skipping ... "",
+                                        ""2023-05-29T06:54:32Z - [INFO] - Completed task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:32Z - [INFO] - Processed task 'LOADPROPERTIES' for event '0000000X-2' at cluster node '2' ""
+                                    ]
+                                },
+                                ""LOADMODELCLASSES"": {
+                                    ""status"": ""SUCCESS"",
+                                    ""logs"": [
+                                        ""2023-05-29T06:54:32Z - [INFO] - Starting to process task 'LOADMODELCLASSES' for event '0000000X-2' at cluster node '2' "",
+                                        ""2023-05-29T06:54:32Z - [INFO] - Starting task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:32Z - [INFO] - No model classes directory found. Ignoring loading of model classes for extension 'extension-one' of repository 'repoCode'. Skipping ... "",
+                                        ""2023-05-29T06:54:32Z - [INFO] - Completed task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:32Z - [INFO] - Processed task 'LOADMODELCLASSES' for event '0000000X-2' at cluster node '2' ""
+                                    ]
+                                },
+                                ""EASYTYPE"": {
+                                    ""status"": ""SUCCESS"",
+                                    ""logs"": [
+                                        ""2023-05-29T06:54:32Z - [INFO] - Starting to process task 'EASYTYPE' for event '0000000X-2' at cluster node '2' "",
+                                        ""2023-05-29T06:54:32Z - [INFO] - Starting task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:32Z - [INFO] - No easy type configured for easy extension 'extension-one' of repository 'repoCode'. Skipping ... "",
+                                        ""2023-05-29T06:54:32Z - [INFO] - Completed task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:32Z - [INFO] - Processed task 'EASYTYPE' for event '0000000X-2' at cluster node '2' ""
+                                    ]
+                                },
+                                ""LOADBEANS"": {
+                                    ""status"": ""SUCCESS"",
+                                    ""logs"": [
+                                        ""2023-05-29T06:54:32Z - [INFO] - Starting to process task 'LOADBEANS' for event '0000000X-2' at cluster node '2' "",
+                                        ""2023-05-29T06:54:32Z - [INFO] - Starting task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:32Z - [INFO] - Loading beans for application '/backoffice' "",
+                                        ""2023-05-29T06:54:33Z - [INFO] - Loaded beans for application '/backoffice' "",
+                                        ""2023-05-29T06:54:33Z - [INFO] - Completed task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:33Z - [INFO] - Processed task 'LOADBEANS' for event '0000000X-2' at cluster node '2' ""
+                                    ]
+                                },
+                                ""IMPEXIMPORT"": {
+                                    ""status"": ""SUCCESS"",
+                                    ""logs"": [
+                                        ""2023-05-29T06:54:33Z - [INFO] - Starting to process task 'IMPEXIMPORT' for event '0000000X-2' at cluster node '2' "",
+                                        ""2023-05-29T06:54:33Z - [INFO] - Starting task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:33Z - [INFO] - Starting impex import for 'easy.impex' "",
+                                        ""2023-05-29T06:54:35Z - [INFO] - Finished impex import for 'easy.impex'. "",
+                                        ""2023-05-29T06:54:35Z - [INFO] - Completed task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:35Z - [INFO] - Processed task 'IMPEXIMPORT' for event '0000000X-2' at cluster node '2' ""
+                                    ]
+                                },
+                                ""INITSCRIPT"": {
+                                    ""status"": ""SUCCESS"",
+                                    ""logs"": [
+                                        ""2023-05-29T06:54:35Z - [INFO] - Starting to process task 'INITSCRIPT' for event '0000000X-2' at cluster node '2' "",
+                                        ""2023-05-29T06:54:35Z - [INFO] - Starting task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:35Z - [INFO] - Init script is not available in extension 'extension-one' of repository 'repoCode'. Skipping ... "",
+                                        ""2023-05-29T06:54:35Z - [INFO] - Completed task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:35Z - [INFO] - Processed task 'INITSCRIPT' for event '0000000X-2' at cluster node '2' ""
+                                    ]
+                                },
+                                ""VERSIONUPDATE"": {
+                                    ""status"": ""SUCCESS"",
+                                    ""logs"": [
+                                        ""2023-05-29T06:54:35Z - [INFO] - Starting to process task 'VERSIONUPDATE' for event '0000000X-2' at cluster node '2' "",
+                                        ""2023-05-29T06:54:35Z - [INFO] - Starting task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:35Z - [INFO] - Version information updated for extension 'extension-one' of repository 'repoCode' after installation. "",
+                                        ""2023-05-29T06:54:35Z - [INFO] - Completed task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:35Z - [INFO] - Processed task 'VERSIONUPDATE' for event '0000000X-2' at cluster node '2' ""
+                                    ]
+                                },
+                                ""BACKOFFICECONFIGUPDATE"": {
+                                    ""status"": ""SUCCESS"",
+                                    ""logs"": [
+                                        ""2023-05-29T06:54:35Z - [INFO] - Starting to process task 'BACKOFFICECONFIGUPDATE' for event '0000000X-2' at cluster node '2' "",
+                                        ""2023-05-29T06:54:35Z - [INFO] - Starting task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:35Z - [INFO] - Initializing backoffice configuration update for extension 'Easy API' "",
+                                        ""2023-05-29T06:54:35Z - [INFO] - No backoffice directory exists in the easy extension to update backoffice configuration. Skipping... "",
+                                        ""2023-05-29T06:54:35Z - [INFO] - Completed task for easy extension 'extension-one' of repository 'repoCode'. "",
+                                        ""2023-05-29T06:54:35Z - [INFO] - Processed task 'BACKOFFICECONFIGUPDATE' for event '0000000X-2' at cluster node '2' ""
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}"; 
+UPDATE EasyRest; Name[unique=true]; easyRestGroup(Name);
+; swagger; Easy API;
+; getRepositories; Easy API;
+; updateRepository; Easy API;
+; getExtensions; Easy API; 
+; installExtension; Easy API; 
+; reinstallExtension; Easy API; 
+; unstallExtension; Easy API; 
+; getEasyEventLogs; Easy API; 
+
+

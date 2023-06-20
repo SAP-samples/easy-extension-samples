@@ -9,7 +9,7 @@ These extensions can be used for demo purpose and may be extended to meet custom
 This repository is only available to SAP employees who have linked their github.com personal account with their SAP identity and joined the SAP organizations on GitHub.
 
 ## How to obtain support
-[Create an issue](https://github.com/SAP-samples/<repository-name>/issues) in this repository if you find a bug or have questions about the content.
+[Create an issue](https://github.com/SAP-samples/easy-extension-samples/issues/new) in this repository if you find a bug or have questions about the content.
  
 For additional support, [ask a question in SAP Community](https://answers.sap.com/questions/ask.html).
 

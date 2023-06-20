@@ -1,0 +1,5 @@
+REMOVE DeliverySlot[batchmode=true];itemType(code)[unique=true]
+                           ;DeliverySlot
+
+REMOVE DeliverySlotManagement[batchmode=true];itemType(code)[unique=true]
+                                   ;DeliverySlotManagement

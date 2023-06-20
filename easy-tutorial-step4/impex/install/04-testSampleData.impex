@@ -1,0 +1,2 @@
+INSERT_UPDATE Cart;code[unique=true];guid;user(uid[unique=true]);currency(isocode[unique=true]);date[default=01-01-2023,dateformat=dd-MM-yyyy];store(uid[unique=true])
+;testDeliverySlotCart;testDeliverySlotCartGUID;anonymous;USD;;electronics
