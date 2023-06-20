@@ -1,0 +1,23 @@
+{
+    "groupId": "com.sap.cx.boosters.easy",
+    "id": "easyapi",
+    "name": "Easy API",
+    "version": "0.0.2",
+    "easyVersion": "0.2",
+    "description": "Exposes easy extension framework on rest apis",
+    "documentation": "https://github.tools.sap/cx-boosters/easy-extension-samples/blob/main/easyapi/README.md",
+    "authors": [
+        "Yannick Robin"
+    ],
+    "vendor": "SAP",
+    "tags": [
+        "easy",
+        "rest",
+        "api"
+    ],
+    "requires": {
+        "commerce": [
+            "easyrest"
+        ]
+    }
+}

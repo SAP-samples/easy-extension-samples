@@ -1,0 +1,14 @@
+# -----------------------------------------------------------------------
+# Copyright (c) 2022 SAP SE or an SAP affiliate company. All rights reserved.
+# -----------------------------------------------------------------------
+
+REMOVE EasyRestGroup; Name[unique = true]
+                    ; DeliverySlotManagement
+
+REMOVE EasyRest; name[unique = true];
+               ; getAvailableSlots
+               ; bookDelivery
+               ; cancelDelivery
+               ; confirmDelivery
+               ; getBookedDelivery
+               ; changeDelivery
