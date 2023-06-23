@@ -6,22 +6,18 @@ import com.sap.cx.boosters.easyrest.controller.EasyRestServiceController
 import groovy.json.JsonOutput
 import de.hybris.platform.servicelayer.exceptions.UnknownIdentifierException
 import com.fasterxml.jackson.databind.ObjectMapper
+import com.sap.cx.boosters.easy.core.api.services.EasyAPIService
 
 class GetExtensionsController implements EasyRestServiceController {
 	
 	EasyRepositoryService easyRepositoryService;
+	EasyAPIService easyAPIService;
 
     Map<String,Object> execute(Map ctx) {
 		
-		if (!isValidApiKey(ctx))
+		if (!easyAPIService.isValidAPIKey(ctx))
 		{
-			def response = [:]
-			response.'responseCode' = 403
-			def errorsMap = [errors:[type: '', reason: '', message: '', errorCode: '']]
-			errorsMap.errors.message = "Invalid API Key"
-			def jsonErrors = JsonOutput.toJson(errorsMap)
-			response.'body' = jsonErrors
-			return response
+			return easyAPIService.buildInvalidAPIKeyResponse();
 		}
 		
         def response = [:]
@@ -47,15 +43,5 @@ class GetExtensionsController implements EasyRestServiceController {
         response.'body' = responseBody
         return response
     }
-	
-	
-	boolean isValidApiKey(Map ctx) {		
-		String apiKey = ctx.headers.'x-api-key'
-
-		if (apiKey.equals("123456"))
-			return true
-		else
-			return false
-	}
 	
 }
