@@ -1,5 +1,6 @@
 package com.sap.cx.boosters.easy.core.api.controllers
 
+import com.sap.cx.boosters.easy.core.api.services.EasyAPIService
 import com.sap.cx.boosters.easy.core.data.EasyExtension
 import com.sap.cx.boosters.easy.core.data.EasyRepository
 import com.sap.cx.boosters.easy.core.repository.service.EasyRepositoryService
@@ -9,8 +10,15 @@ import groovy.json.JsonOutput;
 class GetRepositoriesController implements EasyRestServiceController {
 	
 	EasyRepositoryService easyRepositoryService;
+	EasyAPIService easyAPIService;
 
     Map<String,Object> execute(Map ctx) {
+
+		if (!easyAPIService.isValidAPIKey(ctx))
+		{
+			return easyAPIService.buildInvalidAPIKeyResponse();
+		}
+
         def response = [:]
 		def repositories = []
 
