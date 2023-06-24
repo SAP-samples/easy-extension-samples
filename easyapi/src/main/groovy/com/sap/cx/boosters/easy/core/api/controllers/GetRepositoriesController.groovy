@@ -5,12 +5,15 @@ import com.sap.cx.boosters.easy.core.data.EasyExtension
 import com.sap.cx.boosters.easy.core.data.EasyRepository
 import com.sap.cx.boosters.easy.core.repository.service.EasyRepositoryService
 import com.sap.cx.boosters.easyrest.controller.EasyRestServiceController;
-import groovy.json.JsonOutput;
+import groovy.json.JsonOutput
+import org.slf4j.LoggerFactory;
 
 class GetRepositoriesController implements EasyRestServiceController {
 	
 	EasyRepositoryService easyRepositoryService;
 	EasyAPIService easyAPIService;
+
+	private static final LOG = LoggerFactory.getLogger(GetRepositoriesController.class);
 
     Map<String,Object> execute(Map ctx) {
 
@@ -29,9 +32,11 @@ class GetRepositoriesController implements EasyRestServiceController {
 				repositories.add(repository);
 			}
         } catch(Exception e) {
+			LOG.error("Unexpected error", e)
 	        response.'responseCode' = 500;
-	        def errorsMap = [errors:[type: '', reason: '', message: '', errorCode: '']]
-	        errorsMap.errors.message = e.getMessage();
+			def errorsMap = [errors: [[type: '', message: '']]]
+			errorsMap.errors[0].type = "SystemError"
+			errorsMap.errors[0].message = e.getMessage()
 	        def jsonErrors = JsonOutput.toJson(errorsMap);
 	        response.'body' = jsonErrors;
 	        return response
