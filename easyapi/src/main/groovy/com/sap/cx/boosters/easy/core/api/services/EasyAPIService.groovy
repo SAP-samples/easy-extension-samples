@@ -16,8 +16,9 @@ class EasyAPIService {
     Map<String,Object> buildInvalidAPIKeyResponse() {
         def response = [:]
         response.'responseCode' = 403
-        def errorsMap = [errors: [type: '', reason: '', message: '', errorCode: '']]
-        errorsMap.errors.message = "Invalid API Key"
+        def errorsMap = [errors: [[type: '', message: '']]]
+        errorsMap.errors[0].type = "AccessError"
+        errorsMap.errors[0].message = "Invalid API Key"
         def jsonErrors = JsonOutput.toJson(errorsMap)
         response.'body' = jsonErrors
         return response

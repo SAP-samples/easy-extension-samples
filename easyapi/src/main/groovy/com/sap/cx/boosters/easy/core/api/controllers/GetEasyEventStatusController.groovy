@@ -6,11 +6,14 @@ import com.sap.cx.boosters.easyrest.controller.EasyRestServiceController
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import groovy.json.JsonOutput
+import org.slf4j.LoggerFactory
 
 class GetEasyEventStatusController implements EasyRestServiceController {
 	
 	EasyEventLogger easyEventLogger;
     EasyAPIService easyAPIService;
+
+    private static final LOG = LoggerFactory.getLogger(GetEasyEventStatusController.class);
 
     Map<String,Object> execute(Map ctx) {
 
@@ -26,9 +29,11 @@ class GetEasyEventStatusController implements EasyRestServiceController {
 				def eventLogs=easyEventLogger.getLogsForEvent(ctx.pathParameters.eventId)
                 responseBody = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(eventLogs)
         } catch(Exception e) {
+            LOG.error("Unexpected error", e)
 	        response.'responseCode' = 500
-	        def errorsMap = [errors:[type: '', reason: '', message: '', errorCode: '']]
-	        errorsMap.errors.message = e.getMessage()
+            def errorsMap = [errors: [[type: '', message: '']]]
+            errorsMap.errors[0].type = "SystemError"
+	        errorsMap.errors[0].message = e.getMessage()
 	        def jsonErrors = JsonOutput.toJson(errorsMap)
 	        response.'body' = jsonErrors
 	        return response

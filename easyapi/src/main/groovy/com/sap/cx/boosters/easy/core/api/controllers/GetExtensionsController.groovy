@@ -7,11 +7,14 @@ import groovy.json.JsonOutput
 import de.hybris.platform.servicelayer.exceptions.UnknownIdentifierException
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.sap.cx.boosters.easy.core.api.services.EasyAPIService
+import org.slf4j.LoggerFactory
 
 class GetExtensionsController implements EasyRestServiceController {
 	
 	EasyRepositoryService easyRepositoryService;
 	EasyAPIService easyAPIService;
+
+	private static final LOG = LoggerFactory.getLogger(GetExtensionsController.class);
 
     Map<String,Object> execute(Map ctx) {
 		
@@ -31,9 +34,11 @@ class GetExtensionsController implements EasyRestServiceController {
 			    responseBody=new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(repository.getExtensions())
 			}
         } catch(Exception e) {
+			LOG.error("Unexpected error", e)
 	        response.'responseCode' = 500
-	        def errorsMap = [errors:[type: '', reason: '', message: '', errorCode: '']]
-	        errorsMap.errors.message = e.getMessage()
+			def errorsMap = [errors: [[type: '', message: '']]]
+			errorsMap.errors[0].type = "SystemError"
+			errorsMap.errors[0].message = e.getMessage()
 	        def jsonErrors = JsonOutput.toJson(errorsMap)
 	        response.'body' = jsonErrors
 	        return response

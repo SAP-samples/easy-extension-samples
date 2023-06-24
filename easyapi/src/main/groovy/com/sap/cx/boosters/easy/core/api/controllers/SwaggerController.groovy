@@ -118,7 +118,9 @@ class SwaggerController implements EasyRestServiceController {
 		
 		def jsonSwagger = groovy.json.JsonOutput.toJson(openAPI);
 		response.body = jsonSwagger;
-		
+
+		throw new Exception("toto")
+
         return response;
     }
 }
