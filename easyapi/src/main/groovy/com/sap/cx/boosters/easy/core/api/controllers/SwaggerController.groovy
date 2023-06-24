@@ -1,6 +1,5 @@
 package com.sap.cx.boosters.easy.core.api.controllers
 
-
 import com.sap.cx.boosters.easyrest.controller.EasyRestServiceController;
 import com.sap.cx.boosters.easyrest.service.EasyRestService
 import groovy.json.JsonOutput;
@@ -118,8 +117,6 @@ class SwaggerController implements EasyRestServiceController {
 		
 		def jsonSwagger = groovy.json.JsonOutput.toJson(openAPI);
 		response.body = jsonSwagger;
-
-		throw new Exception("toto")
 
         return response;
     }
