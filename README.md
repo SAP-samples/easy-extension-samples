@@ -1,3 +1,5 @@
+[![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/easy-extension-samples)](https://api.reuse.software/info/github.com/SAP-samples/easy-extension-samples)
+
 # Easy Extension Samples
 
 ## Description
