@@ -1,0 +1,57 @@
+# -----------------------------------------------------------------------
+# [y] hybris Platform
+#
+# Copyright (c) 2018 SAP SE or an SAP affiliate company. All rights reserved.
+#
+# This software is the confidential and proprietary information of SAP
+# ("Confidential Information"). You shall not disclose such Confidential
+# Information and shall use it only in accordance with the terms of the
+# license agreement you entered into with SAP.
+# -----------------------------------------------------------------------
+
+$START_USERRIGHTS;;;;;;;;;
+Type;UID;MemberOfGroups;Password;Target;read;change;create;remove;change_perm
+UserGroup;customersupportadministratorgroup;;;;;;;;
+
+# Access Rights for Customer Support Administrator;;;;;;;;;
+# Customer Support Administrator can view and change all relevant objects
+;;;;DeliverySlot;+;+;+;+
+;;;;DeliverySlotManagement;+;+;+;+
+;;;;Vehicle;+;+;+;+
+;;;;DeliverySlotStatus;+;+;+;+
+;;;;Warehouse;+;-;-;-
+$END_USERRIGHTS;;;;;
+
+#
+# Import Access Rights for Customer Support Backoffice
+#
+
+$START_USERRIGHTS;;;;;;;;;
+Type;UID;MemberOfGroups;Password;Target;read;change;create;remove;change_perm
+UserGroup;customersupportmanagergroup;;;;;;;;
+
+# Access Rights for Customer Support Manager;;;;;;;;;
+# Customer Support Manager can view and change all relevant objects
+;;;;DeliverySlot;+;+;+;+
+;;;;DeliverySlotManagement;+;+;+;+
+;;;;Vehicle;+;+;+;+
+;;;;DeliverySlotStatus;+;+;+;+
+;;;;Warehouse;+;-;-;-
+$END_USERRIGHTS;;;;;
+
+#
+# Import Access Rights for Customer Support Backoffice
+#
+
+$START_USERRIGHTS;;;;;;;;;
+Type;UID;MemberOfGroups;Password;Target;read;change;create;remove;change_perm
+UserGroup;customersupportagentgroup;;;;;;;;
+
+# Access Rights for Customer Support Agent;;;;;;;;;
+# Customer Support Agent can view and change all relevant objects
+;;;;DeliverySlot;+;+;+;+
+;;;;DeliverySlotManagement;+;+;+;+
+;;;;Vehicle;+;+;+;+
+;;;;DeliverySlotStatus;+;+;+;+
+;;;;Warehouse;+;-;-;-
+$END_USERRIGHTS;;;;;
