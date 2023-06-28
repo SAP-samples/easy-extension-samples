@@ -20,6 +20,8 @@ In this step of the tutorial, you will learn how to setup Easy Extension Framewo
 ## Setup
 Here are the instructions to configure locally the extension and make it works. The extension has been developed to work with the standard electronics-spa accelerator, although it can work easily with other spa accelerators as well with small changes.
 
+[Here](https://sap.github.io/easy-extension-framework/getting-started/) you can find more details on the installation procedure.
+
 ### Install SAP Commerce Platform
 
 First thing is then to install the latest 2205 commerce version. Follow the official documentation:
@@ -42,7 +44,7 @@ First thing is then to install the latest 2205 commerce version. Follow the offi
 
 ### Configure local Easy repository
 Next you'll have to configure the Git repository where the tutorial extension is stored. If you want to play around locally with the extension we suggest you to create a local easy repository that will simplify and speed up your development.
-Follow these steps:
+Follow these [steps](https://sap.github.io/easy-extension-framework/configuring-an-easy-repository-in-backoffice/):
 - clone locally the [Easy Extension Sample](https://github.tools.sap/cx-boosters/easy-extension-samples/tree/easy-0.2) repository (branch easy-0.2)
 - Login into the backoffice and find the Easy node on the Navigation Tree, open Easy Core, Repositories and click on the + button to create a new "local repository"
 ![img.png](./images/img.png)
