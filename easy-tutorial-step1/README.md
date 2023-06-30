@@ -1,10 +1,26 @@
-# Easy Tutorial Step 1
+# Easy Extension Framework Tutorial
+
+In this tutorial, we will build a new extension to add new features that do not exist in SAP Commerce Cloud out-of-the-box. As an exercise, we will create an extension to manage delivery slots.
+
+To understand what we will build during this tutorial, you can check the final outcome: [delivery-slot-management](https://github.tools.sap/cx-boosters/easy-extension-samples/tree/main/delivery-slot-management/README.md) extension. You will find in the documentation the list of features.
+
+In this tutorial, you will learn:
+- [How to setup your development environment](#easy-tutorial-step-1---setup-your-development-environment)
+- [How to extend SAP Commerce data model](../easy-tutorial-step2)
+- [How to create and override Spring Beans](../easy-tutorial-step3)
+- [How to create new REST endpoints](../easy-tutorial-step4)
+- [How to create the Backoffice configuration](../easy-tutorial-step5)
+- [How to integrate with SAP Commerce Cloud Composable storefront (aka Spartacus)](../easy-tutorial-step6)
+
+# Easy Tutorial Step 1 - Setup your Development Environment 
 
 ## Overview
-This extension will be used as starting point for a tutorial on the Easy framework
+In this step of the tutorial, you will learn how to setup Easy Extension Framework, install a new extension and setup your IDE.
 
 ## Setup
-Here are the instruction to configure locally the extension and make it works. The extension has been developed to work with the standard electronics-spa accelerator, although it can work easily with other spa accelerators as well with small changes.
+Here are the instructions to configure locally the extension and make it works. The extension has been developed to work with the standard electronics-spa accelerator, although it can work easily with other spa accelerators as well with small changes.
+
+[Here](https://sap.github.io/easy-extension-framework/getting-started/) you can find more details on the installation procedure.
 
 ### Install SAP Commerce Platform
 
@@ -14,8 +30,8 @@ First thing is then to install the latest 2205 commerce version. Follow the offi
 - [Installing SAP Commerce Cloud Manually](https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/8be4e0379b294fbabf36d26e7ca4169d/8bf5cfea86691014a00e9705a3c84074.html?locale=en-US&version=v2205) to install manually if you know the required extensions to set up the electronics or apparel-uk accelerator
 
 ### Install the Easy Framework
-1. Download [Easy Extensibility Framework extensions](https://github.tools.sap/cx-boosters/easy-extensibility-framework)
-2. Add Easy core extensions to your localextensions.xml file:
+1. Download [Easy Extension Framework](https://github.com/SAP/easy-extension-framework)
+2. Add Easy extensions to your **localextensions.xml** file:
 ```
 <extension dir="easycore" />
 <extension dir="easytype" />    
@@ -26,29 +42,27 @@ First thing is then to install the latest 2205 commerce version. Follow the offi
 4. Run `ant initialize -Dtenant=master`
 5. Start SAP Commerce Cloud server with `<HYBRIS_HOME>/bin/platform/hybrisserver.sh`
 
-### Configure easy repositories
-Next you'll have to configure the git repository where the tutorial extension is stored. If you want to play around locally with the extension we suggest you to create a local easy repository that will simplify and speed up your development.
-Follow these steps:
+### Configure local Easy repository
+Next you'll have to configure the Git repository where the tutorial extension is stored. If you want to play around locally with the extension we suggest you to create a local easy repository that will simplify and speed up your development.
+Follow these [steps](https://sap.github.io/easy-extension-framework/configuring-an-easy-repository-in-backoffice/):
 - clone locally the [Easy Extension Sample](https://github.tools.sap/cx-boosters/easy-extension-samples/tree/easy-0.2) repository (branch easy-0.2)
 - Login into the backoffice and find the Easy node on the Navigation Tree, open Easy Core, Repositories and click on the + button to create a new "local repository"
 ![img.png](./images/img.png)
 - populate the wizard giving the repo a code, name and the path of your local File System where you've cloned the remote easy-extension-samples repo
 ![img_1.png](./images/img_1.png)
 
-### Install the easy extensions
+### Install Easy Tutorial Step 1 extension
 Easy extensions have to be installed through the Administration Console:
-- connect to the hac and log in
-- if you've correctly created your easy local repository, you should see under the Easy tab, the repository with the list of easy extensions retrieved:
+- Connect to the hac and log in
+- If you've correctly created your Easy local repository, you should see under the Easy tab, the repository with the list of easy extensions retrieved:
 ![img_9.png](./images/img_9.png)
 - Click the "Update" button to be sure you've the latest version of your local repository: the update button will refresh the copy of the repositories that is stored in the _data_ dir of Commerce
 - Click on the "+" button next to the "Easy Tutorial Step 1" extension and wait the installation procedure is completed: if there are no errors you should see a successful blue message banner in the hac, if something went wrong during installation, a red message banner will pop up in the hac. In this case you'll have to check the server log to see what is the problem
-- We suggest you to repeat the last step also for the "Easy Api" extension that will give you access to a Swagger endpoint so that you can easily test the endpoints of the tutorial extension 
-
-
+- We suggest you to repeat the last step also for the "Easy Api" extension that will give you access to a Swagger endpoint so that you can easily test the endpoints of the tutorial extension
 
 ### Set up the extension locally on your IDE
 
-To set up the easy-tutorial-step1 extension in your local IDE you need to:
+To set up the **easy-tutorial-step1** extension in your local IDE you need to:
 1. add a file _gradle.properties_ to the root of the extension.
 ```
 easyRepoDir=/Users/I318914/SAPDevelop/projects/Easy/repoEasy/easy-extension-samples/easy-tutorial-step1
@@ -72,8 +86,8 @@ Here's how you can set up IntelliJ IDEA with the extension. First import your Co
 
 That's it! You should now be able to develop with your IDE and also when needed you can start the Remote debugging and debug the groovy code of easy extension that you installed. 
 
-## Tutorial tasks
-Your only task for this step of the tutorial is to follow the above instructions for the setup of your local environment. Once completed, you can execute the sample unite test, simply running _gradle test_ from the root of the project and youl should see also a generated report under the _build/reports_ folder
+## Your mission
+Your only task for this step of the tutorial is to follow the above instructions for the setup of your local environment. Once completed, you can execute the sample unite test, simply running _gradle test_ from the root of the project and you should see also a generated report under the _build/reports_ folder.
 
-## Next Step
-Once completed, simply uninstall this Easy Tutorial Step 1 extension and install the next one: Easy Tutorial Step 2 extension 
+## Next step
+Once completed, simply uninstall this **Easy Tutorial Step 1** extension and install the next one: [Easy Tutorial Step 2](../easy-tutorial-step2/README.md) extension.

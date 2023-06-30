@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2022. SAP SE or an SAP affiliate company. All rights reserved.
+  -->
+
+<config xmlns="http://www.hybris.com/cockpit/config">
+
+    <context type="Vehicle">
+
+        <context merge-by="type" component="explorer-tree">
+            <n:explorer-tree xmlns:n="http://www.hybris.com/cockpitng/config/explorertree">
+                <n:navigation-node id="hmc.homedelivery" merge-mode="append">
+                    <n:type-node code="Vehicle" id="hmc.homedelivery.vehicle"/>
+                </n:navigation-node>
+            </n:explorer-tree>
+        </context>
+
+        <context component="base" merge-by="type" parent="GenericItem">
+            <y:base xmlns:y="http://www.hybris.com/cockpit/config/hybris">
+                <y:labels>
+                    <y:label>code</y:label>
+                </y:labels>
+            </y:base>
+        </context>
+
+        <context component="simple-search" merge-by="type" parent="GenericItem">
+            <ss:simple-search xmlns:ss="http://www.hybris.com/cockpitng/config/simplesearch">
+                <ss:field name="code"/>
+            </ss:simple-search>
+        </context>
+
+        <context component="advanced-search" merge-by="type" parent="GenericItem">
+            <as:advanced-search xmlns:as="http://www.hybris.com/cockpitng/config/advancedsearch">
+                <as:field-list>
+                    <as:field name="code" selected="true"/>
+                    <as:field name="name" selected="true"/>
+                </as:field-list>
+            </as:advanced-search>
+        </context>
+
+        <context component="listview" merge-by="type">
+            <list-view:list-view xmlns:list-view="http://www.hybris.com/cockpitng/component/listView">
+                <list-view:column qualifier="code" position="1"/>
+                <list-view:column qualifier="name" position="2"/>
+            </list-view:list-view>
+        </context>
+
+        <context component="editor-area" merge-by="type">
+            <editorArea:editorArea xmlns:editorArea="http://www.hybris.com/cockpitng/component/editorArea">
+                <editorArea:essentials>
+                    <editorArea:essentialSection name="hmc.essential">
+                        <editorArea:attribute qualifier="code"/>
+                    </editorArea:essentialSection>
+                </editorArea:essentials>
+                <editorArea:tab name="hmc.tab.common">
+                    <editorArea:section name="hmc.properties">
+                        <editorArea:attribute qualifier="name"/>
+                    </editorArea:section>
+                </editorArea:tab>
+            </editorArea:editorArea>
+        </context>
+    </context>
+
+    <context type="DeliverySlot">
+
+        <context merge-by="type" component="explorer-tree">
+            <n:explorer-tree xmlns:n="http://www.hybris.com/cockpitng/config/explorertree">
+                <n:navigation-node id="hmc.homedelivery" merge-mode="append">
+                    <n:type-node code="DeliverySlot" id="hmc.homedelivery.deliveryslot"/>
+                </n:navigation-node>
+            </n:explorer-tree>
+        </context>
+
+        <context component="base" merge-by="type" parent="GenericItem">
+            <y:base xmlns:y="http://www.hybris.com/cockpit/config/hybris">
+                <y:labels>
+                    <y:label>code</y:label>
+                </y:labels>
+            </y:base>
+        </context>
+
+        <context component="simple-search" merge-by="type" parent="GenericItem">
+            <ss:simple-search xmlns:ss="http://www.hybris.com/cockpitng/config/simplesearch">
+                <ss:field name="code"/>
+            </ss:simple-search>
+        </context>
+
+        <context component="advanced-search" merge-by="type" parent="GenericItem">
+            <as:advanced-search xmlns:as="http://www.hybris.com/cockpitng/config/advancedsearch">
+                <as:field-list>
+                    <as:field name="code" selected="true"/>
+                    <as:field name="vehicle" />
+                    <as:field name="warehouse" />
+                    <as:field name="starttime" />
+                    <as:field name="endtime" />
+                </as:field-list>
+            </as:advanced-search>
+        </context>
+
+        <context component="listview" merge-by="type">
+            <list-view:list-view xmlns:list-view="http://www.hybris.com/cockpitng/component/listView">
+                <list-view:column qualifier="code" position="1"/>
+                <list-view:column qualifier="vehicle" position="2"/>
+                <list-view:column qualifier="warehouse" position="3"/>
+                <list-view:column qualifier="starttime" position="4"/>
+                <list-view:column qualifier="endtime" position="5"/>
+                <list-view:column qualifier="available" position="6"/>
+            </list-view:list-view>
+        </context>
+
+        <context component="editor-area" merge-by="type">
+            <editorArea:editorArea xmlns:editorArea="http://www.hybris.com/cockpitng/component/editorArea">
+                <editorArea:essentials>
+                    <editorArea:essentialSection name="hmc.essential">
+                        <editorArea:attribute qualifier="code"/>
+                    </editorArea:essentialSection>
+                </editorArea:essentials>
+                <editorArea:tab name="hmc.tab.common">
+                    <editorArea:section name="hmc.properties">
+                        <editorArea:attribute qualifier="vehicle"/>
+                        <editorArea:attribute qualifier="warehouse"/>
+                        <editorArea:attribute qualifier="starttime"/>
+                        <editorArea:attribute qualifier="endtime"/>
+                        <editorArea:attribute qualifier="available"/>
+                    </editorArea:section>
+                </editorArea:tab>
+            </editorArea:editorArea>
+        </context>
+    </context>
+
+    <context type="DeliverySlotManagement">
+
+        <context merge-by="type" component="explorer-tree">
+            <n:explorer-tree xmlns:n="http://www.hybris.com/cockpitng/config/explorertree">
+                <n:navigation-node id="hmc.homedelivery" merge-mode="append">
+                    <n:type-node code="DeliverySlotManagement" id="hmc.homedelivery.deliveryslotmanagement"/>
+                </n:navigation-node>
+            </n:explorer-tree>
+        </context>
+
+        <context component="base" merge-by="type" parent="GenericItem">
+            <y:base xmlns:y="http://www.hybris.com/cockpit/config/hybris">
+                <y:labels>
+                    <y:label>code</y:label>
+                </y:labels>
+            </y:base>
+        </context>
+
+        <context component="simple-search" merge-by="type" parent="GenericItem">
+            <ss:simple-search xmlns:ss="http://www.hybris.com/cockpitng/config/simplesearch">
+                <ss:field name="code"/>
+            </ss:simple-search>
+        </context>
+
+        <context component="advanced-search" merge-by="type" parent="GenericItem">
+            <as:advanced-search xmlns:as="http://www.hybris.com/cockpitng/config/advancedsearch">
+                <as:field-list>
+                    <as:field name="code" selected="true"/>
+                    <as:field name="deliveryslot" />
+                    <as:field name="abstractorder" />
+                    <as:field name="status" />
+                </as:field-list>
+            </as:advanced-search>
+        </context>
+
+        <context component="listview" merge-by="type">
+            <list-view:list-view xmlns:list-view="http://www.hybris.com/cockpitng/component/listView">
+                <list-view:column qualifier="code" position="1"/>
+                <list-view:column qualifier="deliveryslot" position="2"/>
+                <list-view:column qualifier="status" position="3"/>
+                <list-view:column qualifier="abstractorder" position="4"/>
+                <list-view:column qualifier="timestamp" position="5"/>
+            </list-view:list-view>
+        </context>
+
+        <context component="editor-area" merge-by="type">
+            <editorArea:editorArea xmlns:editorArea="http://www.hybris.com/cockpitng/component/editorArea">
+                <editorArea:essentials>
+                    <editorArea:essentialSection name="hmc.essential">
+                        <editorArea:attribute qualifier="code"/>
+                        <editorArea:attribute qualifier="status"/>
+                    </editorArea:essentialSection>
+                </editorArea:essentials>
+                <editorArea:tab name="hmc.tab.common">
+                    <editorArea:section name="hmc.properties">
+                        <editorArea:attribute qualifier="deliveryslot"/>
+                        <editorArea:attribute qualifier="abstractorder"/>
+                        <editorArea:attribute qualifier="timestamp"/>
+                    </editorArea:section>
+                </editorArea:tab>
+            </editorArea:editorArea>
+        </context>
+    </context>
+    <context merge-by="type" parent="GenericItem" type="Cart" component="editor-area">
+        <editorArea:editorArea xmlns:editorArea="http://www.hybris.com/cockpitng/component/editorArea">
+            <editorArea:tab name="hmc.homedelivery.abstractorder.tab">
+                <editorArea:section name="hmc.homedelivery.abstractorder.section">
+                    <editorArea:attribute qualifier="deliveryslotmanagement"/>
+                </editorArea:section>
+            </editorArea:tab>
+        </editorArea:editorArea>
+    </context>
+    <context merge-by="type" parent="GenericItem" type="Order" component="editor-area">
+        <editorArea:editorArea xmlns:editorArea="http://www.hybris.com/cockpitng/component/editorArea">
+            <editorArea:tab name="hmc.homedelivery.abstractorder.tab">
+                <editorArea:section name="hmc.homedelivery.abstractorder.section">
+                    <editorArea:attribute qualifier="deliveryslotmanagement"/>
+                </editorArea:section>
+            </editorArea:tab>
+        </editorArea:editorArea>
+    </context>
+
+    <context merge-by="type" parent="GenericItem" type="Order" component="cs-editor-area">
+        <editorArea:editorArea xmlns:editorArea="http://www.hybris.com/cockpitng/component/editorArea">
+            <editorArea:tab name="hmc.homedelivery.abstractorder.tab">
+                <editorArea:section name="hmc.homedelivery.abstractorder.section">
+                    <editorArea:attribute qualifier="deliveryslotmanagement"/>
+                </editorArea:section>
+            </editorArea:tab>
+        </editorArea:editorArea>
+    </context>
+
+</config>
