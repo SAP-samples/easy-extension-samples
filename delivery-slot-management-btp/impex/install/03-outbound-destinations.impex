@@ -1,0 +1,27 @@
+# -----------------------------------------------------------------------
+# Copyright (c) 2022 SAP SE or an SAP affiliate company. All rights reserved.
+# -----------------------------------------------------------------------
+
+UPDATE GenericItem[processor=de.hybris.platform.commerceservices.impex.impl.ConfigPropertyImportProcessor];pk[unique=true]
+$dsmBtpUrl = $config-deliveryslotmanagement.btp.url
+$dsmBtpSpecUrl = $config-deliveryslotmanagement.btp.spec.url
+
+
+
+#******************#
+#***  Endpoints ***#
+#******************#
+INSERT_UPDATE Endpoint;id[unique=true];version[unique=true];specUrl;name
+;dsmBtpEndpoint;unknown;$dsmBtpSpecUrl;dsmBtpEndpoint
+
+#****************************#
+#***  Destination Target  ***#
+#****************************#
+INSERT_UPDATE DestinationTarget;id[unique=true]
+;dsmBtpDestinationTarget;
+
+#*******************************#
+#***  Consumed Destinations  ***#
+#*******************************#
+INSERT_UPDATE ConsumedDestination;id[unique=true];url;endpoint(id,version);credential(id);active;additionalProperties(key,value)[map-delimiter=|];destinationTarget(id)
+;dsmBtpDestination;$dsmBtpUrl;dsmBtpEndpoint:unknown;;true;;dsmBtpDestinationTarget;

@@ -1,0 +1,21 @@
+# -----------------------------------------------------------------------
+# Copyright (c) 2022 SAP SE or an SAP affiliate company. All rights reserved.
+# -----------------------------------------------------------------------
+
+#*******************************#
+#***  Consumed Destinations  ***#
+#*******************************#
+REMOVE ConsumedDestination;id[unique=true];
+;dsmBtpDestination
+
+#****************************#
+#***  Destination Target  ***#
+#****************************#
+REMOVE DestinationTarget;id[unique=true]
+;dsmBtpDestinationTarget
+
+#******************#
+#***  Endpoints ***#
+#******************#
+REMOVE Endpoint;id[unique=true];version[unique=true]
+;dsmBtpEndpoint;unknown
