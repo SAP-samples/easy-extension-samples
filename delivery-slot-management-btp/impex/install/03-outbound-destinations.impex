@@ -5,7 +5,9 @@
 UPDATE GenericItem[processor=de.hybris.platform.commerceservices.impex.impl.ConfigPropertyImportProcessor];pk[unique=true]
 $dsmBtpUrl = $config-deliveryslotmanagement.btp.url
 $dsmBtpSpecUrl = $config-deliveryslotmanagement.btp.spec.url
-
+$oauthTokenUrl=$config-deliveryslotmanagement.btp.oauth.url
+$oauthClientId=$config-deliveryslotmanagement.btp.oauth.clientId
+$oauthClientSecret=$config-deliveryslotmanagement.btp.oauth.clientSecret
 
 
 #******************#
@@ -13,6 +15,12 @@ $dsmBtpSpecUrl = $config-deliveryslotmanagement.btp.spec.url
 #******************#
 INSERT_UPDATE Endpoint;id[unique=true];version[unique=true];specUrl;name
 ;dsmBtpEndpoint;unknown;$dsmBtpSpecUrl;dsmBtpEndpoint
+
+#******************#
+#*** Credentials **#
+#******************#
+INSERT_UPDATE ConsumedOAuthCredential ; id[unique=true]      ; oAuthUrl       ; clientId       ; clientSecret
+                                      ; dsm-kyma-auth ; $oauthTokenUrl ; $oauthClientId ; $oauthClientSecret
 
 #****************************#
 #***  Destination Target  ***#
@@ -24,4 +32,4 @@ INSERT_UPDATE DestinationTarget;id[unique=true]
 #***  Consumed Destinations  ***#
 #*******************************#
 INSERT_UPDATE ConsumedDestination;id[unique=true];url;endpoint(id,version);credential(id);active;additionalProperties(key,value)[map-delimiter=|];destinationTarget(id)
-;dsmBtpDestination;$dsmBtpUrl;dsmBtpEndpoint:unknown;;true;;dsmBtpDestinationTarget;
+;dsmBtpDestination;$dsmBtpUrl;dsmBtpEndpoint:unknown;dsm-kyma-auth;true;oauth.scope->deliveryslotmanagementscope;dsmBtpDestinationTarget;
