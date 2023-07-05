@@ -16,6 +16,9 @@ class SwaggerController implements EasyRestServiceController {
 		
 		Logger log = LoggerFactory.getLogger('easyrest');
 		JsonSlurper slurper = new groovy.json.JsonSlurper();
+
+		String hostname = ctx.headers.host;
+		String tokenUrl = "https://" + hostname + "/authorizationserver/oauth/token"
 		
 		def openAPI = [
 		   openapi: '3.0.3',
@@ -34,7 +37,7 @@ class SwaggerController implements EasyRestServiceController {
 					type: 'oauth2',
 					flows: [
 					   password: [
-						  tokenUrl: 'https://localhost:9002/authorizationserver/oauth/token'
+						  tokenUrl: "$tokenUrl"
 					   ],
 					]
 				 ],
@@ -42,7 +45,7 @@ class SwaggerController implements EasyRestServiceController {
 					type: 'oauth2',
 					flows: [
 					   clientCredentials: [
-						  tokenUrl: 'https://localhost:9002/authorizationserver/oauth/token'
+						  tokenUrl: "$tokenUrl"
 					   ]
 					]
 				 ],
