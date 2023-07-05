@@ -1,0 +1,18 @@
+{
+    "groupId": "com.sap.cx.boosters.easy",
+    "id": "DeliverySlotManagement",
+    "name": "Delivery Slot Management",
+    "version": "0.0.2",
+    "easyVersion": "0.2",
+    "description": "Extension used fot the Easy tutorial",
+    "documentation": "https://github.com/apanwar/easy-extensions/blob/main/README.md",
+    "authors": [
+        "Amit Panwar",
+        "Yannick Robin"
+    ],
+    "vendor": "SAP",
+    "tags": [
+        "easy",
+        "demo"
+    ]
+}
