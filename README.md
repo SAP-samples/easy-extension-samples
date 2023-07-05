@@ -12,7 +12,7 @@ Customer agrees to use Easy Extension Samples on “as is” basis and SAP makes
 ## How to Obtain Support
 Easy Extension Samples is provided "as-is" with no official lines of support.
 
-To get help from the Easy Extension Samples community, create an issue in this repository.
+To get help from the Easy Extension Framework community, create an issue in this repository.
 
 ## Contributing
 If you wish to contribute code, offer fixes or improvements, please send a pull request. Due to legal reasons, contributors will be asked to accept a DCO when they create the first pull request to this project. This happens in an automated fashion during the submission process. SAP uses [the standard DCO text of the Linux Foundation](https://developercertificate.org/).
