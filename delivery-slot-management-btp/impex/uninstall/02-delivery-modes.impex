@@ -1,0 +1,40 @@
+# -----------------------------------------------------------------------
+# Copyright (c) 2022 SAP SE or an SAP affiliate company. All rights reserved.
+# -----------------------------------------------------------------------
+# To be able to remove the delivery mode we need to delete all orders created associate to the deliveryMode
+#% de.hybris.platform.core.Registry.getCoreApplicationContext().getBean("deliverySlotCleanupServiceBtp").deleteHomeDeliveryAbstractOrders()
+
+
+# Currencies
+$ukCurrency = GBP
+$jpCurrency = JPY
+$usCurrency = USD
+$europeCurrency = EUR
+
+
+# Zone Delivery Modes
+REMOVE ZoneDeliveryMode; code[unique = true]
+                       ; homedelivery-net
+                       ; homedelivery-gross
+
+
+REMOVE ProductTaxCode; productCode[unique = true]; taxArea[unique = true]
+                     ; homedelivery-gross        ; GB
+                     ; homedelivery-net          ; GB
+                     ; homedelivery-gross        ; US
+                     ; homedelivery-net          ; US
+                     ; homedelivery-gross        ; JP
+                     ; homedelivery-net          ; JP
+                     ; homedelivery-gross        ; FR
+                     ; homedelivery-net          ; FR
+                     ; homedelivery-gross        ; PL
+                     ; homedelivery-net          ; PL
+                     ; homedelivery-gross        ; DE
+                     ; homedelivery-net          ; DE
+                     ; homedelivery-gross        ; CA
+                     ; homedelivery-net          ; CA
+                     ; homedelivery-gross        ; CN
+                     ; homedelivery-net          ; CN
+
+
+

@@ -1,0 +1,179 @@
+# -----------------------------------------------------------------------
+# Copyright (c) 2022 SAP SE or an SAP affiliate company. All rights reserved.
+# -----------------------------------------------------------------------
+
+INSERT_UPDATE EasyRestGroup; Name[unique = true]
+                           ; DeliverySlotManagementBtp
+
+INSERT_UPDATE EasyRest; name[unique = true]; easyRestGroup(name)    ; path[unique = true]                      ; ssl  ; method(code); authenticationMethod(code); format(code); contentType(code); springBean               ; script; swaggerSummary                 ; swaggerDescription                                                ; swaggerParameters[allownull = true]; swaggerRequestBody[allownull = true]; swaggerResponses[allownull = true]; csrf;
+                      ; getAvailableSlotsBtp  ; DeliverySlotManagementBtp ; {baseSiteId}/users/{userId}/carts/{cartId}/getAvailableSlots ; true ; GET         ; NONE                      ; NONE        ; JSON             ; availableSlotsControllerBtp ;       ; "GET available delivery slots" ; "GET available delivery slots for given warehouse and time range" ;"
+[
+  {
+    ""in"": ""path"",
+    ""name"": ""baseSiteId"",
+    ""description"": ""Base site identifier"",
+    ""required"": true,
+    ""type"": ""string""
+  },
+  {
+    ""in"": ""path"",
+    ""name"": ""userId"",
+    ""description"": ""User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user"",
+    ""required"": true,
+    ""type"": ""string""
+  },
+  {
+    ""in"": ""path"",
+    ""name"": ""cartId"",
+    ""description"": ""Cart identifier: cart code for logged in user, cart guid for anonymous user"",
+    ""required"": true,
+    ""type"": ""string""
+  }
+]
+"; ; ; false
+; bookDeliveryBtp  ; DeliverySlotManagementBtp ; {baseSiteId}/users/{userId}/carts/{cartId}/slotsManagement/bookDelivery ; true ; POST         ; NONE                      ; NONE        ; JSON             ; bookDeliveryControllerBtp ;       ; "POST Book a delivery slot for a cart" ; "POST Book a delivery slot for a cart. Cart is retrieved from guid for anonymous users, from code for authenticated users" ;"
+[
+  {
+    ""in"": ""path"",
+    ""name"": ""baseSiteId"",
+    ""description"": ""Base site identifier"",
+    ""required"": true,
+    ""type"": ""string""
+  },
+  {
+    ""in"": ""path"",
+    ""name"": ""userId"",
+    ""description"": ""User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user"",
+    ""required"": true,
+    ""type"": ""string""
+  },
+  {
+    ""in"": ""path"",
+    ""name"": ""cartId"",
+    ""description"": ""Cart identifier: cart code for logged in user, cart guid for anonymous user"",
+    ""required"": true,
+    ""type"": ""string""
+  },
+  {
+    ""in"": ""query"",
+    ""name"": ""deliverySlotCode"",
+    ""description"": ""Code of the delivery slot selected by user"",
+    ""required"": true,
+    ""type"": ""string""
+  }
+]
+"; ; ; false
+; getBookedDeliveryBtp  ; DeliverySlotManagementBtp ; {baseSiteId}/users/{userId}/carts/{cartId}/slotsManagement/getBookedDelivery ; true ; GET         ; NONE                      ; NONE        ; JSON             ; getBookedDeliveryControllerBtp ;       ; "GET retrieves the booked delivery slot for a given cart" ; "GET retrieves the booked delivery slot for a given cart. Cart is retrieved from guid for anonymous users, from code for authenticated users" ;"
+[
+  {
+    ""in"": ""path"",
+    ""name"": ""baseSiteId"",
+    ""description"": ""Base site identifier"",
+    ""required"": true,
+    ""type"": ""string""
+  },
+  {
+    ""in"": ""path"",
+    ""name"": ""userId"",
+    ""description"": ""User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user"",
+    ""required"": true,
+    ""type"": ""string""
+  },
+  {
+    ""in"": ""path"",
+    ""name"": ""cartId"",
+    ""description"": ""Cart identifier: cart code for logged in user, cart guid for anonymous user"",
+    ""required"": true,
+    ""type"": ""string""
+  }
+]
+"; ; ; false
+; changeDeliveryBtp  ; DeliverySlotManagementBtp ; {baseSiteId}/users/{userId}/carts/{cartId}/slotsManagement/changeDelivery ; true ; PUT         ; NONE                      ; NONE        ; JSON             ; changeDeliveryControllerBtp ;       ; "PUT change the delivery slot of a booked management slot" ; "PUT change the delivery slot of a booked management slot. The change will take place if the passed management slot exists, is still in the BOOKED status and the slot code passed as parameter is still available" ;"
+[
+  {
+    ""in"": ""path"",
+    ""name"": ""baseSiteId"",
+    ""description"": ""Base site identifier"",
+    ""required"": true,
+    ""type"": ""string""
+  },
+  {
+    ""in"": ""path"",
+    ""name"": ""userId"",
+    ""description"": ""User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user"",
+    ""required"": true,
+    ""type"": ""string""
+  },
+  {
+    ""in"": ""path"",
+    ""name"": ""cartId"",
+    ""description"": ""Cart identifier: cart code for logged in user, cart guid for anonymous user"",
+    ""required"": true,
+    ""type"": ""string""
+  },
+  {
+    ""in"": ""query"",
+    ""name"": ""deliverySlotCode"",
+    ""description"": ""Code of the delivery slot selected by user"",
+    ""required"": true,
+    ""type"": ""string""
+  }
+]
+"; ; ; false
+; confirmDeliveryBtp  ; DeliverySlotManagementBtp ; {baseSiteId}/users/{userId}/orders/{orderId}/slotsManagement/{deliverySlotManagementCode}/confirmDelivery ; true ; PUT         ; NONE                      ; NONE        ; JSON             ; confirmDeliveryControllerBtp ;       ; "PUT confirm a booked management slot" ; "PUT confirm a previously booked management slot. Confirmation will take place if the passed management slot exists and is still in the BOOKED status." ;"
+[
+  {
+    ""in"": ""path"",
+    ""name"": ""baseSiteId"",
+    ""description"": ""Base site identifier"",
+    ""required"": true,
+    ""type"": ""string""
+  },
+  {
+    ""in"": ""path"",
+    ""name"": ""userId"",
+    ""description"": ""User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user"",
+    ""required"": true,
+    ""type"": ""string""
+  },
+  {
+    ""in"": ""path"",
+    ""name"": ""orderId"",
+    ""description"": ""Order identifier: it's the order code for all users"",
+    ""required"": true,
+    ""type"": ""string""
+  },
+  {
+    ""in"": ""path"",
+    ""name"": ""deliverySlotManagementCode"",
+    ""description"": ""Code of the delivery slot management that user want to confirm"",
+    ""required"": true,
+    ""type"": ""string""
+  }
+]
+"; ; ; false
+; cancelDeliveryBtp  ; DeliverySlotManagementBtp ; {baseSiteId}/users/{userId}/carts/{cartId}/slotsManagement/cancelDelivery ; true ; DELETE         ; NONE                      ; NONE        ; TEXT             ; cancelDeliveryControllerBtp ;       ; "DELETE a booked slot" ; "DELETE a slot previously booked. The deletion will take place only if the slot management is still in the BOOKED status and has not been confirmed yet." ;"
+[
+  {
+    ""in"": ""path"",
+    ""name"": ""baseSiteId"",
+    ""description"": ""Base site identifier"",
+    ""required"": true,
+    ""type"": ""string""
+  },
+  {
+    ""in"": ""path"",
+    ""name"": ""userId"",
+    ""description"": ""User identifier or one of the literals : 'current' for currently authenticated user, 'anonymous' for anonymous user"",
+    ""required"": true,
+    ""type"": ""string""
+  },
+  {
+    ""in"": ""path"",
+    ""name"": ""cartId"",
+    ""description"": ""Cart identifier: cart code for logged in user, cart guid for anonymous user"",
+    ""required"": true,
+    ""type"": ""string""
+  }
+]
+"; ; ; false
