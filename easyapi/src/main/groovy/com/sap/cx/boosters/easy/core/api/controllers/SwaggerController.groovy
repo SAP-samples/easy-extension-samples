@@ -74,7 +74,7 @@ class SwaggerController implements EasyRestServiceController {
 					  'parameters': [],
 					  'requestBody': [],
 					  'responses': [:],
-					  'tags': [it.easyRestGroup?.name]
+					  'tags': [it.easyRestGroup?.name:'default']
 				  ]
 			  ];
 		
