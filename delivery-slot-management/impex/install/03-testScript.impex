@@ -1,0 +1,88 @@
+# -----------------------------------------------------------------------
+# Copyright (c) 2022 SAP SE or an SAP affiliate company. All rights reserved.
+# -----------------------------------------------------------------------
+INSERT_UPDATE EasyRestGroup; Name[unique = true]
+                           ; DeliverySlotManagement-Test
+
+INSERT_UPDATE EasyRest; Name[unique = true] ; easyRestGroup(name)         ; Path[unique = true]     ; SSL  ; Method(code); AuthenticationMethod(code); Format(code); ContentType(code); SpringBean; Script; SwaggerSummary; SwaggerDescription; SwaggerParameters[allownull = true]; SwaggerRequestBody[allownull = true]; SwaggerResponses[allownull = true]
+                      ; deliveryServiceTest ; DeliverySlotManagement-Test ; testDeliverySlotService ; true ; GET         ; NONE                      ; NONE        ; TEXT             ;           ; "
+import java.time.LocalDate
+import de.hybris.platform.core.PK
+
+writer = new StringWriter()
+
+def printDeliverySlotManagement(slotmanagement){
+  writer.write 'Slot management:'
+  writer.write ' code:' + slotmanagement.getCode()
+  writer.write ' order:' + slotmanagement.getOrder()
+  writer.write ' cart:' + slotmanagement.getCart()
+  writer.write ' status:' + slotmanagement.getStatus()
+  writer.write ' timestamp:' + slotmanagement.getTimestamp() +'\n'
+}
+
+def printDeliverySlot(slot){
+  writer.write 'Slot:'
+  writer.write ' code:' + slot.getCode()
+  writer.write ' warehouse:' + slot.getWarehouse().getCode()
+  writer.write ' vehicle:' + slot.getVehicle().getCode()
+  writer.write ' starttime:' + slot.getStarttime()
+  writer.write ' endtime:' + slot.getStarttime()
+  writer.write ' available:' + slot.getAvailable() + '\n'
+}
+
+//Test getAvailableSlots
+warehouse = warehouseService.getWarehouseForCode('ap_warehouse_w')
+LocalDate start = LocalDate.now()
+LocalDate end = start.plusDays(7)
+java.util.Date startDate = new java.util.Date(java.sql.Date.valueOf(start).getTime())
+java.util.Date endDate = new java.util.Date(java.sql.Date.valueOf(end).getTime())
+availableSlots = deliverySlotService.getAvailableDeliverySlots(startDate,endDate,warehouse)
+availableSlots.each{ it ->  printDeliverySlot (it)}
+//Test bookeDelivery
+deliverySlot = availableSlots.get(0)
+cartOptional = itemDao.getItemByUniqueAttributesValues('Cart',[code:'testDeliverySlotCart'])
+def cart
+if (cartOptional.isEmpty()){
+  cart = modelService.create('Cart');
+  cart.setCode('testDeliverySlotCart');
+    cart.setCurrency(commonI18NService.getCurrentCurrency())
+    cart.setUser(userService.getAnonymousUser())
+  cart.setDate(new Date());
+    modelService.save(cart)
+}else{
+  writer.write ('Cart existing\n')
+  cart = cartOptional.get()
+}
+slotmanagement = deliverySlotService.bookDelivery(deliverySlot.getCode(),cart)
+printDeliverySlotManagement(slotmanagement)
+// Test cancelDelivery
+deleted = deliverySlotService.cancelDelivery(slotmanagement.getCode())
+writer.write 'Deleted: ' + deleted +'\n'
+// Test confirmDelivery
+slotmanagement = deliverySlotService.bookDelivery(deliverySlot.getCode(),cart)
+orderOptional = itemDao.getItemByUniqueAttributesValues('Order',[code:'testDeliverySlotOrder',versionID:'0'])
+def order
+if (orderOptional.isEmpty()){
+  order = modelService.create('Order');
+  order.setCode('testDeliverySlotOrder');
+  order.setVersionID('0');
+    order.setCurrency(commonI18NService.getCurrentCurrency())
+    order.setUser(userService.getAnonymousUser())
+  order.setDate(new Date());
+    modelService.save(order)
+}else{
+  writer.write ('Order existing\n')
+  order = orderOptional.get()
+}
+slotmanagement = deliverySlotService.confirmDelivery(slotmanagement.getCode(),order)
+printDeliverySlotManagement(slotmanagement)
+//Clean Up SlotManagement and cart and order created
+modelService.remove(slotmanagement)
+modelService.remove(order)
+modelService.remove(cart)
+//println writer.toString()
+
+response.'responseCode' = 200;
+response.'body' = writer.toString();
+return response
+"

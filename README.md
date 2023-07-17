@@ -1,17 +1,18 @@
+[![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/easy-extension-samples)](https://api.reuse.software/info/github.com/SAP-samples/easy-extension-samples)
+
 # Easy Extension Samples
 
 ## Description
 This repository provides sample extensions that can be deployed on SAP Commerce using Easy Extension Framework.
-These sample extensions illustrate Easy features and capabilities.
-These extensions can be used for demo purpose and may be extended to meet customer needs.
+These sample extensions illustrate Easy features and capabilities. These extensions can be used for demo purpose only.
 
-## How to get access
-This repository is only available to SAP employees who have linked their github.com personal account with their SAP identity and joined the SAP organizations on GitHub.
+## Disclaimer
+Customer agrees to use Easy Extension Samples on “as is” basis and SAP makes no guarantees or representations or warranties of any kind, express or implied, arising by law or otherwise, including but not limited to, content, quality, accuracy, completeness, effectiveness, reliability, fitness for a particular purpose, usefulness, use or results to be obtained from Easy Extension Samples, or that tEasy Extension Samples will be uninterrupted or error-free.
 
-## How to obtain support
-[Create an issue](https://github.com/SAP-samples/easy-extension-samples/issues/new) in this repository if you find a bug or have questions about the content.
- 
-For additional support, [ask a question in SAP Community](https://answers.sap.com/questions/ask.html).
+## How to Obtain Support
+Easy Extension Samples is provided "as-is" with no official lines of support.
+
+To get help from the Easy Extension Framework community, create an issue in this repository.
 
 ## Contributing
 If you wish to contribute code, offer fixes or improvements, please send a pull request. Due to legal reasons, contributors will be asked to accept a DCO when they create the first pull request to this project. This happens in an automated fashion during the submission process. SAP uses [the standard DCO text of the Linux Foundation](https://developercertificate.org/).
