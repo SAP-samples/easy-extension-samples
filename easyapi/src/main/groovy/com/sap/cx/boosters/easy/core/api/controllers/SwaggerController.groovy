@@ -1,5 +1,6 @@
 package com.sap.cx.boosters.easy.core.api.controllers
 
+
 import com.sap.cx.boosters.easyrest.controller.EasyRestServiceController;
 import com.sap.cx.boosters.easyrest.service.EasyRestService
 import groovy.json.JsonOutput;
@@ -16,9 +17,6 @@ class SwaggerController implements EasyRestServiceController {
 		
 		Logger log = LoggerFactory.getLogger('easyrest');
 		JsonSlurper slurper = new groovy.json.JsonSlurper();
-
-		String hostname = ctx.headers.host;
-		String tokenUrl = "https://" + hostname + "/authorizationserver/oauth/token"
 		
 		def openAPI = [
 		   openapi: '3.0.3',
@@ -37,7 +35,7 @@ class SwaggerController implements EasyRestServiceController {
 					type: 'oauth2',
 					flows: [
 					   password: [
-						  tokenUrl: "$tokenUrl"
+						  tokenUrl: 'https://localhost:9002/authorizationserver/oauth/token'
 					   ],
 					]
 				 ],
@@ -45,7 +43,7 @@ class SwaggerController implements EasyRestServiceController {
 					type: 'oauth2',
 					flows: [
 					   clientCredentials: [
-						  tokenUrl: "$tokenUrl"
+						  tokenUrl: 'https://localhost:9002/authorizationserver/oauth/token'
 					   ]
 					]
 				 ],
@@ -74,7 +72,7 @@ class SwaggerController implements EasyRestServiceController {
 					  'parameters': [],
 					  'requestBody': [],
 					  'responses': [:],
-					  'tags': [it.easyRestGroup?.name:'default']
+					  'tags': [it.easyRestGroup?.name]
 				  ]
 			  ];
 		
@@ -120,7 +118,7 @@ class SwaggerController implements EasyRestServiceController {
 		
 		def jsonSwagger = groovy.json.JsonOutput.toJson(openAPI);
 		response.body = jsonSwagger;
-
+		
         return response;
     }
 }
