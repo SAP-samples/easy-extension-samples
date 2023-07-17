@@ -62,7 +62,7 @@ class SwaggerController implements EasyRestServiceController {
 		
 		   def path = it.path;
 		   String method=it.method.code.toLowerCase();
-		
+		   String group = it.easyRestGroup ? it.easyRestGroup.name : "default";
 		   path = [
 				  (method) : [
 					  'operationId' : "$path",
@@ -72,7 +72,7 @@ class SwaggerController implements EasyRestServiceController {
 					  'parameters': [],
 					  'requestBody': [],
 					  'responses': [:],
-					  'tags': [it.easyRestGroup?.name]
+					  'tags': [group]
 				  ]
 			  ];
 		
