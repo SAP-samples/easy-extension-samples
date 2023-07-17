@@ -62,7 +62,7 @@ class SwaggerController implements EasyRestServiceController {
 		
 		   def path = it.path;
 		   String method=it.method.code.toLowerCase();
-		   String group = it.easyRestGroup ? it.easyRestGroup.name : "default";
+		   String group = it.easyRestGroup ? it.easyRestGroup.name : "Default";
 		   path = [
 				  (method) : [
 					  'operationId' : "$path",
