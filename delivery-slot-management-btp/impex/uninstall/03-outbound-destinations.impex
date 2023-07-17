@@ -12,7 +12,10 @@ REMOVE ConsumedDestination; id[unique = true];
 #*** Credentials **#
 #******************#
 REMOVE ConsumedOAuthCredential; id[unique = true]
-                              ; dsm-kyma-auth
+# Oauth server on Kyma
+#                              ; dsm-kyma-auth
+# Oauth server on IAS
+                              ; dsm-ias-auth
 
 #****************************#
 #***  Destination Target  ***#

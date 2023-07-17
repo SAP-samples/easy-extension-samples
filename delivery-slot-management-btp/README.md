@@ -4,18 +4,12 @@
 This extension is a sample demo to demonstrate the usage and capabilities of the Easy Extension Framework.
 The demo is focused on the Home Delivery process where special kind of goods (like fresh food) are delivered directly at the home of the user who has ordered it through the ecommerce store.
 The main difference with the standard shipping methods of ecommerce stores is that customer decides the specific time slot to receive his items based on the slots availability of the commerce store.
-There are obviously a lot of complexities behind the management of a real Home Delivery process:
-- you may have different vehicles with different capacity and characteristics (ex: size, cold/frozen)
-- the order management system will have to calculate what vehicles can be used depending of the items composing the order and it will have to filter the delivery slot options
-- you may have home delivery or pick up in store options
-- you may have to deal with concurrency issues to ensure coherent management for slots availability when multiple customers try to book the same slot
-- ....
-
-Given this is a demo extension and not a production ready code, we have simplified significantly the process and only implemented few parts of it.
 The main part of the business logic require to implement the above features have been developped on a Spring Boot java application that has been deployed as a Microservice in the Kyma runtime environment of a BTP subscription.
 This Easy Extension represents the bridge between Commerce and the BTP Microservice and implement the server-to-server integration for each Endpoint.
 We've kept the same url endpoints as the https://github.com/SAP-samples/easy-extension-samples/tree/main/delivery-slot-management extension, so obviously the 2 extensions can't be deployed at the same time on a Commerce installation.
 With this solution however we don't need to implement any changes on the Spartacus module, since it will use the same endpoints for both easy extensions.
+Here's a high level architecture of the solution:
+![img.png](images/img_18.png)
 
 ## List of features
 Let's first see the Business Entities that we need to model for the Home Delivery process:
@@ -24,9 +18,7 @@ Let's first see the Business Entities that we need to model for the Home Deliver
 - Delivery Slot: this entity holds the avaialbility details of a time slot that customer can book for a specific day, vehicle and warehouse. 
 - Delivery Slot Management: this entity represents a customer booking for a specific slot. If the booking is still related to a cart, then its status will be BOOKED; once the order will be placed on the commerce shop and an order will be created, then also the associated booking will change its status to CONFIRMED.
 
-This is the structure of the simplified Data Model that we've used for the extension:
 
-![img_9.png](./images/img_9.png)
 
 Our extension has implemented the Home Delivery process of the checkout flow for the ecommerce site but it didn't implement anything of the OMS features required to manage the post order activities.
 Let's now see more in detail the features that have been implemented.
@@ -51,15 +43,28 @@ If there are no available slots in between the minimum and maximum lead time an 
 Till the order is not placed, customer can choose to change its delivery slot booking. Once the order will be placed, the delivery slot booking will be placed in CONFIRMED status.
 
 ### Booking cancellation (to be implemented)
-A cronjob will run every few minutes to retrieve delivery bookings older then a predefined amount of time configurable thorugh properties (defaul of 30 minutes); if the booking is still in the BOOKED status it will be deleted to free the corresponding delivery slot for some other customer.
+A cronjob will run every few minutes in the BTP microservice application to retrieve delivery bookings older than a predefined amount of time configurable through properties (default of 30 minutes); if the booking is still in the BOOKED status it will be deleted to free the corresponding delivery slot for some other customer.
 
 ### Booking confirmed
 Once the customer place an order with a ___Home Delivery___ shipping mode selected and a Delivery Slot Management (aka booking) associated, during the ___place order___ flow, the Delivery Sloot Management associated will be checked to see if it's still valid and present and then it will be changed to the CONFIRMED status.
 In the Order Confirmation page, the ___Home Delivery___ square box will present the detail of the delivery to the customer
 ![img_15.png](./images/img_15.png)
 
+## Limitations
+There are obviously a lot of complexities behind the management of a real Home Delivery process:
+- you may have different vehicles with different capacity and characteristics (ex: size, cold/frozen)
+- the order management system will have to calculate what vehicles can be used depending on the items composing the order and it will have to filter the delivery slot options
+- you may have home delivery or pick up in store options
+- you may have to deal with concurrency issues to ensure coherent management for slots availability when multiple customers try to book the same slot
+- ....
+
+Given this is a demo extension and not a production ready code, we have simplified significantly the process and only implemented few parts of it.
+
 ## How to Install
 Here are the instructions to configure locally the extension and make it work. The extension has been developed to work with the standard `electronics-spa accelerator`, although it should easily work with other SAP accelerators as well with small changes.
+
+### Install the BTP Kyma Microservice
+Follow the instructions at https://github.tools.sap/cx-boosters/easy-btp-delivery-slot-management/blob/main/deliveryslotmanagement-btp/README.md
 
 ### Install SAP Commerce Platform
 
@@ -90,7 +95,7 @@ Follow these steps:
 - populate the wizard giving the repo a code, name and the path of your local File System where you've cloned the remote easy-extension-samples repo
 ![img_1.png](./images/img_1.png)
 
-### Install Delivery Slot Management Easy extension
+### Install Delivery Slot Management Btp Easy extension
 Easy extensions have to be installed through the Administration Console:
 - Connect to the hac and log in
 - If you've correctly created your Easy local repository, you should see under the Easy tab, the repository with the list of easy extensions retrieved:
