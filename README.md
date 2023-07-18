@@ -7,7 +7,7 @@ This repository provides sample extensions that can be deployed on SAP Commerce 
 These sample extensions illustrate Easy features and capabilities. These extensions can be used for demo purpose only.
 
 ## Disclaimer
-Customer agrees to use Easy Extension Samples on “as is” basis and SAP makes no guarantees or representations or warranties of any kind, express or implied, arising by law or otherwise, including but not limited to, content, quality, accuracy, completeness, effectiveness, reliability, fitness for a particular purpose, usefulness, use or results to be obtained from Easy Extension Samples, or that tEasy Extension Samples will be uninterrupted or error-free.
+Customer agrees to use Easy Extension Samples on “as is” basis and SAP makes no guarantees or representations or warranties of any kind, express or implied, arising by law or otherwise, including but not limited to, content, quality, accuracy, completeness, effectiveness, reliability, fitness for a particular purpose, usefulness, use or results to be obtained from Easy Extension Samples, or that Easy Extension Samples will be uninterrupted or error-free.
 
 ## How to Obtain Support
 Easy Extension Samples is provided "as-is" with no official lines of support.
