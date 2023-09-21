@@ -1,16 +1,19 @@
 package com.sap.cx.boosters.easy.core.api.controllers
 
 
-import com.sap.cx.boosters.easyrest.controller.EasyRestServiceController;
+import com.sap.cx.boosters.easyrest.controller.EasyRestServiceController
 import com.sap.cx.boosters.easyrest.service.EasyRestService
-import groovy.json.JsonOutput;
-import groovy.json.JsonSlurper;
-import org.slf4j.LoggerFactory;
-import org.slf4j.Logger;
+import groovy.json.JsonOutput
+import groovy.json.JsonSlurper
+import org.slf4j.LoggerFactory
+import org.slf4j.Logger
+import de.hybris.platform.servicelayer.config.ConfigurationService
 
 class SwaggerController implements EasyRestServiceController {
 
 	EasyRestService easyRestService;
+
+	ConfigurationService configurationService;
 	
     Map<String,Object> execute(Map ctx) {
         def response = [:]		
@@ -27,7 +30,7 @@ class SwaggerController implements EasyRestServiceController {
 		   ],
 		   info: [
 			  title: 'Easy REST API',
-			  version: '0.2.2'
+			  version: configurationService.getConfiguration().getString('easy.version', '0.2.1')
 		   ],
 		   paths: [:],
 		   components: [
