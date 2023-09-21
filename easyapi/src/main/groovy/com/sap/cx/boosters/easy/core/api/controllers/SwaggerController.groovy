@@ -26,7 +26,8 @@ class SwaggerController implements EasyRestServiceController {
 			  ]
 		   ],
 		   info: [
-			  title: 'Easy REST API'
+			  title: 'Easy REST API',
+			  info: '0.2.2'
 		   ],
 		   paths: [:],
 		   components: [
