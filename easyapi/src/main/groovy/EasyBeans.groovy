@@ -17,7 +17,7 @@ reader.beans {
 	}
 	swaggerController(SwaggerController) {
 		easyRestService = applicationContext.getBean("easyRestService")
-		configurationService = applicationContext.getBean("configurationService")
+		easyCoreHelper = applicationContext.getBean("easyCoreHelper")
 	}
 	getRepositoriesController(GetRepositoriesController) {
 		easyRepositoryService = applicationContext.getBean("easyRepositoryService")
