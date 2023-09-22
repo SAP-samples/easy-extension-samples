@@ -7,13 +7,13 @@ import groovy.json.JsonOutput
 import groovy.json.JsonSlurper
 import org.slf4j.LoggerFactory
 import org.slf4j.Logger
-import de.hybris.platform.servicelayer.config.ConfigurationService
+import com.sap.cx.boosters.easy.core.helper.EasyCoreHelper
 
 class SwaggerController implements EasyRestServiceController {
 
-	EasyRestService easyRestService;
+	EasyRestService easyRestService
 
-	ConfigurationService configurationService;
+	EasyCoreHelper easyCoreHelper
 	
     Map<String,Object> execute(Map ctx) {
         def response = [:]		
@@ -33,7 +33,7 @@ class SwaggerController implements EasyRestServiceController {
 		   ],
 		   info: [
 			  title: 'Easy REST API',
-			  version: configurationService.getConfiguration().getString('easy.version', '0.2.1')
+			  version: easyCoreHelper.getDeployedEasyVersion()
 		   ],
 		   paths: [:],
 		   components: [
