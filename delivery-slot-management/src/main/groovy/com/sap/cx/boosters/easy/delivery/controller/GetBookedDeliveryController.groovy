@@ -7,12 +7,17 @@ import de.hybris.platform.ordersplitting.WarehouseService
 import de.hybris.platform.servicelayer.internal.dao.DefaultGenericDao
 import groovy.json.JsonBuilder
 
+import javax.annotation.Resource
 import java.time.LocalDateTime
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 
 class GetBookedDeliveryController implements EasyRestServiceController {
+
+    @Resource
     DeliverySlotService deliverySlotService
+
+    @Resource
     DefaultGenericDao<CartModel> defaultCartGenericDao
 
     @Override

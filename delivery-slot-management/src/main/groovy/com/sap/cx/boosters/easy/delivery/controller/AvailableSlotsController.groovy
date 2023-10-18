@@ -8,15 +8,24 @@ import de.hybris.platform.servicelayer.config.ConfigurationService
 import de.hybris.platform.servicelayer.internal.dao.DefaultGenericDao
 import groovy.json.JsonBuilder
 
+import javax.annotation.Resource
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 
 class AvailableSlotsController implements EasyRestServiceController {
+
+    @Resource
     WarehouseService warehouseService
+
+    @Resource
     DeliverySlotService deliverySlotService
+
+    @Resource
     DefaultGenericDao<CartModel> defaultCartGenericDao
+
+    @Resource
     ConfigurationService configurationService
 
     def dtFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");

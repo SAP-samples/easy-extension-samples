@@ -4,7 +4,6 @@
 
 package com.sap.cx.boosters.easy.delivery.easytype.model
 
-
 import com.sap.cx.boosters.easy.delivery.easytype.enums.DeliverySlotStatus
 import de.hybris.bootstrap.annotations.Accessor
 import de.hybris.platform.core.model.ItemModel

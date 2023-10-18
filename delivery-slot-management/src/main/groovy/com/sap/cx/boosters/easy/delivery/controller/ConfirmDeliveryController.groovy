@@ -7,10 +7,15 @@ import de.hybris.platform.core.model.order.CartModel
 import de.hybris.platform.servicelayer.internal.dao.DefaultGenericDao
 import groovy.json.JsonBuilder
 
-class ConfirmDeliveryController implements EasyRestServiceController {
-    DeliverySlotService deliverySlotService
-    DefaultCommerceOrderDao commerceOrderDao
+import javax.annotation.Resource
 
+class ConfirmDeliveryController implements EasyRestServiceController {
+
+    @Resource
+    DeliverySlotService deliverySlotService
+
+    @Resource
+    DefaultCommerceOrderDao commerceOrderDao
 
     @Override
     Map<String, Object> execute(Map<String, Object> ctx) {

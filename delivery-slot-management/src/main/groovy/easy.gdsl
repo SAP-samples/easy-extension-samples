@@ -1,0 +1,33 @@
+def easyDSL = context(ctype: 'groovy.lang.GroovyObject', scope: scriptScope(name: '.*.groovy'))
+
+contributor(easyDSL) {
+    property name: 'spring', type: 'de.hybris.platform.spring.ctx.TenantIgnoreXmlWebApplicationContext'
+    property name: 'orderConverter', type: 'de.hybris.platform.converters.impl.AbstractPopulatingConverter'
+    property name: 'homeDeliveryCommercePlaceOrderMethodHook', type: 'com.sap.cx.boosters.easy.delivery.placeorderhook.HomeDeliveryCommercePlaceOrderMethodHook'
+    property name: 'homeDeliveryModeOrderPopulator', type: 'com.sap.cx.boosters.easy.delivery.populators.HomeDeliveryModeOrderPopulator'
+    property name: 'commercePlaceOrderMethodHooks', type: 'List<de.hybris.platform.commerceservices.order.hook.CommercePlaceOrderMethodHook>'
+    // property name: 'configurationService', type: 'de.hybris.platform.servicelayer.config.ConfigurationService'
+    // property name: 'flexibleSearchService', type: 'de.hybris.platform.servicelayer.search.FlexibleSearchService'
+    // property name: 'modelService', type: 'de.hybris.platform.servicelayer.model.ModelService'
+    // property name: 'typeService', type: 'de.hybris.platform.servicelayer.type.TypeService'
+    // property name: 'userService', type: 'de.hybris.platform.servicelayer.user.UserService'
+    // property name: 'authenticationService', type: 'de.hybris.platform.servicelayer.security.auth.AuthenticationService'
+    // property name: 'logsMetricsReporterService', type: 'de.hybris.platform.metrics.dropwizard.MetricsReporterService'
+    // property name: 'fakeService', type: 'de.hybris.platform.servicelayer.FakeService'
+    // property name: 'jdbcTemplate', type: 'org.springframework.jdbc.core.JdbcTemplate'
+    // property name: 'importService', type: 'de.hybris.platform.servicelayer.impex.ImportService'
+    // property name: 'exportService', type: 'de.hybris.platform.servicelayer.impex.ExportService'
+    // property name: 'mediaService', type: 'de.hybris.platform.servicelayer.media.MediaService'
+    // property name: 'commonI18NService', type: 'de.hybris.platform.servicelayer.i18n.CommonI18NService'
+    // property name: 'sessionService', type: 'de.hybris.platform.servicelayer.session.SessionService'
+    // property name: 'searchRestrictionService', type: 'de.hybris.platform.search.restriction.SearchRestrictionService'
+    // property name: 'cartService', type: 'de.hybris.platform.order.CartService'
+}
+
+def easyBeans = context(ctype: 'groovy.lang.GroovyObject', scope: scriptScope(name: 'EasyBeans.groovy'))
+
+contributor(easyBeans) {
+    property name: 'easyCoreBeans', type: 'groovy.lang.Closure'
+    property name: 'easyRESTBeans', type: 'groovy.lang.Closure'
+    property name: 'easyWebBeans', type: 'groovy.lang.Closure'
+}

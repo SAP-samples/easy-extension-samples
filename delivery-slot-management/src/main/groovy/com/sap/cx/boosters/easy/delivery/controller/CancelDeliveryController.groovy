@@ -5,10 +5,15 @@ import com.sap.cx.boosters.easyrest.controller.EasyRestServiceController
 import de.hybris.platform.core.model.order.CartModel
 import de.hybris.platform.servicelayer.internal.dao.DefaultGenericDao
 
-class CancelDeliveryController implements EasyRestServiceController {
-    DeliverySlotService deliverySlotService
-    DefaultGenericDao<CartModel> defaultCartGenericDao
+import javax.annotation.Resource
 
+class CancelDeliveryController implements EasyRestServiceController {
+
+    @Resource
+    DeliverySlotService deliverySlotService
+
+    @Resource
+    DefaultGenericDao<CartModel> defaultCartGenericDao
 
     @Override
     Map<String, Object> execute(Map<String, Object> ctx) {
