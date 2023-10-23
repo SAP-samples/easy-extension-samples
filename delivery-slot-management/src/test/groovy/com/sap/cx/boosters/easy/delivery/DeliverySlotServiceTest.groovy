@@ -40,4 +40,5 @@ class DeliverySlotServiceTest extends Specification {
         getResult() >> [Stub(DeliverySlotManagementModel)]
         getCount() >> 1
     }
+
 }

@@ -1,3 +1,4 @@
+// https://www.tothenew.com/blog/gdsl-awesomeness-introduction-to-gdsl-in-intellij-idea/
 def easyDSL = context(ctype: 'groovy.lang.GroovyObject', scope: scriptScope(name: '.*.groovy'))
 
 contributor(easyDSL) {
@@ -22,12 +23,29 @@ contributor(easyDSL) {
     // property name: 'sessionService', type: 'de.hybris.platform.servicelayer.session.SessionService'
     // property name: 'searchRestrictionService', type: 'de.hybris.platform.search.restriction.SearchRestrictionService'
     // property name: 'cartService', type: 'de.hybris.platform.order.CartService'
+
 }
 
-def easyBeans = context(ctype: 'groovy.lang.GroovyObject', scope: scriptScope(name: 'EasyBeans.groovy'))
+def easyBeans = context(scope: scriptScope(name: 'EasyBeans.groovy'))
 
 contributor(easyBeans) {
-    property name: 'easyCoreBeans', type: 'groovy.lang.Closure'
-    property name: 'easyRESTBeans', type: 'groovy.lang.Closure'
-    property name: 'easyWebBeans', type: 'groovy.lang.Closure'
+    // method name: 'easyCoreBeans', type: 'void', params: [beans: '@groovy.lang.DelegatesTo(value = org.springframework.beans.factory.support.DefaultListableBeanFactory.class) groovy.lang.Closure']
+    method name: 'easyCoreBeans', type: 'void', params: [beans: 'groovy.lang.Closure']
+    method name: 'easyRESTBeans', type: 'void', params: [beans: 'groovy.lang.Closure']
+    method name: 'easyWebBeans', type: 'void', params: [context: 'java.lang.String', beans: 'groovy.lang.Closure']
+}
+
+
+// get the context for all closures
+def ctx = context(scope: closureScope())
+
+contributor(ctx) {
+    // method name: 'easyCoreBeans', type: 'void', params: [beans: '@groovy.lang.DelegatesTo(value = org.springframework.beans.factory.support.DefaultListableBeanFactory.class) groovy.lang.Closure']
+    def call1 = enclosingCall('easyCoreBeans')
+    def call2 = enclosingCall('easyRESTBeans')
+    def call3 = enclosingCall('easyWebBeans')
+
+    if (call1 || call2 || call3) {
+        delegatesTo(findClass('org.springframework.beans.factory.support.DefaultListableBeanFactory'))
+    }
 }

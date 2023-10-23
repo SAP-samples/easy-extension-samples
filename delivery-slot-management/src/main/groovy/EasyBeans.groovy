@@ -1,11 +1,11 @@
 // import de.hybris.platform.converters.impl.AbstractPopulatingConverter
 // https://blog.mrhaki.com/2011/06/groovy-goodness-add-imports.html
-import static com.sap.cx.boosters.easy.core.extension.task.processor.impl.install.EasyBeanDefinitionReader.*
+// import static com.sap.cx.boosters.easy.core.extension.task.processor.impl.install.EasyBeanDefinitionReader.*
 import org.slf4j.LoggerFactory
 
 def easyExtensionName = 'delivery-slot-management'
 def LOG = LoggerFactory.getLogger("easy.${easyExtensionName}")
-LOG.info ">>> Registering Spring beans for ${easyExtensionName} ... AEI"
+LOG.info ">>> Registering Spring beans for ${easyExtensionName} ... AEX"
 
 println "Registering core beans for ${easyExtensionName}"
 

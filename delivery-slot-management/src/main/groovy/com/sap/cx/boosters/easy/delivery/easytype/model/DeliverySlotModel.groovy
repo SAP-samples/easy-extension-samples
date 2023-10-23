@@ -10,6 +10,7 @@ import de.hybris.platform.ordersplitting.model.WarehouseModel
 import de.hybris.platform.servicelayer.model.ItemModelContext
 
 class DeliverySlotModel extends ItemModel{
+
     public static final String _TYPECODE = "DeliverySlot"
     public static final String CODE = "code"
     public static final String WAREHOUSE = "warehouse"
@@ -18,84 +19,71 @@ class DeliverySlotModel extends ItemModel{
     public static final String ENDTIME = "endtime"
     public static final String AVAILABLE = "available"
 
-    DeliverySlotModel(){
+    DeliverySlotModel() {
         super()
     }
 
-    DeliverySlotModel(final ItemModelContext ctx)
-    {
+    DeliverySlotModel(final ItemModelContext ctx) {
         super(ctx)
     }
 
     @Accessor(qualifier = CODE, type = Accessor.Type.GETTER)
-    String getCode()
-    {
+    String getCode() {
         return getPersistenceContext().getPropertyValue(CODE)
     }
 
     @Accessor(qualifier = CODE, type = Accessor.Type.SETTER)
-    void setCode(final String value)
-    {
+    void setCode(final String value) {
         getPersistenceContext().setPropertyValue(CODE, value)
     }
 
     @Accessor(qualifier = WAREHOUSE, type = Accessor.Type.GETTER)
-    WarehouseModel getWarehouse()
-    {
+    WarehouseModel getWarehouse() {
         return getPersistenceContext().getPropertyValue(WAREHOUSE)
     }
 
     @Accessor(qualifier = WAREHOUSE, type = Accessor.Type.SETTER)
-    void setWarehouse(final WarehouseModel value)
-    {
+    void setWarehouse(final WarehouseModel value) {
         getPersistenceContext().setPropertyValue(WAREHOUSE, value)
     }
 
     @Accessor(qualifier = VEHICLE, type = Accessor.Type.GETTER)
-    VehicleModel getVehicle()
-    {
+    VehicleModel getVehicle() {
         return getPersistenceContext().getPropertyValue(VEHICLE)
     }
 
     @Accessor(qualifier = VEHICLE, type = Accessor.Type.SETTER)
-    void setVehicle(final VehicleModel value)
-    {
+    void setVehicle(final VehicleModel value) {
         getPersistenceContext().setPropertyValue(VEHICLE, value)
     }
 
     @Accessor(qualifier = STARTTIME, type = Accessor.Type.GETTER)
-    Date getStarttime()
-    {
+    Date getStarttime() {
         return getPersistenceContext().getPropertyValue(STARTTIME)
     }
 
     @Accessor(qualifier = STARTTIME, type = Accessor.Type.SETTER)
-    void setStarttime(final Date value)
-    {
+    void setStarttime(final Date value) {
         getPersistenceContext().setPropertyValue(STARTTIME, value)
     }
 
     @Accessor(qualifier = ENDTIME, type = Accessor.Type.GETTER)
-    Date getEndtime()
-    {
+    Date getEndtime() {
         return getPersistenceContext().getPropertyValue(ENDTIME)
     }
 
     @Accessor(qualifier = ENDTIME, type = Accessor.Type.SETTER)
-    void setEndtime(final Date value)
-    {
+    void setEndtime(final Date value) {
         getPersistenceContext().setPropertyValue(ENDTIME, value)
     }
 
     @Accessor(qualifier = AVAILABLE, type = Accessor.Type.GETTER)
-    Integer getAvailable()
-    {
+    Integer getAvailable() {
         return getPersistenceContext().getPropertyValue(AVAILABLE)
     }
 
     @Accessor(qualifier = AVAILABLE, type = Accessor.Type.SETTER)
-    void setAvailable(final Integer value)
-    {
+    void setAvailable(final Integer value) {
         getPersistenceContext().setPropertyValue(AVAILABLE, value)
     }
 

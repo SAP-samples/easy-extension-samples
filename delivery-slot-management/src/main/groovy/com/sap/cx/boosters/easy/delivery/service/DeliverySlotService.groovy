@@ -9,7 +9,6 @@ import de.hybris.platform.enumeration.EnumerationService
 import de.hybris.platform.ordersplitting.model.WarehouseModel
 import de.hybris.platform.servicelayer.model.ModelService
 import de.hybris.platform.servicelayer.search.FlexibleSearchService
-import org.springframework.beans.factory.annotation.Autowired
 
 import javax.annotation.PostConstruct
 import javax.annotation.Resource
