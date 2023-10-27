@@ -5,7 +5,6 @@
   "description": "Demonstrates cron job setup using an easy extension framework",
   "version": "0.0.1",
   "easyVersion": "0.2",
-  "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Google_Pay_Logo.svg",
   "documentation": "https://github.tools.sap/cx-boosters/easy-extension-samples/blob/main/cronjob-demo/README.md",
   "authors": [
     "Amit Panwar"
