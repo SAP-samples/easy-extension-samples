@@ -1,0 +1,37 @@
+{
+  "itemtypes": [
+    {
+      "code": "CronJobDemo",
+      "name": [
+        {
+          "lang": "en",
+          "value": "Demo Cronjob"
+        }
+      ],
+      "superType": "CronJob",
+      "attributes": [
+        {
+          "qualifier": "demoConfiguration",
+          "type": "java.lang.String",
+          "name": [
+            {
+              "lang": "en",
+              "value": "Demo Configuration"
+            }
+          ],
+          "persistence": {
+            "type": "property",
+            "column": "p_democonfiguration"
+          },
+          "modifiers": {
+            "unique": "false",
+            "initial": "false",
+            "optional": "false",
+            "write": "true",
+            "partof": "false"
+          }
+        }
+      ]
+    }
+  ]
+}
