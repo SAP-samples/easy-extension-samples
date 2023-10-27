@@ -8,9 +8,9 @@
     </content>
     <orderEntry type="jdk" jdkName="17" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="groovy-4.0.2 (4)" level="project" />
     <orderEntry type="module" module-name="easyrest" />
     <orderEntry type="module" module-name="commercefacades" />
+    <orderEntry type="module" module-name="commercewebservicescommons" />
   </component>
   <component name="SonarLintModuleSettings">
     <option name="uniqueId" value="b97e971d-0bea-46b1-9b60-b4fb2d6f299b" />
