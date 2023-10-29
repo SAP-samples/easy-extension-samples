@@ -32,14 +32,15 @@ class DeliverySlotService {
     @Resource
     EnumerationService enumerationService
 
-    // DeliverySlotStatus BOOKED
+    public DeliverySlotStatus BOOKED
 
-    // DeliverySlotStatus CONFIRMED
+    public DeliverySlotStatus CONFIRMED
 
     @PostConstruct
     def init() {
 
-        /*
+        println 'initializing bean'
+
         def classLoaderHierarchy = {ClassLoader cl ->
             def pad = 0
             while (cl) {
@@ -49,18 +50,29 @@ class DeliverySlotService {
             }
         }
 
-        def _BOOKED = enumerationService.getEnumerationValue('DeliverySlotStatus','BOOKED')
-        def _CONFIRMED = enumerationService.getEnumerationValue('DeliverySlotStatus','CONFIRMED')
+        Object _BOOKED = enumerationService.getEnumerationValue('DeliverySlotStatus','BOOKED')
+        Object _CONFIRMED = enumerationService.getEnumerationValue('DeliverySlotStatus','CONFIRMED')
+
         println ">>> ${_BOOKED} [${_BOOKED.class}]"
         classLoaderHierarchy(_BOOKED.class.classLoader)
+
         println ">>> ${_CONFIRMED} [${_CONFIRMED.class}]"
         classLoaderHierarchy(_CONFIRMED.class.classLoader)
+
         println ">>> ${DeliverySlotStatus} [${DeliverySlotStatus.classLoader}]"
         classLoaderHierarchy(DeliverySlotStatus.classLoader)
-        */
 
-        // BOOKED = enumerationService.getEnumerationValue('DeliverySlotStatus','BOOKED')
-        // CONFIRMED = enumerationService.getEnumerationValue('DeliverySlotStatus','CONFIRMED')
+        if (_BOOKED.class.isAssignableFrom(DeliverySlotStatus.class)) {
+            BOOKED = _BOOKED
+        } else {
+            println 'can\'t set BOOKED'
+        }
+
+        if (_CONFIRMED.class.isAssignableFrom(DeliverySlotStatus.class)) {
+            CONFIRMED = _CONFIRMED
+        } else {
+            println 'can\'t set CONFIRMED'
+        }
 
     }
 
@@ -144,12 +156,12 @@ class DeliverySlotService {
         searchResult.count > 0 ? searchResult.result.get(0) : null
     }
 
-    def getBOOKED(){
-        enumerationService.getEnumerationValue('DeliverySlotStatus','BOOKED')
-    }
+    // def getBOOKED(){
+    //     enumerationService.getEnumerationValue('DeliverySlotStatus','BOOKED')
+    // }
 
-    def getCONFIRMED(){
-        enumerationService.getEnumerationValue('DeliverySlotStatus','CONFIRMED')
-    }
+    // def getCONFIRMED(){
+    //     enumerationService.getEnumerationValue('DeliverySlotStatus','CONFIRMED')
+    // }
 
 }

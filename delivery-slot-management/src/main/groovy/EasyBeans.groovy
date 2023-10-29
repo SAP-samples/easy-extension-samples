@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory
 
 def easyExtensionName = 'delivery-slot-management'
 def LOG = LoggerFactory.getLogger("easy.${easyExtensionName}")
-LOG.info ">>> Registering Spring beans for ${easyExtensionName} ... AEX"
+LOG.info ">>> Registering Spring beans for ${easyExtensionName} ... ATW"
 
 println "Registering core beans for ${easyExtensionName}"
 

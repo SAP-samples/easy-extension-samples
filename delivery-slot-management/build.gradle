@@ -51,6 +51,19 @@ dependencies {
     implementation hybrisLibrary()
 }
 
+sourceSets {
+    models {
+        java {
+            srcDirs('src/models')
+        }
+    }
+}
+
+configurations {
+    modelsImplementation.extendsFrom(implementation)
+}
+
+
 tasks.named('test') {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
