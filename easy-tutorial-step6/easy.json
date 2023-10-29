@@ -19,5 +19,11 @@
     "tags": [
         "easy",
         "tutorial"
-    ]
+    ],
+    "requires" : {
+        "commerce": [
+            "easyrest",
+            "commercewebservicescommons"
+        ]
+    }
 }

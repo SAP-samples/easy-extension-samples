@@ -4,12 +4,14 @@
     <exclude-output />
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src/main/groovy" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/groovy" isTestSource="true" />
     </content>
     <orderEntry type="jdk" jdkName="17" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="easyrest" />
+    <orderEntry type="module" module-name="commercewebservicescommons" />
   </component>
   <component name="SonarLintModuleSettings">
-    <option name="uniqueId" value="404c782b-b06e-42e4-b827-124f26cd1532" />
+    <option name="uniqueId" value="05f3d78c-4eb9-4e93-abb1-9865f4444600" />
   </component>
 </module>

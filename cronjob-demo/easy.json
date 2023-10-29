@@ -1,0 +1,23 @@
+{
+  "groupId": "com.sap.cx.boosters.easy",
+  "id": "cronjob-demo",
+  "name": "Cron Job Demo",
+  "description": "Demonstrates cron job setup using an easy extension framework",
+  "version": "0.0.1",
+  "easyVersion": "0.2",
+  "documentation": "https://github.tools.sap/cx-boosters/easy-extension-samples/blob/main/cronjob-demo/README.md",
+  "authors": [
+    "Amit Panwar"
+  ],
+  "vendor": "SAP",
+  "tags": [
+    "cron job",
+    "demo"
+  ],
+  "requires": {
+    "commerce": [
+      "easyrest",
+      "commercefacades"
+    ]
+  }
+}

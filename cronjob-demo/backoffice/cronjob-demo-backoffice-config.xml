@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2022. SAP SE or an SAP affiliate company. All rights reserved.
+  -->
+<config xmlns="http://www.hybris.com/cockpit/config">
+    <context type="CronJobDemo">
+        <context component="editor-area" merge-by="type" parent="CronJob">
+            <editorArea:editorArea xmlns:editorArea="http://www.hybris.com/cockpitng/component/editorArea">
+                <editorArea:tab name="hmc.tab.common">
+                    <editorArea:section name="hmc.properties">
+                        <editorArea:attribute qualifier="demoConfiguration"/>
+                    </editorArea:section>
+                </editorArea:tab>
+            </editorArea:editorArea>
+        </context>
+    </context>
+</config>

@@ -1,17 +1,25 @@
 {
-    "groupId": "com.sap.cx.boosters.easy",
-    "id": "DeliverySlotManagementBtp",
-    "name": "Delivery Slot Management Btp",
-    "version": "0.0.2",
-    "easyVersion": "0.2",
-    "description": "Extension used for the Easy tutorial, integrating with BTP microservice",
-    "documentation": "https://github.com/apanwar/easy-extensions/blob/main/README.md",
-    "authors": [
-        "Michele Gallina"
-    ],
-    "vendor": "SAP",
-    "tags": [
-        "easy",
-        "demo"
+  "groupId": "com.sap.cx.boosters.easy",
+  "id": "DeliverySlotManagementBtp",
+  "name": "Delivery Slot Management Btp",
+  "version": "0.0.2",
+  "easyVersion": "0.2",
+  "description": "Extension used for the Easy tutorial, integrating with BTP microservice",
+  "documentation": "https://github.com/apanwar/easy-extensions/blob/main/README.md",
+  "authors": [
+    "Michele Gallina"
+  ],
+  "vendor": "SAP",
+  "tags": [
+    "easy",
+    "demo"
+  ],
+  "requires": {
+    "commerce": [
+      "easyrest",
+      "commercewebservicescommons",
+      "commercefacades",
+      "outboundservices"
     ]
+  }
 }
