@@ -1,0 +1,8 @@
+plugins {
+    id 'com.sap.cx.boosters.easy'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+

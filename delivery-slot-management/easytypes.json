@@ -1,4 +1,5 @@
 {
+
   "enumtypes": [
     {
       "code": "DeliverySlotStatus",
@@ -9,6 +10,7 @@
       ]
     }
   ],
+
   "itemtypes": [
     {
       "code": "Vehicle", "autocreate": "true", "generate": "true", "superType": "GenericItem",

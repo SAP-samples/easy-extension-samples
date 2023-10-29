@@ -1,0 +1,3 @@
+rootProject.name = 'configurable-cronjob'
+
+includeBuild '../easy-gradle-plugin'
