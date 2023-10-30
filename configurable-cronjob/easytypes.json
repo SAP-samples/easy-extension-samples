@@ -44,7 +44,7 @@
           "type": "java.lang.Integer",
           "name": [{"lang": "en", "value": "Max Duration"}],
           "persistence": {"type": "property", "column": "p_maxduration"},
-          "modifiers": {"unique": "false", "initial": "false", "optional": "false", "write": "true"}
+          "modifiers": {"unique": "false", "initial": "false", "optional": "true", "write": "true"}
         }
       ]
     }

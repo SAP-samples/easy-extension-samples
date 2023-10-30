@@ -14,7 +14,7 @@ class ConfigurableJobPerformable extends AbstractJobPerformable<ConfigurableCron
 
     @Override
     PerformResult perform(ConfigurableCronJobModel cronJob) {
-        LOG.info('cronjob configuration : {}', cronJob.configuration)
+        LOG.info('cronjob configuration : {}', cronJob.params)
         return new PerformResult(CronJobResult.SUCCESS, CronJobStatus.FINISHED)
     }
 

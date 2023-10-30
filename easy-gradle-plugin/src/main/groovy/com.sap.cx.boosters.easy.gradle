@@ -7,12 +7,12 @@ repositories {
 }
 
 sourceSets {
-    main {
-        java {
-            srcDirs('src/main')
-            // exclude '.*/easytype/.*'
-        }
-    }
+    // main {
+    //     java {
+    //         srcDirs('src/main')
+    //         // exclude '.*/easytype/.*'
+    //     }
+    // }
     models {
         java {
             srcDirs('src/models')
@@ -22,12 +22,20 @@ sourceSets {
 
 configurations {
     modelsImplementation.extendsFrom(implementation)
+    // modelsRuntimeOnly.extendsFrom(runtimeOnly)
 }
 
 dependencies {
-    implementation 'org.codehaus.groovy:groovy-all:3.0.9'
+
+    implementation 'org.codehaus.groovy:groovy-all:3.0.12'
+    // modelsImplementation 'org.codehaus.groovy:groovy-all:3.0.12'
+
     implementation sourceSets.models.output
     implementation hybrisLibrary()
+
+    // testImplementation sourceSets.models.output
+    // testImplementation hybrisLibrary()
+
 }
 
 def localExtensionCP(String hybrisHome) {
