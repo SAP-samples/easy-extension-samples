@@ -14,11 +14,3 @@ dependencies {
 tasks.named('test') {
     useJUnitPlatform()
 }
-
-tasks.register('dumpProperties') {
-    doLast {
-        project.properties.sort{it.key}.each{p ->
-            println "${p.key} ${p.value?.getClass()?.name}"
-        }
-    }
-}
