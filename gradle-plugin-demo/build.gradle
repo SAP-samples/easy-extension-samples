@@ -1,0 +1,24 @@
+plugins {
+    id 'groovy'
+    id 'io.github.yannickrobin.easyplugin' version '0.0.3-SNAPSHOT'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation commercePlatformLibraries
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+tasks.register('dumpProperties') {
+    doLast {
+        project.properties.sort{it.key}.each{p ->
+            println "${p.key} ${p.value?.getClass()?.name}"
+        }
+    }
+}

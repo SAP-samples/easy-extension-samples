@@ -1,0 +1,5 @@
+INSERT_UPDATE ServicelayerJob;code[unique=true];springId
+;configurableJob;configurableJobPerformable
+
+INSERT_UPDATE ConfigurableCronJob;code[unique=true];job(code);type(code);params;maxDuration;sessionLanguage(isocode);sessionCurrency(isocode);sessionUser(uid)
+;configurableCronJob;configurableJob;EXPORT;param1->value1;60;en;EUR;admin

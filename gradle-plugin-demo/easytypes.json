@@ -1,0 +1,53 @@
+{
+
+  "maptypes":[
+    {
+      "code": "CronJobParametersMap",
+      "name" : [{"lang" : "en", "value" : "CronJob Parameters"}],
+      "argumentType" : "java.lang.String", "returntype" :"java.lang.String"
+    }
+  ],
+
+  "enumtypes" : [
+    {
+      "code" : "CronJobType",
+      "name" : [{"lang" : "en", "value" : "Easy Enum"}],
+      "values" : [
+        {"code" : "IMPORT", "name" : [{"lang" : "en", "value" : "Import"}]},
+        {"code" : "EXPORT", "name" : [{"lang" : "en", "value" : "Export"}]}
+      ]
+    }
+  ],
+
+  "itemtypes" : [
+    {
+      "code": "ConfigurableCronJob",
+      "name": [{"lang": "en", "value": "Configurable Demo Cronjob"}],
+      "superType": "CronJob",
+      "attributes": [
+        {
+          "qualifier": "params",
+          "type": "CronJobParametersMap",
+          "name": [{"lang": "en", "value": "Configuration Parameters"}],
+          "persistence": {"type": "property", "column": "p_params"},
+          "modifiers": {"unique": "false", "initial": "false", "optional": "false", "write": "true", "partof": "false"}
+        },
+        {
+          "qualifier": "type",
+          "type": "CronJobType",
+          "name": [{"lang": "en", "value": "Type"}],
+          "persistence": {"type": "property", "column": "p_type"},
+          "modifiers": {"unique": "false", "initial": "false", "optional": "false", "write": "true"}
+        },
+        {
+          "qualifier": "maxDuration",
+          "type": "java.lang.Integer",
+          "name": [{"lang": "en", "value": "Max Duration"}],
+          "persistence": {"type": "property", "column": "p_maxduration"},
+          "modifiers": {"unique": "false", "initial": "false", "optional": "true", "write": "true"}
+        }
+      ]
+    }
+  ]
+
+}
