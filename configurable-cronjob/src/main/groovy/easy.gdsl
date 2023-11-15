@@ -5,8 +5,8 @@ contributor(easyDSL) {
 
     property name: 'abstractJobPerformable', type: 'de.hybris.platform.servicelayer.cronjob.AbstractJobPerformable'
     property name: 'cronJobService', type: 'de.hybris.platform.servicelayer.cronjob.CronJobService'
-    // property name: 'configurationService', type: 'de.hybris.platform.servicelayer.config.ConfigurationService'
-    // property name: 'flexibleSearchService', type: 'de.hybris.platform.servicelayer.search.FlexibleSearchService'
+    property name: 'configurationService', type: 'de.hybris.platform.servicelayer.config.ConfigurationService'
+    property name: 'flexibleSearchService', type: 'de.hybris.platform.servicelayer.search.FlexibleSearchService'
     // property name: 'modelService', type: 'de.hybris.platform.servicelayer.model.ModelService'
     // property name: 'typeService', type: 'de.hybris.platform.servicelayer.type.TypeService'
     // property name: 'userService', type: 'de.hybris.platform.servicelayer.user.UserService'

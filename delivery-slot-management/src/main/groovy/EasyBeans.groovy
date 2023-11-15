@@ -1,29 +1,30 @@
-// import de.hybris.platform.converters.impl.AbstractPopulatingConverter
-// https://blog.mrhaki.com/2011/06/groovy-goodness-add-imports.html
-// import static com.sap.cx.boosters.easy.core.extension.task.processor.impl.install.EasyBeanDefinitionReader.*
-import org.slf4j.LoggerFactory
+import com.sap.cx.boosters.easy.delivery.handler.DeliverySlotManagementAttributeHandler
+import com.sap.cx.boosters.easy.delivery.placeorderhook.HomeDeliveryCommercePlaceOrderMethodHook
+import com.sap.cx.boosters.easy.delivery.populators.HomeDeliveryModeOrderPopulator
+import com.sap.cx.boosters.easy.delivery.service.DeliverySlotCleanupService
+import com.sap.cx.boosters.easy.delivery.service.DeliverySlotService
+import com.sap.cx.boosters.easy.delivery.service.EasyEnhancedWarehouseService
+import com.sap.cx.boosters.easy.delivery.service.EasyWarehouseService
+import de.hybris.platform.servicelayer.internal.dao.DefaultGenericDao
 
-def easyExtensionName = 'delivery-slot-management'
-def LOG = LoggerFactory.getLogger("easy.${easyExtensionName}")
-LOG.info ">>> Registering Spring beans for ${easyExtensionName} ... ATW"
-
-println "Registering core beans for ${easyExtensionName}"
+logger.info "[${extension.id}] registering Spring beans for ..."
 
 easyCoreBeans {
 
-	deliverySlotService(com.sap.cx.boosters.easy.delivery.service.DeliverySlotService)
-	deliverySlotCleanupService(com.sap.cx.boosters.easy.delivery.service.DeliverySlotCleanupService)
-	defaultCartGenericDao(de.hybris.platform.servicelayer.internal.dao.DefaultGenericDao, 'Cart')
-	homeDeliveryCommercePlaceOrderMethodHook(com.sap.cx.boosters.easy.delivery.placeorderhook.HomeDeliveryCommercePlaceOrderMethodHook)
-	deliverySlotManagementAttributeHandler(com.sap.cx.boosters.easy.delivery.handler.DeliverySlotManagementAttributeHandler)
-	homeDeliveryModeOrderPopulator(com.sap.cx.boosters.easy.delivery.populators.HomeDeliveryModeOrderPopulator)
+	deliverySlotService(DeliverySlotService)
+	deliverySlotCleanupService(DeliverySlotCleanupService)
+	defaultCartGenericDao(DefaultGenericDao, 'Cart')
+	homeDeliveryCommercePlaceOrderMethodHook(HomeDeliveryCommercePlaceOrderMethodHook)
+	deliverySlotManagementAttributeHandler(DeliverySlotManagementAttributeHandler)
+	homeDeliveryModeOrderPopulator(HomeDeliveryModeOrderPopulator)
 
-	easyWarehouseService(com.sap.cx.boosters.easy.delivery.service.EasyWarehouseService)
-	easyEnhancedWarehouseService(com.sap.cx.boosters.easy.delivery.service.EasyEnhancedWarehouseService)
+	easyWarehouseService(EasyWarehouseService)
+	easyEnhancedWarehouseService(EasyEnhancedWarehouseService)
 	registerAlias('easyEnhancedWarehouseService', 'warehouseService')
 
 }
 
+/*
 println 'Adding the CommercePlaceOrderHook:'
 commercePlaceOrderMethodHooks.removeAll { it.getClass().simpleName.equalsIgnoreCase('HomeDeliveryCommercePlaceOrderMethodHook')}
 commercePlaceOrderMethodHooks.add(homeDeliveryCommercePlaceOrderMethodHook)
@@ -31,10 +32,11 @@ commercePlaceOrderMethodHooks.add(homeDeliveryCommercePlaceOrderMethodHook)
 println 'Modifying order populator for the home delivery mode:'
 orderConverter.populators.removeAll { it.getClass().simpleName.equalsIgnoreCase('HomeDeliveryModeOrderPopulator')}
 orderConverter.populators.add(homeDeliveryModeOrderPopulator)
+*/
 
-println "Registering REST beans for ${easyExtensionName}"
+println "Registering REST beans for ${extension.id}"
 
-easyRESTBeans {
+easyWebBeans('/easyrest') {
 
 	availableSlotsController(com.sap.cx.boosters.easy.delivery.controller.AvailableSlotsController)
 	bookDeliveryController(com.sap.cx.boosters.easy.delivery.controller.BookDeliveryController)
@@ -45,12 +47,4 @@ easyRESTBeans {
 
 }
 
-println "Registering web /hac beans for ${easyExtensionName}"
-
-easyWebBeans('/hac') {
-
-	changeDeliveryController(com.sap.cx.boosters.easy.delivery.controller.ChangeDeliveryController)
-
-}
-
-LOG.info "Beans registered for ${easyExtensionName}"
+logger.info "[${extension.id}] beans registered ..."

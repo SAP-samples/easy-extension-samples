@@ -1,1 +1,17 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        mavenLocal()
+        /*
+        maven {
+            url 'https://common.repositories.cloud.sap/artifactory/i309827/'
+            credentials {
+                username System.getenv('USER')
+                password sapRepositoryPassword
+            }
+        }
+        */
+    }
+}
+
 rootProject.name = 'delivery-slot-management'

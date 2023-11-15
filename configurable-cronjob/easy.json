@@ -1,7 +1,7 @@
 {
   "groupId": "com.sap.cx.boosters.easy",
-  "id": "configurablecronjob",
-  "name": "Configurable Cron Job Demo",
+  "id": "configurablecronjob-v0.3",
+  "name": "Configurable Cron Job Demo v0.3",
   "description": "Demonstrates cron job setup using an easy extension framework",
   "version": "0.0.1",
   "easyVersion": "0.2",

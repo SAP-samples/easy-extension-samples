@@ -1,3 +1,17 @@
-rootProject.name = 'configurable-cronjob'
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        mavenLocal()
+        /*
+        maven {
+            url 'https://common.repositories.cloud.sap/artifactory/i309827/'
+            credentials {
+                username System.getenv('USER')
+                password sapRepositoryPassword
+            }
+        }
+        */
+    }
+}
 
-includeBuild '../easy-gradle-plugin'
+rootProject.name = 'configurable-cronjob'

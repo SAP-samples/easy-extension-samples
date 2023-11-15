@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2022. SAP SE or an SAP affiliate company. All rights reserved.
  */
-package com.sap.cx.boosters.easy.delivery.easytype.model
+package com.sap.cx.boosters.easy.delivery.easytype.models
 
 import de.hybris.bootstrap.annotations.Accessor
 import de.hybris.platform.core.model.order.CartModel

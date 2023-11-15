@@ -1,8 +1,8 @@
 package com.sap.cx.boosters.easy.delivery.service
 
 import com.sap.cx.boosters.easy.delivery.easytype.enums.DeliverySlotStatus
-import com.sap.cx.boosters.easy.delivery.easytype.model.DeliverySlotManagementModel
-import com.sap.cx.boosters.easy.delivery.easytype.model.DeliverySlotModel
+import com.sap.cx.boosters.easy.delivery.easytype.models.DeliverySlotManagementModel
+import com.sap.cx.boosters.easy.delivery.easytype.models.DeliverySlotModel
 import de.hybris.platform.core.model.order.CartModel
 import de.hybris.platform.core.model.order.OrderModel
 import de.hybris.platform.enumeration.EnumerationService
@@ -38,42 +38,8 @@ class DeliverySlotService {
 
     @PostConstruct
     def init() {
-
-        println 'initializing bean'
-
-        def classLoaderHierarchy = {ClassLoader cl ->
-            def pad = 0
-            while (cl) {
-                println((' '* pad) + "${cl} [${cl.class.name}]")
-                cl = cl.parent
-                pad++
-            }
-        }
-
-        Object _BOOKED = enumerationService.getEnumerationValue('DeliverySlotStatus','BOOKED')
-        Object _CONFIRMED = enumerationService.getEnumerationValue('DeliverySlotStatus','CONFIRMED')
-
-        println ">>> ${_BOOKED} [${_BOOKED.class}]"
-        classLoaderHierarchy(_BOOKED.class.classLoader)
-
-        println ">>> ${_CONFIRMED} [${_CONFIRMED.class}]"
-        classLoaderHierarchy(_CONFIRMED.class.classLoader)
-
-        println ">>> ${DeliverySlotStatus} [${DeliverySlotStatus.classLoader}]"
-        classLoaderHierarchy(DeliverySlotStatus.classLoader)
-
-        if (_BOOKED.class.isAssignableFrom(DeliverySlotStatus.class)) {
-            BOOKED = _BOOKED
-        } else {
-            println 'can\'t set BOOKED'
-        }
-
-        if (_CONFIRMED.class.isAssignableFrom(DeliverySlotStatus.class)) {
-            CONFIRMED = _CONFIRMED
-        } else {
-            println 'can\'t set CONFIRMED'
-        }
-
+        BOOKED = enumerationService.getEnumerationValue('DeliverySlotStatus','BOOKED')
+        CONFIRMED = enumerationService.getEnumerationValue('DeliverySlotStatus','CONFIRMED')
     }
 
     List<DeliverySlotModel> getAvailableDeliverySlots(Date start, Date end, WarehouseModel warehouse) {
@@ -155,13 +121,5 @@ class DeliverySlotService {
         def searchResult = flexibleSearchService.search(QUERY_GET_SLOT_MANAGEMENT, [slotManagementCode:code])
         searchResult.count > 0 ? searchResult.result.get(0) : null
     }
-
-    // def getBOOKED(){
-    //     enumerationService.getEnumerationValue('DeliverySlotStatus','BOOKED')
-    // }
-
-    // def getCONFIRMED(){
-    //     enumerationService.getEnumerationValue('DeliverySlotStatus','CONFIRMED')
-    // }
-
+    
 }

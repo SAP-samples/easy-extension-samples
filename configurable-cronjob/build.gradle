@@ -1,8 +1,25 @@
 plugins {
-    id 'com.sap.cx.boosters.easy'
+    id 'groovy'
+    id 'io.github.yannickrobin.easyplugin' version '0.0.3-SNAPSHOT'
+}
+
+repositories {
+    mavenCentral()
 }
 
 tasks.named('test') {
+    // Use JUnit Platform for unit tests.
     useJUnitPlatform()
 }
 
+dependencies {
+
+    // Use the awesome Spock testing and specification framework even with Java
+    testImplementation 'org.spockframework:spock-core:2.3-groovy-3.0'
+    testImplementation 'junit:junit:4.13.2'
+    // testImplementation 'org.codehaus.groovy.modules.http-builder:http-builder:0.7.1'
+
+    // this loads hybris libraries for groovy scripts
+    implementation commercePlatformLibraries
+
+}
