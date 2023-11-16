@@ -2,7 +2,7 @@
 
 In this tutorial, we will build a new extension to add new features that do not exist in SAP Commerce Cloud out-of-the-box. As an exercise, we will create an extension to manage delivery slots.
 
-To understand what we will build during this tutorial, you can check the final outcome: [delivery-slot-management](https://github.tools.sap/cx-boosters/easy-extension-samples/tree/main/delivery-slot-management/README.md) extension. You will find in the documentation the list of features.
+To understand what we will build during this tutorial, you can check the final outcome: [delivery-slot-management](../delivery-slot-management/README.md) extension. You will find in the documentation the list of features.
 
 In this tutorial, you will learn:
 - [How to setup your development environment](#easy-tutorial-step-1---setup-your-development-environment)
@@ -24,10 +24,10 @@ Here are the instructions to configure locally the extension and make it works. 
 
 ### Install SAP Commerce Platform
 
-First thing is then to install the latest 2205 commerce version. Follow the official documentation:
+First thing is then to install the latest 2211 commerce version. Follow the official documentation:
 
-- [Using the Installer Recipes](https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/8be4e0379b294fbabf36d26e7ca4169d/cb3ff964e4784073a70f06165efbac8a.html?locale=en-US&version=v2205) to install using the cx recipe
-- [Installing SAP Commerce Cloud Manually](https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/8be4e0379b294fbabf36d26e7ca4169d/8bf5cfea86691014a00e9705a3c84074.html?locale=en-US&version=v2205) to install manually if you know the required extensions to set up the electronics or apparel-uk accelerator
+- [Using the Installer Recipes](https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/8be4e0379b294fbabf36d26e7ca4169d/cb3ff964e4784073a70f06165efbac8a.html) to install using the cx recipe
+- [Installing SAP Commerce Cloud Manually](https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/8be4e0379b294fbabf36d26e7ca4169d/8bf5cfea86691014a00e9705a3c84074.html) to install manually if you know the required extensions to set up the electronics or apparel-uk accelerator
 
 ### Install the Easy Framework
 1. Download [Easy Extension Framework](https://github.com/SAP/easy-extension-framework)
@@ -62,29 +62,32 @@ Easy extensions have to be installed through the Administration Console:
 
 ### Set up the extension locally on your IDE
 
-To set up the **easy-tutorial-step1** extension in your local IDE you need to:
-1. add a file _gradle.properties_ to the root of the extension.
+To set up the **easy-tutorial-step1** extension in your local IDE you need to set following variables to `gradle.properties` in your root folder of your gradle project:
+
 ```
-easyRepoDir=/Users/I318914/SAPDevelop/projects/Easy/repoEasy/easy-extension-samples/easy-tutorial-step1
+easyRepoDir=path/to/your/repo/root/easy-extension-samples/easy-tutorial-step1
 easyDeployUrl=http://localhost:9001/easyrest/easy/deploy
 systemProp.org.ajoberstar.grgit.auth.username=<my git username>
 systemProp.org.ajoberstar.grgit.auth.password=<my personal git token>
-groovyHacHybrisHomeDir=/Users/I318914/SAPDevelop/projects/Easy/CXCOMCL221100P_5-70007431/hybris
+commercePlatformHome=/path/to/your/hybris/home
 ```
-The first four properties are needed if you want to use gradle and the grgit plugin to deploy your extension locally (it's not really needed, you can simply adopt the procedure we've described above)
-The last groovyHacHybrisHomeDir property must point to the local installation of your Commerce platform and will be used to set up all dependencies 
-from the platform extensions so that your easy extension can be imported in the IDE without issues.
-Here's how you can set up IntelliJ IDEA with the extension. First import your Commerce project into IDEA.
-2. import your Commerce project into IDEA
-3. import a new module from existing sources following these steps:
-   1. click on File -> Project Structure -> Module -> + -> Import Module
-      ![img_3.png](./images/img_3.png)
-   2. in the wizard, select the root folder of the easy-tutorial-step1 extension and then select _Import module from external_ and select _Gradle_ option
-   ![img_4.png](./images/img_4.png)
-   3. Click _Finish_ to complete the import process. You should be able to correctly see the imported easy extension
-   ![img_10.png](./images/img_10.png)
 
-That's it! You should now be able to develop with your IDE and also when needed you can start the Remote debugging and debug the groovy code of easy extension that you installed. 
+The first four properties are needed if you want to use gradle and the grgit plugin to deploy your extension locally (it's not really needed, you can simply adopt the procedure we've described above)
+
+The last commercePlatformHome property must point to the local installation of your Commerce platform (the folder containing `HYBRIS_BIN_DIR`) and will be used to set up all dependencies 
+from the platform extensions so that your easy extension can be imported in the IDE without issues.
+
+To start working with you IDE you just need to import this project as a Gradle project.
+
+For IntelliJ IDEA just go to `File > New > Project From Existing Sources...` and choose Gradle project type:
+
+![img_11.png](./images/img_11.png)
+
+You can work standalone you don't need to import commerce project in you IDE (1). If you correctly set `commercePlatformHome` in your `gradle.properties` file you should see 
+Commerce libraries in Gradle dependencies on the right (2).
+
+Note `gradle.properties` is supposed to contain personal settings and it's included in `.gitignore`. An alternative location for personal settings is `$GRADLE_HOME/gradle.properties` file.
+By default `$GRADLE_HOME` corresponds to `$HOME/.gradle`.
 
 ## Your mission
 Your only task for this step of the tutorial is to follow the above instructions for the setup of your local environment. Once completed, you can execute the sample unite test, simply running _gradle test_ from the root of the project and you should see also a generated report under the _build/reports_ folder.

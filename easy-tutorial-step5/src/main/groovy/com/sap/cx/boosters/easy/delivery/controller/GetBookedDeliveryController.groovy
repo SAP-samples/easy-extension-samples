@@ -12,6 +12,7 @@ class GetBookedDeliveryController implements EasyRestServiceController {
 
     @Override
     Map<String, Object> execute(Map<String, Object> ctx) {
+
         def response = [:]
         def userId = ctx.pathParameters.userId
         def cartId = ctx.pathParameters.cartId

@@ -3,7 +3,7 @@
  */
 package com.sap.cx.boosters.easy.delivery
 
-import com.sap.cx.boosters.easy.delivery.easytype.model.DeliverySlotManagementModel
+import com.sap.cx.boosters.easy.delivery.easytype.models.DeliverySlotManagementModel
 import com.sap.cx.boosters.easy.delivery.service.DeliverySlotService
 import de.hybris.platform.core.model.order.CartModel
 import de.hybris.platform.enumeration.EnumerationService
@@ -40,4 +40,5 @@ class DeliverySlotServiceTest extends Specification {
         getResult() >> [Stub(DeliverySlotManagementModel)]
         getCount() >> 1
     }
+
 }

@@ -1,30 +1,15 @@
-import de.hybris.platform.core.Registry
-import org.slf4j.LoggerFactory
-import org.springframework.beans.factory.groovy.GroovyBeanDefinitionReader
-import org.springframework.beans.factory.support.BeanDefinitionRegistry
-import org.springframework.beans.factory.support.DefaultListableBeanFactory
+logger.info "[${extension.id}] registering Spring beans for ..."
 
-LOG = LoggerFactory.getLogger("easy-tutorial-step2")
-def applicationName = spring.getApplicationName()
-LOG.info("Registering Spring beans for ${applicationName}...")
+println "Registering core beans for ${extension.id}"
 
-beanFactory = (DefaultListableBeanFactory) Registry.getCoreApplicationContext().getBeanFactory()
-def reader = new GroovyBeanDefinitionReader(beanFactory)
+easyCoreBeans {
 
-println "Registering beans on Core Application Context: " + Registry.getCoreApplicationContext()
-
-reader.beans {
 }
 
+println "Registering easyrest beans for ${extension.id}"
 
+easyWebBeans('/easyrest') {
 
-println "Registering beans on Web Application Context: " + spring
-
-reader = new GroovyBeanDefinitionReader(spring.beanFactory as BeanDefinitionRegistry)
-if (applicationName == '/easyrest') {
-	reader.beans {
-	}
 }
 
-
-LOG.info("Spring beans registered for ${applicationName}")
+logger.info "[${extension.id}] beans registered ..."

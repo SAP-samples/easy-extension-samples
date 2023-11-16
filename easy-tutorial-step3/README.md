@@ -10,19 +10,47 @@ We've implemented a few methods of the service as an example. As you can see the
 
 ## Register the service
 Service has been registered in the Spring context using the `EasyBeans.groovy` script.
-```
-reader.beans {
-	deliverySlotService(com.sap.cx.boosters.easy.delivery.service.DeliverySlotService) {
-		flexibleSearchService = spring.getBean('flexibleSearchService')
-		modelService = spring.getBean('modelService')
-		enumerationService = spring.getBean('enumerationService')
-	}
+
+```groovy
+easyCoreBeans {
+
+	deliverySlotService(com.sap.cx.boosters.easy.delivery.service.DeliverySlotService)
+
 }
 ```
-As you can see, also the required dependencies are injected into the service using `EasyBeans.groovy` script.
 
+Note in this example dependencies are inject using `@javax.annotation.Resource` annotations in `com.sap.cx.boosters.easy.delivery.service.DeliverySlotService`
+
+Alternative syntax is available:
+
+```groovy
+easyCoreBeans {
+
+	deliverySlotService(com.sap.cx.boosters.easy.delivery.service.DeliverySlotService) {
+        flexibleSearchService = ref('flexibleSearchService')
+        modelService = ref('modelService')
+        enumerationService = ref('enumerationService')
+    }
+
+}
+```
+
+or:
+
+```groovy
+easyCoreBeans {
+
+	deliverySlotService(com.sap.cx.boosters.easy.delivery.service.DeliverySlotService) {beanDef ->
+        beanDef.flexibleSearchService = flexibleSearchService
+        beanDef.modelService = modelService
+        beanDef.enumerationService = enumerationService
+    }
+
+}
+```
 
 ## Your mission
+
 These are your tasks to complete this tutorial step:
 - Complete the implementation of the Service methods that are tagged as TODO
 - Create unit tests for each implemented method

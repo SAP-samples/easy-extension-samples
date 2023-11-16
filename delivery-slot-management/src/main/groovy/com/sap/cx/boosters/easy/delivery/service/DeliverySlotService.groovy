@@ -16,9 +16,13 @@ import javax.annotation.Resource
 class DeliverySlotService {
 
     public static final QUERY_AVAILABLE_SLOTS = 'select {pk} from {DeliverySlot as ds} where {ds.warehouse} = ?warehouse and {ds.starttime} > ?start and {ds.endtime} < ?end and ({ds.available} - ({{select count(*) from {DeliverySlotManagement as dsm} where {dsm.deliveryslot}={ds.pk}}})) > 0'
+
     public static final QUERY_ALL_SLOTS = 'select {pk} from {DeliverySlot as ds} where {ds.warehouse} = ?warehouse and {ds.starttime} > ?start and {ds.endtime} < ?end order by {ds.starttime}'
+
     public static final QUERY_GET_SLOT = 'select {pk} from {DeliverySlot as ds} where {ds.code} = ?slotCode and ({ds.available} - ({{select count(*) from {DeliverySlotManagement as dsm} where {dsm.deliveryslot}={ds.pk}}})) > 0'
+
     public static final QUERY_GET_SLOT_MANAGEMENT = 'select {pk} from {DeliverySlotManagement as dsm} where {dsm.code} = ?slotManagementCode'
+
     public static final QUERY_GET_SLOT_MANAGEMENT_BY_CART = 'select {pk} from {DeliverySlotManagement as dsm join Cart as c on {dsm.abstractorder}={c.pk}} where {c.pk} = ?cart'
 
     def LOG = org.slf4j.LoggerFactory.getLogger('DeliverySlotService')

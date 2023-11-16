@@ -3,7 +3,6 @@
  */
 package com.sap.cx.boosters.easy.delivery
 
-
 import com.sap.cx.boosters.easy.delivery.service.HelloWorldService
 import org.junit.Test
 import spock.lang.Specification
@@ -21,4 +20,5 @@ class HelloWorldServiceTest extends Specification {
         then:
         result == "Hello World!"
     }
+
 }

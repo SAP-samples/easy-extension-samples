@@ -9,7 +9,8 @@ import spock.lang.Specification
 import static org.apache.http.HttpStatus.SC_OK
 
 class EasyRestTest extends Specification {
-    def restClient = new RESTClientNew( "https://localhost:9002")
+
+    def restClient = new RESTClientNew( 'https://localhost:9002')
 
     def "test availableSlots"() {
 
@@ -22,6 +23,6 @@ class EasyRestTest extends Specification {
             status == SC_OK
         }
 
-
     }
+
 }

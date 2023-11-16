@@ -3,7 +3,7 @@
  */
 package com.sap.cx.boosters.easy.delivery
 
-import com.sap.cx.boosters.easy.delivery.easytype.model.DeliverySlotManagementModel
+import com.sap.cx.boosters.easy.delivery.easytype.models.DeliverySlotManagementModel
 import com.sap.cx.boosters.easy.delivery.service.DeliverySlotService
 import de.hybris.platform.core.model.order.CartModel
 import de.hybris.platform.enumeration.EnumerationService
@@ -24,13 +24,13 @@ class DeliverySlotServiceTest extends Specification {
         given:
         def cart = Mock CartModel
         def deliverySlotService = new DeliverySlotService()
-        deliverySlotService.setFlexibleSearchService(flexibleSearchService)
-        deliverySlotService.setEnumerationService(enumerationService)
-        deliverySlotService.setModelService(modelService)
+        deliverySlotService.flexibleSearchService = flexibleSearchService
+        deliverySlotService.enumerationService = enumerationService
+        deliverySlotService.modelService = modelService
         flexibleSearchService.search(DeliverySlotService.QUERY_GET_SLOT_MANAGEMENT_BY_CART, _) >> searchResult
 
         when:
-        def result = deliverySlotService.bookDelivery("slot", cart)
+        def result = deliverySlotService.bookDelivery('slot', cart)
 
         then:
         result == null
@@ -40,4 +40,5 @@ class DeliverySlotServiceTest extends Specification {
         getResult() >> [Stub(DeliverySlotManagementModel)]
         getCount() >> 1
     }
+
 }

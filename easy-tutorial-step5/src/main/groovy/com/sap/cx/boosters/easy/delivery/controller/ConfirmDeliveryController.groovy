@@ -5,13 +5,19 @@ import com.sap.cx.boosters.easyrest.controller.EasyRestServiceController
 import de.hybris.platform.commerceservices.order.dao.impl.DefaultCommerceOrderDao
 import groovy.json.JsonBuilder
 
-class ConfirmDeliveryController implements EasyRestServiceController {
-    DeliverySlotService deliverySlotService
-    DefaultCommerceOrderDao commerceOrderDao
+import javax.annotation.Resource
 
+class ConfirmDeliveryController implements EasyRestServiceController {
+
+    @Resource
+    DeliverySlotService deliverySlotService
+
+    @Resource
+    DefaultCommerceOrderDao commerceOrderDao
 
     @Override
     Map<String, Object> execute(Map<String, Object> ctx) {
+
         def response = [:]
         def orderId = ctx.pathParameters.orderId
         def deliverySlotManagementCode = ctx.pathParameters.deliverySlotManagementCode
@@ -19,7 +25,7 @@ class ConfirmDeliveryController implements EasyRestServiceController {
         def orderList = commerceOrderDao.find([code:orderId])
         def order = (orderList && !orderList.isEmpty())?orderList.get(0):null
         def slotManagement = deliverySlotService.confirmDelivery(deliverySlotManagementCode,order)
-        if (slotManagement){
+        if (slotManagement) {
             response.'responseCode' = 200
             def slotManagementData = [
                     code:slotManagement.getCode(),
@@ -29,10 +35,13 @@ class ConfirmDeliveryController implements EasyRestServiceController {
                     timestamp:slotManagement.getTimestamp()
             ]
             response.'body' = new JsonBuilder(slotManagementData).toPrettyString()
-        }else{
+        } else {
             response.'responseCode' = 500
             response.'body' = "Something wrong! We could not confirm the booking of the delivery Slot"
         }
+
         return response
+
     }
+
 }

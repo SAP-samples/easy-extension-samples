@@ -6,29 +6,24 @@ import de.hybris.platform.core.model.order.CartModel
 import de.hybris.platform.servicelayer.internal.dao.DefaultGenericDao
 import groovy.json.JsonBuilder
 
-class BookDeliveryController implements EasyRestServiceController {
-    DeliverySlotService deliverySlotService
-    DefaultGenericDao<CartModel> defaultCartGenericDao
+import javax.annotation.Resource
 
+class BookDeliveryController extends BaseController implements EasyRestServiceController {
+
+    @Resource
+    DeliverySlotService deliverySlotService
 
     @Override
     Map<String, Object> execute(Map<String, Object> ctx) {
+
         def response = [:]
-        def userId = ctx.pathParameters.userId
-        def cartId = ctx.pathParameters.cartId
+
         def deliverySlotCode = ctx.parameters.deliverySlotCode
 
-        // TODO With proper filter in place we should simply retrieve cart from the session
-        def cart
-        if (userId.equalsIgnoreCase("anonymous")){
-            def cartList = defaultCartGenericDao.find([guid:cartId])
-            cart = (cartList && !cartList.isEmpty())?cartList.get(0):null
-        }else{
-            def cartList = defaultCartGenericDao.find([code:cartId])
-            cart = (cartList && !cartList.isEmpty())?cartList.get(0):null
-        }
+        def cart = getCart(ctx)
 
         def slotManagement = deliverySlotService.bookDelivery(deliverySlotCode,cart)
+
         if (slotManagement){
             response.'responseCode' = 200
             def slotManagementData = [
@@ -39,10 +34,12 @@ class BookDeliveryController implements EasyRestServiceController {
                     timestamp:slotManagement.getTimestamp()
             ]
             response.'body' = new JsonBuilder(slotManagementData).toPrettyString()
-        }else{
+        } else {
             response.'responseCode' = 500
             response.'body' = "Something wrong! We could not book the deliverySlot"
         }
+
         return response
+
     }
 }

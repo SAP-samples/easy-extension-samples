@@ -8,30 +8,41 @@ import de.hybris.platform.servicelayer.config.ConfigurationService
 import de.hybris.platform.servicelayer.internal.dao.DefaultGenericDao
 import groovy.json.JsonBuilder
 
+import javax.annotation.Resource
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 
 class AvailableSlotsController implements EasyRestServiceController {
+
+    @Resource
     WarehouseService warehouseService
+
+    @Resource
     DeliverySlotService deliverySlotService
+
+    @Resource
     DefaultGenericDao<CartModel> defaultCartGenericDao
+
+    @Resource
     ConfigurationService configurationService
 
-    def dtFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+    def dtFormatter = DateTimeFormatter.ofPattern('yyyy-MM-dd HH:mm:ss')
 
     @Override
     Map<String, Object> execute(Map<String, Object> ctx) {
+
         def response = [:]
-        LocalDate now = LocalDate.now();
-        LocalDateTime startTime = now.plusDays(configurationService.getConfiguration().getInt("homeDelivery.minimumLeadTime", 1)).atStartOfDay()
-        LocalDateTime endTime = now.plusDays(configurationService.getConfiguration().getInt("homeDelivery.maximumLeadTime", 7)).atStartOfDay()
+        def now = LocalDate.now();
+        def startTime = now.plusDays(configurationService.getConfiguration().getInt('homeDelivery.minimumLeadTime', 1)).atStartOfDay()
+        def endTime = now.plusDays(configurationService.getConfiguration().getInt('homeDelivery.maximumLeadTime', 7)).atStartOfDay()
+
         def userId = ctx.pathParameters.userId
         def cartId = ctx.pathParameters.cartId
 
         // TODO With proper filter in place we should simply retrieve cart from the session
-        def CartModel cart
+        CartModel cart
         if (userId.equalsIgnoreCase("anonymous")) {
             def cartList = defaultCartGenericDao.find([guid: cartId])
             cart = (cartList && !cartList.isEmpty()) ? cartList.get(0) : null
@@ -39,6 +50,7 @@ class AvailableSlotsController implements EasyRestServiceController {
             def cartList = defaultCartGenericDao.find([code: cartId])
             cart = (cartList && !cartList.isEmpty()) ? cartList.get(0) : null
         }
+
         // Here we should have the logic to retrieve the warehouse for the user. As of now we simply
         // retrieve the default delivery origin warehouse associated to the base store related to the cart
         def warehouseCode = cart.getStore().getDefaultDeliveryOrigin().getName()

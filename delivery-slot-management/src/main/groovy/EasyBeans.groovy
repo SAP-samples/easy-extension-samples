@@ -24,7 +24,6 @@ easyCoreBeans {
 
 }
 
-/*
 println 'Adding the CommercePlaceOrderHook:'
 commercePlaceOrderMethodHooks.removeAll { it.getClass().simpleName.equalsIgnoreCase('HomeDeliveryCommercePlaceOrderMethodHook')}
 commercePlaceOrderMethodHooks.add(homeDeliveryCommercePlaceOrderMethodHook)
@@ -32,7 +31,6 @@ commercePlaceOrderMethodHooks.add(homeDeliveryCommercePlaceOrderMethodHook)
 println 'Modifying order populator for the home delivery mode:'
 orderConverter.populators.removeAll { it.getClass().simpleName.equalsIgnoreCase('HomeDeliveryModeOrderPopulator')}
 orderConverter.populators.add(homeDeliveryModeOrderPopulator)
-*/
 
 println "Registering REST beans for ${extension.id}"
 

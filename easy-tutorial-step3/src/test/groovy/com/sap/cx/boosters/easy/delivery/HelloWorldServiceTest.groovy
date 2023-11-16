@@ -21,4 +21,5 @@ class HelloWorldServiceTest extends Specification {
         then:
         result == "Hello World!"
     }
+
 }
