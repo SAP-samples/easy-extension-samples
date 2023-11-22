@@ -1,7 +1,8 @@
-# Ignore Gradle project-specific cache directory
+!.classpath
+.project
 .gradle
-
-# Ignore Gradle build output directory
-build
-
-gradle.properties
+!.settings
+bin
+easyapi.iml
+gradle
+gradlew*
