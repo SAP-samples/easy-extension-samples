@@ -1,26 +1,26 @@
 import com.sap.cx.boosters.easy.core.api.controllers.*
-import com.sap.cx.boosters.easy.core.api.services.*
+import com.sap.cx.boosters.easy.core.api.services.impl.DefaultEasyAPIService
 
 logger.info "[${extension.id}] registering spring beans ..."
 
 easyWebBeans('/easyrest') {
-	easyAPIService(EasyAPIService)
+    easyAPIService(DefaultEasyAPIService)
 
-	swaggerController(SwaggerController)
+    swaggerController(SwaggerController)
 
-	getRepositoriesController(GetRepositoriesController)
+    getRepositoriesController(GetRepositoriesController)
 
-	updateRepositoryController(UpdateRepositoryController)
+    updateRepositoryController(UpdateRepositoryController)
 
-	getExtensionsController(GetExtensionsController)
+    getExtensionsController(GetExtensionsController)
 
-	installExtensionController(InstallExtensionController)
+    installExtensionController(InstallExtensionController)
 
-	reinstallExtensionController(ReInstallExtensionController)
+    reinstallExtensionController(ReInstallExtensionController)
 
-	uninstallExtensionController(UninstallExtensionController)
+    uninstallExtensionController(UninstallExtensionController)
 
-	getEasyEventStatusController(GetEasyEventStatusController)
+    getEasyEventStatusController(GetEasyEventStatusController)
 }
 
 logger.info "[${extension.id}] registered spring beans ..."
