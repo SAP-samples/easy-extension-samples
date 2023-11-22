@@ -5,14 +5,20 @@ import com.sap.cx.boosters.easy.core.installer.EasyInstaller
 import com.sap.cx.boosters.easyrest.controller.EasyRestServiceController;
 import groovy.json.JsonOutput
 import org.slf4j.LoggerFactory;
+import javax.annotation.Resource
+
 
 class UninstallExtensionController implements EasyRestServiceController {
 	
+	@Resource
 	EasyInstaller easyInstaller;
+
+	@Resource
 	EasyAPIService easyAPIService;
 
 	private static final LOG = LoggerFactory.getLogger(GetRepositoriesController.class);
 	
+	@Override
 	Map<String,Object> execute(Map ctx) {
 
 		if (!easyAPIService.isValidAPIKey(ctx))

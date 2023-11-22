@@ -2,17 +2,23 @@ package com.sap.cx.boosters.easy.core.api.controllers
 
 import com.sap.cx.boosters.easy.core.api.services.EasyAPIService
 import com.sap.cx.boosters.easy.core.installer.EasyInstaller
-import com.sap.cx.boosters.easyrest.controller.EasyRestServiceController;
+import com.sap.cx.boosters.easyrest.controller.EasyRestServiceController
 import groovy.json.JsonOutput
-import org.slf4j.LoggerFactory;
+import org.slf4j.LoggerFactory
+import javax.annotation.Resource
+
 
 class UpdateRepositoryController implements EasyRestServiceController {
 
-	EasyInstaller easyInstaller;
-	EasyAPIService easyAPIService;
+	@Resource
+	EasyInstaller easyInstaller
+
+	@Resource
+	EasyAPIService easyAPIService
 
 	private static final LOG = LoggerFactory.getLogger(UpdateRepositoryController.class);
 
+	@Override
 	Map<String,Object> execute(Map ctx) {
 
 		if (!easyAPIService.isValidAPIKey(ctx))

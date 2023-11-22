@@ -1,0 +1,10 @@
+plugins {
+    id 'groovy'
+    id 'io.github.yannickrobin.easy-gradle-plugin'
+}
+
+repositories {
+    // use maven central to resolve dependencies
+    mavenCentral()
+    mavenLocal()
+}

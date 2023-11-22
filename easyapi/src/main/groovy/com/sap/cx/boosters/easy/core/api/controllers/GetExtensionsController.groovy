@@ -8,14 +8,20 @@ import de.hybris.platform.servicelayer.exceptions.UnknownIdentifierException
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.sap.cx.boosters.easy.core.api.services.EasyAPIService
 import org.slf4j.LoggerFactory
+import javax.annotation.Resource
+
 
 class GetExtensionsController implements EasyRestServiceController {
 	
-	EasyRepositoryService easyRepositoryService;
-	EasyAPIService easyAPIService;
+	@Resource
+	EasyRepositoryService easyRepositoryService
+
+	@Resource
+	EasyAPIService easyAPIService
 
 	private static final LOG = LoggerFactory.getLogger(GetExtensionsController.class);
 
+	@Override
     Map<String,Object> execute(Map ctx) {
 		
 		if (!easyAPIService.isValidAPIKey(ctx))

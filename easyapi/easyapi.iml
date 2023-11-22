@@ -9,4 +9,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="easyrest" />
   </component>
+  <component name="SonarLintModuleSettings">
+    <option name="uniqueId" value="71c382fa-f879-44d5-bb30-f403ed0fde1b" />
+  </component>
 </module>

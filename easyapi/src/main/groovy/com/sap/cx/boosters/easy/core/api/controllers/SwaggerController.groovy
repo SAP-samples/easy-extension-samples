@@ -8,13 +8,17 @@ import groovy.json.JsonSlurper
 import org.slf4j.LoggerFactory
 import org.slf4j.Logger
 import com.sap.cx.boosters.easy.core.helper.EasyCoreHelper
+import javax.annotation.Resource
 
 class SwaggerController implements EasyRestServiceController {
 
+	@Resource
 	EasyRestService easyRestService
 
+	@Resource
 	EasyCoreHelper easyCoreHelper
 	
+	@Override
     Map<String,Object> execute(Map ctx) {
         def response = [:]		
 		
