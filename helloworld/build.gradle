@@ -1,17 +1,4 @@
 plugins {
-    id 'groovy'
-    id 'io.github.yannickrobin.easy-gradle-plugin' version '0.0.3'
+    id "io.github.yannickrobin.easy-gradle-plugin" version "0.0.4"
 }
 
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    testImplementation 'org.codehaus.groovy.modules.http-builder:http-builder:0.7.1'
-}
-
-tasks.register('spockTest',Test) {
-    group 'verification'
-    useJUnitPlatform()
-}

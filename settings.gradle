@@ -1,7 +1,11 @@
 pluginManagement {
     repositories {
         gradlePluginPortal()
+        mavenCentral()
+        mavenLocal()
     }
 }
 
 rootProject.name = 'easy-extension-samples'
+
+include 'delivery-slot-management', 'delivery-slot-management-btp', 'easy-tutorial-step1', 'easy-tutorial-step2', 'easy-tutorial-step3', 'easy-tutorial-step4', 'easy-tutorial-step5', 'easy-tutorial-step6', 'easyapi', 'helloworld'
