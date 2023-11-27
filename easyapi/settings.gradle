@@ -8,4 +8,4 @@ buildscript {
     }
 }
 
-rootProject.name = 'delivery-slot-management'
+rootProject.name = "easyapi"

@@ -1,6 +1,8 @@
-/.classpath
-/.project
-/.gradle
-/.settings
-/bin
+!.classpath
+.project
+.gradle
+!.settings
+bin
 easyapi.iml
+gradle
+gradlew*
