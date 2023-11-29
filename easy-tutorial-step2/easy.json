@@ -2,12 +2,8 @@
     "groupId": "com.sap.cx.boosters.easy",
     "id": "EasyTutorialStep2",
     "name": "Easy Tutorial Step 2",
-    "version": {
-        "available": "0.0.2"
-    },
-    "easyVersion": {
-        "available": "0.2"
-    },
+    "version": "0.0.3",
+    "easyVersion": "0.3",
     "description": "Easy tutorial Step 2: Data model creation",
     "documentation": "https://github.com/apanwar/easy-extensions/blob/main/README.md",
     "groovy_main_path": "src/main/groovy",

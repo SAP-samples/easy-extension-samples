@@ -1,11 +1,7 @@
-buildscript {
+pluginManagement {
     repositories {
-        mavenLocal()
+        gradlePluginPortal()
         mavenCentral()
-    }
-    dependencies {
-        classpath("io.github.yannickrobin:easy-gradle-plugin:0.0.3")
+        mavenLocal()
     }
 }
-
-rootProject.name = "easyapi"
