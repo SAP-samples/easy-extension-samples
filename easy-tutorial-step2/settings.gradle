@@ -5,5 +5,3 @@ pluginManagement {
         mavenLocal()
     }
 }
-
-rootProject.name = 'easy-tutorial-step2'

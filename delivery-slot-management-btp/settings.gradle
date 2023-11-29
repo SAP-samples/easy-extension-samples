@@ -5,5 +5,3 @@ pluginManagement {
         mavenLocal()
     }
 }
-
-rootProject.name = 'delivery-slot-management-btp'

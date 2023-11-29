@@ -2,14 +2,10 @@
   "groupId": "com.sap.cx.boosters.easy",
   "id": "helloWorld",
   "name": "Hello World",
-  "version": {
-    "available": "0.3.1"
-  },
-  "easyVersion": {
-    "available": "0.3"
-  },
+  "version": "0.3.1",
+  "easyVersion": "0.3",
   "requires": {
-    "easy" : [],
+    "easy": [],
     "commerce": []
   },
   "description": "Hello World",
