@@ -10,16 +10,12 @@ It can retrieve all parameters (path params, query params, form params, etc. ) f
 ## Register the Controller
 Controllers must then be registered in the Spring web context of `/easyrest` web application using the `EasyBeans.groovy` script.
 ```
-reader = new GroovyBeanDefinitionReader(spring.beanFactory as BeanDefinitionRegistry)
-if (applicationName == '/easyrest') {
-	reader.beans {
-		availableSlotsController(AvailableSlotsController) {
-			deliverySlotService = spring.getBean("deliverySlotService")
-			warehouseService = spring.getBean("warehouseService")
-			defaultCartGenericDao = spring.getBean("defaultCartGenericDao")
-			configurationService = spring.getBean("configurationService")
-		}
-	}
+easyWebBeans('/easyrest') {
+	logger.info "[${extension.id}] registering [/easyrest] Spring beans ..."
+
+	availableSlotsController(AvailableSlotsController)
+
+	logger.info "[${extension.id}] registered Spring core beans ..."
 }
 ```
 As you can see, also the required dependencies are injected into the controller using the script.

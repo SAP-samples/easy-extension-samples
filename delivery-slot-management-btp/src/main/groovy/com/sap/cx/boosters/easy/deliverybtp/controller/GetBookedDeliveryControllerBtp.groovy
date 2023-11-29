@@ -9,12 +9,8 @@ class GetBookedDeliveryControllerBtp extends AbstractBtpController {
 
     @Override
     Map<String, Object> execute(Map<String, Object> ctx) {
-        def response = [:]
-        def userId = ctx.pathParameters.userId
         def cartId = ctx.pathParameters.cartId
 
-        def cart = getCart(userId,cartId)
-
-        return getBtpResponse(HttpMethod.GET,GET_BOOKED_SLOT_URL,["cartCode":cartId])
+        return getBtpResponse(HttpMethod.GET, GET_BOOKED_SLOT_URL, ["cartCode": cartId])
     }
 }

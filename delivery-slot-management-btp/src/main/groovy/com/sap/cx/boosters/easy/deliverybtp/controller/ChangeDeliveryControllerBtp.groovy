@@ -9,13 +9,9 @@ class ChangeDeliveryControllerBtp extends AbstractBtpController {
 
     @Override
     Map<String, Object> execute(Map<String, Object> ctx) {
-        def response = [:]
-        def userId = ctx.pathParameters.userId
         def cartId = ctx.pathParameters.cartId
         def deliverySlotCode = ctx.parameters.deliverySlotCode
 
-        def cart = getCart(userId,cartId)
-
-        return getBtpResponse(HttpMethod.PUT,CHANGE_SLOT_URL,["deliverySlotCode":deliverySlotCode,"cartCode":cartId])
+        return getBtpResponse(HttpMethod.PUT, CHANGE_SLOT_URL, ["deliverySlotCode": deliverySlotCode, "cartCode": cartId])
     }
 }

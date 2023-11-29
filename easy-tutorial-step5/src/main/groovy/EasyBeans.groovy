@@ -1,63 +1,43 @@
-import com.sap.cx.boosters.easy.delivery.controller.*
-import de.hybris.platform.core.Registry
-import org.slf4j.LoggerFactory
-import org.springframework.beans.factory.groovy.GroovyBeanDefinitionReader
-import org.springframework.beans.factory.support.BeanDefinitionRegistry
-import org.springframework.beans.factory.support.DefaultListableBeanFactory
+import com.sap.cx.boosters.easy.easytutorialstep5.controller.AvailableSlotsController
+import com.sap.cx.boosters.easy.easytutorialstep5.controller.BookDeliveryController
+import com.sap.cx.boosters.easy.easytutorialstep5.controller.CancelDeliveryController
+import com.sap.cx.boosters.easy.easytutorialstep5.controller.ChangeDeliveryController
+import com.sap.cx.boosters.easy.easytutorialstep5.controller.ConfirmDeliveryController
+import com.sap.cx.boosters.easy.easytutorialstep5.controller.GetBookedDeliveryController
+import com.sap.cx.boosters.easy.easytutorialstep5.service.impl.DefaultDeliverySlotService
+import de.hybris.platform.core.model.order.CartModel
+import de.hybris.platform.servicelayer.internal.dao.DefaultGenericDao
 
-LOG = LoggerFactory.getLogger("easy-tutorial-step5")
-def applicationName = spring.getApplicationName()
-LOG.info("Registering Spring beans for ${applicationName}...")
+logger.info "[${extension.id}] registering Spring beans ..."
 
-beanFactory = (DefaultListableBeanFactory) Registry.getCoreApplicationContext().getBeanFactory()
-def reader = new GroovyBeanDefinitionReader(beanFactory)
+easyCoreBeans {
+    logger.info "[${extension.id}] registering Spring core beans ..."
 
-println "Registering beans on Core Application Context: " + Registry.getCoreApplicationContext()
+    deliverySlotService(DefaultDeliverySlotService)
 
-reader.beans {
-	deliverySlotService(com.sap.cx.boosters.easy.delivery.service.DeliverySlotService) {
-		flexibleSearchService = spring.getBean('flexibleSearchService')
-		modelService = spring.getBean('modelService')
-		enumerationService = spring.getBean('enumerationService')
-	}
-	defaultCartGenericDao(de.hybris.platform.servicelayer.internal.dao.DefaultGenericDao, 'Cart') {
-		flexibleSearchService = spring.getBean('flexibleSearchService')
-	}
+    defaultCartGenericDao(DefaultGenericDao, CartModel._TYPECODE)
+
+    logger.info "[${extension.id}] registered Spring core beans."
+
 }
 
-println "Registering beans on Web Application Context: " + spring
+easyWebBeans('/easyrest') {
+    logger.info "[${extension.id}] registering [/easyrest] Spring beans ..."
 
-reader = new GroovyBeanDefinitionReader(spring.beanFactory as BeanDefinitionRegistry)
-if (applicationName == '/easyrest') {
-	reader.beans {
-		availableSlotsController(AvailableSlotsController) {
-			deliverySlotService = spring.getBean("deliverySlotService")
-			warehouseService = spring.getBean("warehouseService")
-			defaultCartGenericDao = spring.getBean("defaultCartGenericDao")
-			configurationService = spring.getBean("configurationService")
-		}
-		bookDeliveryController(BookDeliveryController) {
-			deliverySlotService = spring.getBean("deliverySlotService")
-			defaultCartGenericDao = spring.getBean("defaultCartGenericDao")
-		}
-		cancelDeliveryController(CancelDeliveryController) {
-			deliverySlotService = spring.getBean("deliverySlotService")
-			defaultCartGenericDao = spring.getBean("defaultCartGenericDao")
-		}
-		confirmDeliveryController(ConfirmDeliveryController) {
-			deliverySlotService = spring.getBean("deliverySlotService")
-			commerceOrderDao = spring.getBean("commerceOrderDao")
-		}
-		getBookedDeliveryController(GetBookedDeliveryController) {
-			deliverySlotService = spring.getBean("deliverySlotService")
-			defaultCartGenericDao = spring.getBean("defaultCartGenericDao")
-		}
-		changeDeliveryController(ChangeDeliveryController) {
-			deliverySlotService = spring.getBean("deliverySlotService")
-			defaultCartGenericDao = spring.getBean("defaultCartGenericDao")
-		}
-	}
+    availableSlotsController(AvailableSlotsController)
+
+    bookDeliveryController(BookDeliveryController)
+
+    cancelDeliveryController(CancelDeliveryController)
+
+    confirmDeliveryController(ConfirmDeliveryController)
+
+    getBookedDeliveryController(GetBookedDeliveryController)
+
+    changeDeliveryController(ChangeDeliveryController)
+
+    logger.info "[${extension.id}] registered Spring core beans ..."
 }
 
+logger.info "[${extension.id}] registered [/easyrest] Spring beans."
 
-LOG.info("Spring beans registered for ${applicationName}")

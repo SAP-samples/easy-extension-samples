@@ -42,6 +42,7 @@
       "autocreate": "true",
       "generate": "true",
       "superType": "GenericItem",
+      "modelClassName": "VehicleModel",
       "deployment": {
         "table": "vehicles",
         "typecode": "26000",
@@ -103,6 +104,7 @@
       "autocreate": "true",
       "generate": "true",
       "superType": "GenericItem",
+      "modelClassName": "DeliverySlotModel",
       "deployment": {
         "table": "deliveryslots",
         "typecode": "26001",
@@ -133,6 +135,7 @@
         {
           "qualifier": "warehouse",
           "type": "Warehouse",
+          "typeClass": "de.hybris.platform.ordersplitting.model.WarehouseModel",
           "name": [
             {
               "lang": "en",
@@ -154,6 +157,7 @@
         {
           "qualifier": "vehicle",
           "type": "Vehicle",
+          "typeClass": "com.sap.cx.boosters.easy.easytutorialstep2.models.VehicleModel",
           "name": [
             {
               "lang": "en",
@@ -226,6 +230,134 @@
           "persistence": {
             "type": "property",
             "column": "p_available"
+          },
+          "modifiers": {
+            "unique": "false",
+            "initial": "true",
+            "optional": "false",
+            "write": "true",
+            "partof": "false"
+          }
+        }
+      ]
+    },
+    {
+      "code": "DeliverySlotManagement",
+      "name": [
+        {
+          "lang": "en",
+          "value": "Delivery Slot Management"
+        }
+      ],
+      "autocreate": "true",
+      "generate": "true",
+      "modelClassName": "DeliverySlotManagementModel",
+      "superType": "GenericItem",
+      "deployment": {
+        "table": "deliveryslotmanagements",
+        "typecode": "26002",
+        "propstable": "deliveryslotmanagementprops"
+      },
+      "attributes": [
+        {
+          "qualifier": "code",
+          "type": "java.lang.String",
+          "name": [
+            {
+              "lang": "en",
+              "value": "Code"
+            }
+          ],
+          "persistence": {
+            "type": "property",
+            "column": "p_code"
+          },
+          "modifiers": {
+            "unique": "true",
+            "initial": "true",
+            "optional": "false",
+            "write": "false",
+            "partof": "false"
+          }
+        },
+        {
+          "qualifier": "deliveryslot",
+          "type": "DeliverySlot",
+          "typeClass": "com.sap.cx.boosters.easy.easytutorialstep2.models.DeliverySlotModel",
+          "name": [
+            {
+              "lang": "en",
+              "value": "Delivery Slot"
+            }
+          ],
+          "persistence": {
+            "type": "property",
+            "column": "p_deliveryslot"
+          },
+          "modifiers": {
+            "unique": "false",
+            "initial": "true",
+            "optional": "false",
+            "write": "true",
+            "partof": "false"
+          }
+        },
+        {
+          "qualifier": "abstractorder",
+          "type": "AbstractOrder",
+          "typeClass": "de.hybris.platform.core.model.order.AbstractOrderModel",
+          "name": [
+            {
+              "lang": "en",
+              "value": "Abstract Order"
+            }
+          ],
+          "persistence": {
+            "type": "property",
+            "column": "p_abstractorder"
+          },
+          "modifiers": {
+            "unique": "false",
+            "initial": "true",
+            "optional": "false",
+            "write": "true",
+            "partof": "false"
+          }
+        },
+        {
+          "qualifier": "timestamp",
+          "type": "java.util.Date",
+          "name": [
+            {
+              "lang": "en",
+              "value": "Timestamp"
+            }
+          ],
+          "persistence": {
+            "type": "property",
+            "column": "p_timestamp"
+          },
+          "modifiers": {
+            "unique": "false",
+            "initial": "true",
+            "optional": "false",
+            "write": "true",
+            "partof": "false"
+          }
+        },
+        {
+          "qualifier": "status",
+          "type": "DeliverySlotStatus",
+          "typeClass": "com.sap.cx.boosters.easy.easytutorialstep2.enums.DeliverySlotStatus",
+          "name": [
+            {
+              "lang": "en",
+              "value": "Status"
+            }
+          ],
+          "persistence": {
+            "type": "property",
+            "column": "p_status"
           },
           "modifiers": {
             "unique": "false",
