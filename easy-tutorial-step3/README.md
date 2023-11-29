@@ -11,12 +11,8 @@ We've implemented a few methods of the service as an example. As you can see the
 ## Register the service
 Service has been registered in the Spring context using the `EasyBeans.groovy` script.
 ```
-reader.beans {
-	deliverySlotService(com.sap.cx.boosters.easy.delivery.service.DeliverySlotService) {
-		flexibleSearchService = spring.getBean('flexibleSearchService')
-		modelService = spring.getBean('modelService')
-		enumerationService = spring.getBean('enumerationService')
-	}
+easyCoreBeans {
+    deliverySlotService(DefaultDeliverySlotService)
 }
 ```
 As you can see, also the required dependencies are injected into the service using `EasyBeans.groovy` script.

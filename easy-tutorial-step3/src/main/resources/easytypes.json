@@ -42,6 +42,7 @@
       "autocreate": "true",
       "generate": "true",
       "superType": "GenericItem",
+      "modelClassName": "VehicleModel",
       "deployment": {
         "table": "vehicles",
         "typecode": "26000",
@@ -103,6 +104,7 @@
       "autocreate": "true",
       "generate": "true",
       "superType": "GenericItem",
+      "modelClassName": "DeliverySlotModel",
       "deployment": {
         "table": "deliveryslots",
         "typecode": "26001",
@@ -133,6 +135,7 @@
         {
           "qualifier": "warehouse",
           "type": "Warehouse",
+          "typeClass": "de.hybris.platform.ordersplitting.model.WarehouseModel",
           "name": [
             {
               "lang": "en",
@@ -154,6 +157,7 @@
         {
           "qualifier": "vehicle",
           "type": "Vehicle",
+          "typeClass": "com.sap.cx.boosters.easy.easytutorialstep3.models.VehicleModel",
           "name": [
             {
               "lang": "en",
@@ -247,6 +251,7 @@
       ],
       "autocreate": "true",
       "generate": "true",
+      "modelClassName": "DeliverySlotManagementModel",
       "superType": "GenericItem",
       "deployment": {
         "table": "deliveryslotmanagements",
@@ -278,6 +283,7 @@
         {
           "qualifier": "deliveryslot",
           "type": "DeliverySlot",
+          "typeClass": "com.sap.cx.boosters.easy.easytutorialstep3.models.DeliverySlotModel",
           "name": [
             {
               "lang": "en",
@@ -299,6 +305,7 @@
         {
           "qualifier": "abstractorder",
           "type": "AbstractOrder",
+          "typeClass": "de.hybris.platform.core.model.order.AbstractOrderModel",
           "name": [
             {
               "lang": "en",
@@ -341,6 +348,7 @@
         {
           "qualifier": "status",
           "type": "DeliverySlotStatus",
+          "typeClass": "com.sap.cx.boosters.easy.easytutorialstep3.enums.DeliverySlotStatus",
           "name": [
             {
               "lang": "en",

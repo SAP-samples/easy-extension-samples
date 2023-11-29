@@ -6,8 +6,6 @@
     "easyVersion": "0.3",
     "description": "Easy tutorial Step 2: Data model creation",
     "documentation": "https://github.com/apanwar/easy-extensions/blob/main/README.md",
-    "groovy_main_path": "src/main/groovy",
-    "groovy_test_path": "src/test/groovy",
     "authors": [
         "Michele Gallina"
     ],

@@ -51,40 +51,64 @@ Follow these [steps](https://sap.github.io/easy-extension-framework/configuring-
 - populate the wizard giving the repo a code, name and the path of your local File System where you've cloned the remote easy-extension-samples repo
 ![img_1.png](./images/img_1.png)
 
-### Install Easy Tutorial Step 1 extension
-Easy extensions have to be installed through the Administration Console:
-- Connect to the hac and log in
-- If you've correctly created your Easy local repository, you should see under the Easy tab, the repository with the list of easy extensions retrieved:
-![img_9.png](./images/img_9.png)
-- Click the "Update" button to be sure you've the latest version of your local repository: the update button will refresh the copy of the repositories that is stored in the _data_ dir of Commerce
-- Click on the "+" button next to the "Easy Tutorial Step 1" extension and wait the installation procedure is completed: if there are no errors you should see a successful blue message banner in the hac, if something went wrong during installation, a red message banner will pop up in the hac. In this case you'll have to check the server log to see what is the problem
-- We suggest you to repeat the last step also for the "Easy Api" extension that will give you access to a Swagger endpoint so that you can easily test the endpoints of the tutorial extension
+### Configure Easy Extension Development Environment
+The easy extensions development environment setup is based on [Gradle](https://gradle.org/). Following are the steps to setup the environment:
+1. Install [Gradle](https://gradle.org/) as per the instructions available at [Gradle Installation](https://gradle.org/install/)
+2. Configure the following global gradle configurations for your environment in `<USER_HOME>/.gradle/gradle.properties` file:
+   ```properties
+   # The base url of the easy api for your SAP Commerce Cloud. Below if for a local SAP Commerce Cloud Server
+   sap.commerce.easy.api.base.url = https://localhost:9002/easyrest/easyapi
 
+   # Value of easy.apiKey property configured in SAP Commerce Cloud (by default, this is 123456)
+   sap.commerce.easy.api.key = 123456
+
+   # Path to the hybris home directory on your computer to add SAP Commerce Cloud libraries to your extension
+   sap.commerce.easy.platform.home= <PATH TO YOUR HYBRIS HOME DIRECTORY>
+   sap.commerce.easy.rest.base.url = https://localhost:9002/easyrest
+   ```
+   
 ### Set up the extension locally on your IDE
 
 To set up the **easy-tutorial-step1** extension in your local IDE you need to:
-1. add a file _gradle.properties_ to the root of the extension.
-```
-easyRepoDir=/Users/I318914/SAPDevelop/projects/Easy/repoEasy/easy-extension-samples/easy-tutorial-step1
-easyDeployUrl=http://localhost:9001/easyrest/easy/deploy
-systemProp.org.ajoberstar.grgit.auth.username=<my git username>
-systemProp.org.ajoberstar.grgit.auth.password=<my personal git token>
-groovyHacHybrisHomeDir=/Users/I318914/SAPDevelop/projects/Easy/CXCOMCL221100P_5-70007431/hybris
-```
-The first four properties are needed if you want to use gradle and the grgit plugin to deploy your extension locally (it's not really needed, you can simply adopt the procedure we've described above)
-The last groovyHacHybrisHomeDir property must point to the local installation of your Commerce platform and will be used to set up all dependencies 
-from the platform extensions so that your easy extension can be imported in the IDE without issues.
-Here's how you can set up IntelliJ IDEA with the extension. First import your Commerce project into IDEA.
-2. import your Commerce project into IDEA
-3. import a new module from existing sources following these steps:
-   1. click on File -> Project Structure -> Module -> + -> Import Module
-      ![img_3.png](./images/img_3.png)
-   2. in the wizard, select the root folder of the easy-tutorial-step1 extension and then select _Import module from external_ and select _Gradle_ option
-   ![img_4.png](./images/img_4.png)
-   3. Click _Finish_ to complete the import process. You should be able to correctly see the imported easy extension
-   ![img_10.png](./images/img_10.png)
+1. Execute the following command in the repository directory
+   ```gradle
+   gradle clean build
+   ```
+2. import the repository directory project into IDEA by clicking on File &rarr; Open &rarr; Select the easy directory
 
 That's it! You should now be able to develop with your IDE and also when needed you can start the Remote debugging and debug the groovy code of easy extension that you installed. 
+
+### Install Easy Tutorial Step 1 extension
+Easy extensions can be installed either through the Administration Console, using swagger console or using gradle command:
+#### Installing using SAP Commerce Administration Console
+- Connect to the SAP Commerce Administration Console and log in
+- If you've correctly created your Easy local repository, you should see under the Easy tab, the repository with the list of easy extensions retrieved:
+  ![img_9.png](./images/img_9.png)
+- Click the "Update" button to be sure you've the latest version of your local repository: the update button will refresh the copy of the repositories that is stored in the _data_ dir of Commerce
+- Click on the <button style="padding: 10px; background-color: #0066cc; color: white; border: none; border-radius: 4px; cursor: pointer;">&nbsp;+&nbsp;</button> button next to the "Easy Tutorial Step 1" extension and wait the installation procedure is completed: if there are no errors you should see a successful blue message banner in the hac, if something went wrong during installation, a red message banner will pop up in the hac. In this case you'll have to check the server log to see what is the problem
+
+> **Note:** We recommend you to repeat the last step also for the **Easy Api** extension by clicking on the <button style="padding: 10px; background-color: #0066cc; color: white; border: none; border-radius: 4px; cursor: pointer;">&nbsp;+&nbsp;</button> button against the **Easy Api** extension. This will give you access to a Swagger endpoint so that you can easily test the endpoints of the tutorial extension and use gradle commandline for easy extension development
+
+#### Installing using Swagger Console
+
+#### Installing using Gradle Commandline 
+- Validate/Configure your repository configurations for gradle by ensuring that the repository code configured in backoffice matches the following property in `gradle.propertes` available at the root of your locally checked out repository:
+  ```properties
+  sap.commerce.easy.repository.code = <THE REPOSITORY CODE YOU CONFIGURED IN BACKOFFICE>
+  ```
+- Run the gradle task `easy-update-repo` either from your IDE or from commandline to update the latest from the remote repository location
+  ```
+  > Task :easy-update-repo
+  API executed successfully. HTTP status: 200
+  {
+  "eventId": "00000001",
+  "message": "Update request for repository easy-sample-repo submitted"
+  }
+  
+  BUILD SUCCESSFUL in 3s
+  1 actionable task: 1 executed
+  ```
+- Run the gradle task `easy-ext-install` for your extension either from your IDE or from commandline inside the extension directory to install the easy extension
 
 ## Your mission
 Your only task for this step of the tutorial is to follow the above instructions for the setup of your local environment. Once completed, you can execute the sample unite test, simply running _gradle test_ from the root of the project and you should see also a generated report under the _build/reports_ folder.

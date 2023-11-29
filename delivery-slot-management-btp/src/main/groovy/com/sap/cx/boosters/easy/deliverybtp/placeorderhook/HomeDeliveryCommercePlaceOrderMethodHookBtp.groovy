@@ -13,23 +13,33 @@ import de.hybris.platform.core.model.order.OrderModel
 import de.hybris.platform.core.model.user.CustomerModel
 import de.hybris.platform.order.InvalidCartException
 import de.hybris.platform.outboundservices.client.IntegrationRestTemplateFactory
+import org.slf4j.LoggerFactory
 import org.springframework.http.HttpMethod
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
+import org.springframework.web.client.RestClientResponseException
+
+import javax.annotation.Resource
 
 class HomeDeliveryCommercePlaceOrderMethodHookBtp implements CommercePlaceOrderMethodHook {
+
+    private static final def LOG = LoggerFactory.getLogger(HomeDeliveryCommercePlaceOrderMethodHookBtp)
 
     public static final HOME_DELIVERY_MODE = "homedelivery"
 
     public static final DSM_DESTINATION_ID = "dsmBtpDestination"
+
     public static final DSM_DESTINATION_TARGET_ID = "dsmBtpDestinationTarget"
+
     private static final GET_BOOKED_SLOT_URL = "/api/deliveryslotmanagements/getBookedSlot?cartCode={cartCode}"
+
     private static final CONFIRM_SLOT_URL = "/api/deliveryslotmanagements/confirmDelivery?deliverySlotManagementCode={deliverySlotManagementCode}&orderCode={orderCode}"
 
-    def LOG = org.slf4j.LoggerFactory.getLogger("HomeDeliveryCommercePlaceOrderMethodHookBtp");
+    @Resource
+    private DestinationService<ConsumedDestinationModel> destinationService
 
-    DestinationService<ConsumedDestinationModel> destinationService
-    IntegrationRestTemplateFactory integrationRestTemplateFactory
+    @Resource
+    private IntegrationRestTemplateFactory integrationRestTemplateFactory
 
     @Override
     void afterPlaceOrder(CommerceCheckoutParameter parameter, CommerceOrderResult orderModel) throws InvalidCartException {
@@ -39,7 +49,7 @@ class HomeDeliveryCommercePlaceOrderMethodHookBtp implements CommercePlaceOrderM
                 LOG.error("No delivery slot management found! Order has been created, customer support need to solve the issue")
             } else {
                 String bookedSlotCode = btpResponse.getBody().get("code")
-                btpResponse = confirmBookedSlot(orderModel.getOrder(), bookedSlotCode);
+                btpResponse = confirmBookedSlot(orderModel.getOrder(), bookedSlotCode)
                 if (btpResponse.getStatusCode() != HttpStatus.OK) {
                     LOG.error("Booking confirmation failed! Order has been created, customer support need to solve the issue")
                 }
@@ -65,7 +75,7 @@ class HomeDeliveryCommercePlaceOrderMethodHookBtp implements CommercePlaceOrderM
     protected ResponseEntity<?> getBookedSlot(CartModel cart) {
         def customer = cart.getUser()
         def cartCode
-        if (customer instanceof CustomerModel && CustomerType.REGISTERED.equals(((CustomerModel) customer).getType())) {
+        if (customer instanceof CustomerModel && CustomerType.REGISTERED == ((CustomerModel) customer).getType()) {
             cartCode = cart.getCode()
         } else {
             cartCode = cart.getGuid()
@@ -74,7 +84,7 @@ class HomeDeliveryCommercePlaceOrderMethodHookBtp implements CommercePlaceOrderM
     }
 
     protected ResponseEntity<?> confirmBookedSlot(OrderModel order, String deliverySlotManagementCode) {
-        return getBtpResponse(HttpMethod.PUT, CONFIRM_SLOT_URL, ["deliverySlotManagementCode": deliverySlotManagementCode,"orderCode": order.getCode()])
+        return getBtpResponse(HttpMethod.PUT, CONFIRM_SLOT_URL, ["deliverySlotManagementCode": deliverySlotManagementCode, "orderCode": order.getCode()])
     }
 
     protected ResponseEntity<?> getBtpResponse(HttpMethod method, String restUrl, Map uriVariables) {
@@ -96,10 +106,12 @@ class HomeDeliveryCommercePlaceOrderMethodHookBtp implements CommercePlaceOrderM
                 case HttpMethod.PUT:
                     btpResponse = restOperations.exchange(url, HttpMethod.PUT, null, Object.class, uriVariables)
                     break
+                default:
+                    btpResponse = null
             }
         }
-        catch (org.springframework.web.client.RestClientResponseException e) {
-            btpResponse = new ResponseEntity<>(e.getResponseBodyAsString(),HttpStatus.valueOf(e.getRawStatusCode()))
+        catch (RestClientResponseException e) {
+            btpResponse = new ResponseEntity<>(e.getResponseBodyAsString(), HttpStatus.valueOf(e.getRawStatusCode()))
         }
 
         return btpResponse

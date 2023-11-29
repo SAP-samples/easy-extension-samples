@@ -10,12 +10,9 @@ class ConfirmDeliveryControllerBtp extends AbstractBtpController {
 
     @Override
     Map<String, Object> execute(Map<String, Object> ctx) {
-        def response = [:]
         def orderId = ctx.pathParameters.orderId
         def deliverySlotManagementCode = ctx.pathParameters.deliverySlotManagementCode
 
-        def order = getOrder(orderId)
-
-        return getBtpResponse(HttpMethod.PUT,CONFIRM_SLOT_URL,["deliverySlotManagementCode":deliverySlotManagementCode,"orderCode":orderId])
+        return getBtpResponse(HttpMethod.PUT, CONFIRM_SLOT_URL, ["deliverySlotManagementCode": deliverySlotManagementCode, "orderCode": orderId])
     }
 }

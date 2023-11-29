@@ -8,33 +8,39 @@ import de.hybris.platform.converters.Populator
 import de.hybris.platform.core.model.order.OrderModel
 import de.hybris.platform.outboundservices.client.IntegrationRestTemplateFactory
 import de.hybris.platform.servicelayer.dto.converter.ConversionException
+import org.slf4j.LoggerFactory
 import org.springframework.http.HttpMethod
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
+import org.springframework.web.client.RestClientResponseException
 
-public class HomeDeliveryModeOrderPopulatorBtp implements Populator<OrderModel, OrderData> {
+import javax.annotation.Resource
+
+class HomeDeliveryModeOrderPopulatorBtp implements Populator<OrderModel, OrderData> {
+
+    private static final def LOG = LoggerFactory.getLogger(HomeDeliveryModeOrderPopulatorBtp)
 
     public static final DSM_DESTINATION_ID = "dsmBtpDestination"
+
     public static final DSM_DESTINATION_TARGET_ID = "dsmBtpDestinationTarget"
 
     private static final GET_BOOKED_SLOT_URL = "/api/deliveryslotmanagements/getBookedSlot?cartCode={cartCode}"
 
+    @Resource
+    private DestinationService<ConsumedDestinationModel> destinationService
 
-    def LOG = org.slf4j.LoggerFactory.getLogger("HomeDeliveryModeOrderPopulatorBtp");
-
-    DestinationService<ConsumedDestinationModel> destinationService
-    IntegrationRestTemplateFactory integrationRestTemplateFactory
-
+    @Resource
+    private IntegrationRestTemplateFactory integrationRestTemplateFactory
 
     @Override
-    public void populate(OrderModel orderModel, OrderData orderData) throws ConversionException {
-        if (orderModel.getDeliveryMode().getCode().startsWith("homedelivery")){
+    void populate(OrderModel orderModel, OrderData orderData) throws ConversionException {
+        if (orderModel.getDeliveryMode().getCode().startsWith("homedelivery")) {
             ResponseEntity<Map> responseBookedSlot = getBookedSlot(orderModel)
-            if (responseBookedSlot.getStatusCode()==HttpStatus.OK){
+            if (responseBookedSlot.getStatusCode() == HttpStatus.OK) {
                 Map deliverySlotMap = responseBookedSlot.getBody()
                 orderData.getDeliveryMode().setDescription("You'll receive your items on: " + parseDeliverySlotCode(deliverySlotMap.get("deliverySlot")))
-            }else{
-                LOG.error("Error getting Booked slot for order {}",orderModel.getCode())
+            } else {
+                LOG.error("Error getting Booked slot for order {}", orderModel.getCode())
             }
         }
     }
@@ -43,8 +49,8 @@ public class HomeDeliveryModeOrderPopulatorBtp implements Populator<OrderModel, 
         return getBtpResponse(HttpMethod.GET, GET_BOOKED_SLOT_URL, ["cartCode": orderModel.getCode()])
     }
 
-    protected String parseDeliverySlotCode(String deliverySlotCode){
-        return deliverySlotCode.substring(4,15) +":00"
+    protected String parseDeliverySlotCode(String deliverySlotCode) {
+        return deliverySlotCode.substring(4, 15) + ":00"
     }
 
     protected ResponseEntity<?> getBtpResponse(HttpMethod method, String restUrl, Map uriVariables) {
@@ -63,9 +69,11 @@ public class HomeDeliveryModeOrderPopulatorBtp implements Populator<OrderModel, 
                 case HttpMethod.GET:
                     btpResponse = restOperations.getForEntity(url, Map.class, uriVariables)
                     break
+                default:
+                    btpResponse = null
             }
         }
-        catch (org.springframework.web.client.RestClientResponseException e) {
+        catch (RestClientResponseException e) {
             btpResponse = new ResponseEntity<>(Collections.emptyMap(), HttpStatus.valueOf(e.getRawStatusCode()))
         }
 
