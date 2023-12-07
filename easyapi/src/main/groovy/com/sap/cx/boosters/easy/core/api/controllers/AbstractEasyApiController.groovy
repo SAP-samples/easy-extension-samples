@@ -29,7 +29,7 @@ abstract class AbstractEasyApiController implements EasyRestServiceController {
                 response.'responseCode' = 500
                 def errorsMap = [errors: [[type: '', message: '']]]
                 errorsMap.errors[0].type = "SystemError"
-                errorsMap.errors[0].message = e.getMessage()
+                errorsMap.errors[0].message = exception.getMessage()
                 def jsonErrors = JsonOutput.toJson(errorsMap)
                 response.'body' = jsonErrors
                 return response
