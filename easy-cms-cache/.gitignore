@@ -1,0 +1,5 @@
+# Gradle Related
+.gradle
+build
+gradle.properties
+
