@@ -1,0 +1,20 @@
+{
+  "groupId" : "com.sap.cx.boosters.easy.extension",
+  "id" : "easy-cms-cache",
+  "name" : "Easy CMS Rendering Cache",
+  "version" : "0.0.1",
+  "easyVersion" : "0.3",
+  "description" : "Extension used to improve the capabilities of the CMS-Rendering cache",
+  "thumbnail" : "",
+  "documentation" : "",
+  "groovyMainPath" : "src/main/groovy",
+  "groovyTestPath" : "src/test/groovy",
+  "init" : "Init.groovy",
+  "authors" : [ ],
+  "requires" : {
+    "commerce" : [ ],
+    "easy" : [ ]
+  },
+  "tags" : [ ],
+  "vendor" : "SAP"
+}
