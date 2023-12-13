@@ -31,7 +31,7 @@ easyCoreBeans {
 logger.info "[${extension.id}] updating 'commercePlaceOrderMethodHooks'  ..."
 
 commercePlaceOrderMethodHooks.removeAll { it.getClass().getSimpleName().equalsIgnoreCase("HomeDeliveryCommercePlaceOrderMethodHook") }
-commercePlaceOrderMethodHooks.add(homeDeliveryCommercePlaceOrderMethodHook)
+commercePlaceOrderMethodHooks.add(ref('homeDeliveryCommercePlaceOrderMethodHook'))
 
 logger.info "[${extension.id}] updated 'commercePlaceOrderMethodHooks'  ..."
 
@@ -39,7 +39,7 @@ logger.info "[${extension.id}] updated 'commercePlaceOrderMethodHooks'  ..."
 logger.info "[${extension.id}] updating order populator for the home delivery mode.. "
 
 orderConverter.getPopulators().removeAll { it.getClass().getSimpleName().equalsIgnoreCase("HomeDeliveryModeOrderPopulator") }
-orderConverter.getPopulators().add(homeDeliveryModeOrderPopulator)
+orderConverter.getPopulators().add(ref('homeDeliveryModeOrderPopulator'))
 
 logger.info "[${extension.id}] updated order populator for the home delivery mode.. "
 
