@@ -23,14 +23,14 @@ easyCoreBeans {
 logger.info "[${extension.id}] updating 'commercePlaceOrderMethodHooks'  ..."
 
 commercePlaceOrderMethodHooks.removeAll { it.getClass().getSimpleName().equalsIgnoreCase("HomeDeliveryCommercePlaceOrderMethodHookBtp") }
-commercePlaceOrderMethodHooks.add( ref('homeDeliveryCommercePlaceOrderMethodHookBtp'))
+commercePlaceOrderMethodHooks.add(homeDeliveryCommercePlaceOrderMethodHookBtp)
 
 logger.info "[${extension.id}] updated 'commercePlaceOrderMethodHooks'  ..."
 
 logger.info "[${extension.id}] updating order populator for the home delivery mode.. "
 
 orderConverter.getPopulators().removeAll { it.getClass().getSimpleName().equalsIgnoreCase("HomeDeliveryModeOrderPopulatorBtp") }
-orderConverter.getPopulators().add( ref('homeDeliveryModeOrderPopulatorBtp'))
+orderConverter.getPopulators().add(homeDeliveryModeOrderPopulatorBtp)
 
 logger.info "[${extension.id}] updated order populator for the home delivery mode.. "
 
