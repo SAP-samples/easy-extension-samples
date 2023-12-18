@@ -5,7 +5,6 @@ import com.sap.cx.boosters.easy.extension.cmscache.provider.UserGroupRenderingIt
 import com.sap.cx.boosters.easy.extension.cmscache.provider.CommonI18NRenderingItemCacheKeyProvider
 
 logger.info "[${extension.id}] registering Spring beans ..."
-
 easyCoreBeans {
 
     /** Re-Usable Providers
@@ -24,7 +23,7 @@ easyCoreBeans {
     cmsRenderingCacheKeyProviders["AbstractPage"] = abstractPageRenderingItemCacheKeyProvider
 
     /** CMS-Type: ContentSlot */
-    contentSlotRenderingItemCacheKeyProvider(UserGroupRenderingItemCacheKeyProvider)
+    contentSlotRenderingItemCacheKeyProvider(SegmentRenderingItemCacheKeyProvider)
     cmsRenderingCacheKeyProviders["ContentSlot"] = contentSlotRenderingItemCacheKeyProvider
 
 }

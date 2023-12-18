@@ -22,17 +22,15 @@ class SegmentRenderingItemCacheKeyProvider extends UserGroupRenderingItemCacheKe
         key.append(
                 cxSegmentService.getUserToSegmentForCalculation(userService.getCurrentUser())
                 .stream()
-                .sorted((o1,o2) -> {
-                    o1.getPk().getLong() <=> o2.getPk().getLong()
-                })
-                .map { it.getPk().getLongValueAsString() }
+                .filter(Objects::nonNull) //Null-check on user2segment
+                .map( it -> it.getSegment())
+                .filter(Objects::nonNull) //Null-check on segments
+                .map( it -> it.getPk().getLongValueAsString())
+                .sorted((s1,s2) -> s1 <=> s2)
                 .collect(Collectors.joining("-"))
         )
         //Key
         return key.toString();
     }
-
-
-
 
 }
