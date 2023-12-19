@@ -1,5 +1,4 @@
 [
-    {"version":"v0.1","url":"/docs/v0.1/","isCurrent":false},
     {"version":"v0.2","url":"/docs/v0.2/","isCurrent":true},
     {"version":"main","url":"/docs/main","isCurrent":false}
 ]
