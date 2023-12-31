@@ -3,7 +3,7 @@
 # Easy Extension Samples
 
 ## Description
-This repository provides sample extensions that can be deployed on SAP Commerce using Easy Extension Framework.
+This repository provides sample extensions that can be deployed on SAP Commerce using [Easy Extension Framework](https://sap.github.io/easy-extension-framework/overview.html).
 These sample extensions illustrate Easy features and capabilities. These extensions can be used for demo purpose only.
 
 ## Disclaimer
