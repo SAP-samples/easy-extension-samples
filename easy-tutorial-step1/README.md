@@ -5,7 +5,6 @@ In this tutorial, we will build a new extension to add new features that do not 
 To understand what we will build during this tutorial, you can check the final outcome: [delivery-slot-management](https://github.tools.sap/cx-boosters/easy-extension-samples/tree/main/delivery-slot-management/README.md) extension. You will find in the documentation the list of features.
 
 In this tutorial, you will learn:
-- [How to setup your development environment](#easy-tutorial-step-1---setup-your-development-environment)
 - [How to extend SAP Commerce data model](../easy-tutorial-step2)
 - [How to create and override Spring Beans](../easy-tutorial-step3)
 - [How to create new REST endpoints](../easy-tutorial-step4)
@@ -15,7 +14,7 @@ In this tutorial, you will learn:
 # Easy Tutorial Step 1 - Setup your Development Environment 
 
 ## Overview
-In this step of the tutorial, you will learn how to setup Easy Extension Framework, install a new extension and setup your IDE.
+In this step of the tutorial, you will learn how to setup Easy Extension Framework, install a new extension and set up your IDE.
 
 ## Setup
 Here are the instructions to configure locally the extension and make it works. The extension has been developed to work with the standard electronics-spa accelerator, although it can work easily with other spa accelerators as well with small changes.
@@ -30,26 +29,13 @@ First thing is then to install the latest 2205 commerce version. Follow the offi
 - [Installing SAP Commerce Cloud Manually](https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/8be4e0379b294fbabf36d26e7ca4169d/8bf5cfea86691014a00e9705a3c84074.html?locale=en-US&version=v2205) to install manually if you know the required extensions to set up the electronics or apparel-uk accelerator
 
 ### Install the Easy Framework
-1. Download [Easy Extension Framework](https://github.com/SAP/easy-extension-framework)
-2. Add Easy extensions to your **localextensions.xml** file:
-```
-<extension dir="easycore" />
-<extension dir="easytype" />    
-<extension dir="easybackoffice" />    
-<extension dir="easyrest" />
-```
-3. Run `ant clean all`
-4. Run `ant initialize -Dtenant=master`
-5. Start SAP Commerce Cloud server with `<HYBRIS_HOME>/bin/platform/hybrisserver.sh`
+Install `Easy Extension Framework` as explained in the [documentation](https://sap.github.io/easy-extension-framework/install-for-existing-setup.html).
 
-### Configure local Easy repository
+### Configure Local Easy repository
 Next you'll have to configure the Git repository where the tutorial extension is stored. If you want to play around locally with the extension we suggest you to create a local easy repository that will simplify and speed up your development.
 Follow these [steps](https://sap.github.io/easy-extension-framework/configuring-an-easy-repository-in-backoffice/):
-- clone locally the [Easy Extension Sample](https://github.tools.sap/cx-boosters/easy-extension-samples/tree/easy-0.2) repository (branch easy-0.2)
-- Login into the backoffice and find the Easy node on the Navigation Tree, open Easy Core, Repositories and click on the + button to create a new "local repository"
-![img.png](./images/img.png)
-- populate the wizard giving the repo a code, name and the path of your local File System where you've cloned the remote easy-extension-samples repo
-![img_1.png](./images/img_1.png)
+- Clone locally the [Easy Extension Sample](https://github.tools.sap/cx-boosters/easy-extension-samples/tree/easy-0.2) repository (branch compatible to the installed Easy Extension Framework version. For example: The compatible branch for `v0.x` of Easy Extension Framework is `easy-0.x`). 
+- Configure it as the Local Repository as explained in the [documentation](https://sap.github.io/easy-extension-framework/configuring-an-easy-repository-in-backoffice.html#configuring-a-local-repository).
 
 ### Configure Easy Extension Development Environment
 The easy extensions development environment setup is based on [Gradle](https://gradle.org/). Following are the steps to setup the environment:
@@ -63,7 +49,7 @@ The easy extensions development environment setup is based on [Gradle](https://g
    sap.commerce.easy.api.key = 123456
 
    # Path to the hybris home directory on your computer to add SAP Commerce Cloud libraries to your extension
-   sap.commerce.easy.platform.home= <PATH TO YOUR HYBRIS HOME DIRECTORY>
+   sap.commerce.easy.platform.home= <PATH TO YOUR HYBRIS PLATFORM DIRECTORY>
    sap.commerce.easy.rest.base.url = https://localhost:9002/easyrest
    ```
    

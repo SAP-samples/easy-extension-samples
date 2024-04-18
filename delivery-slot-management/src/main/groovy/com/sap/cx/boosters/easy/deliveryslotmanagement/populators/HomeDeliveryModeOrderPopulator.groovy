@@ -1,6 +1,6 @@
 package com.sap.cx.boosters.easy.deliveryslotmanagement.populators
 
-import com.sap.cx.boosters.easy.deliveryslotmanagement.models.DeliverySlotManagementOrderModel
+import com.sap.cx.boosters.easy.deliveryslotmanagement.models.DeliverySlotManagementModel
 import de.hybris.platform.commercefacades.order.data.OrderData
 import de.hybris.platform.converters.Populator
 import de.hybris.platform.core.model.order.OrderModel
@@ -13,11 +13,10 @@ class HomeDeliveryModeOrderPopulator implements Populator<OrderModel, OrderData>
 
     @Override
     void populate(OrderModel source, OrderData orderData) throws ConversionException {
-        if (source instanceof DeliverySlotManagementOrderModel) {
-            def orderModel = source as DeliverySlotManagementOrderModel
-            if (orderModel.getDeliveryMode().getCode().startsWith("homedelivery")) {
-                def dsm = orderModel.getDeliveryslotmanagement()
-                orderData.getDeliveryMode().setDescription("You'll receive your items on: ${dsm.getDeliveryslot().getStarttime().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"))}")
+        if (source.getDeliveryMode().getCode().startsWith("homedelivery")) {
+            DeliverySlotManagementModel dsm = source.getProperty('deliveryslotmanagement') as DeliverySlotManagementModel
+            if (null != dsm) {
+                orderData.deliveryMode.description = "You'll receive your items on: ${dsm.deliveryslot.starttime.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"))}"
             }
         }
     }

@@ -1,4 +1,4 @@
-INSERT_UPDATE DeliverySlot; code[unique = true]         ; warehouse(code); vehicle(code[unique = true]); starttime[dateformat = dd.MM.yyyy HH:mm:ss]; endtime[dateformat = dd.MM.yyyy HH:mm:ss]; available
+INSERT_UPDATE DeliverySlot; code[unique = true]         ; warehouse(code); vehicle(code); starttime[dateformat = dd.MM.yyyy HH:mm:ss]; endtime[dateformat = dd.MM.yyyy HH:mm:ss]; available
                           ; slot20230519-10_20230519-12 ; warehouse_e    ; Vehicle1                    ; 19.05.2023 10:00:00                        ; 19.05.2023 12:00:00                      ; 3
                           ; slot20230519-12_20230519-14 ; warehouse_e    ; Vehicle1                    ; 19.05.2023 12:00:00                        ; 19.05.2023 14:00:00                      ; 3
                           ; slot20230519-14_20230519-16 ; warehouse_e    ; Vehicle1                    ; 19.05.2023 14:00:00                        ; 19.05.2023 16:00:00                      ; 3

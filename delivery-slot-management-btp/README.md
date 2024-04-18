@@ -64,7 +64,7 @@ Given this is a demo extension and not a production ready code, we have simplifi
 Here are the instructions to configure locally the extension and make it work. The extension has been developed to work with the standard `electronics-spa accelerator`, although it should easily work with other SAP accelerators as well with small changes.
 
 ### Install the BTP Kyma Microservice
-Follow the instructions at https://github.tools.sap/cx-boosters/easy-btp-delivery-slot-management/blob/main/deliveryslotmanagement-btp/README.md
+Follow the instructions at [Delivery Slot Management Services on BTP](https://github.tools.sap/cx-boosters/easy-btp-delivery-slot-management/blob/main/deliveryslotmanagement-btp/README.md)
 
 ### Install SAP Commerce Platform
 
@@ -73,27 +73,14 @@ First thing is then to install the latest 2205 commerce version. Follow the offi
 - [Using the Installer Recipes](https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/8be4e0379b294fbabf36d26e7ca4169d/cb3ff964e4784073a70f06165efbac8a.html?locale=en-US&version=v2205) to install using the cx recipe
 - [Installing SAP Commerce Cloud Manually](https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/8be4e0379b294fbabf36d26e7ca4169d/8bf5cfea86691014a00e9705a3c84074.html?locale=en-US&version=v2205) to install manually if you know the required extensions to set up the electronics or apparel-uk accelerator
 
-### Install the Easy Extension Framework
-1. Download [Easy Extension Framework](https://github.com/SAP/easy-extension-framework)
-2. Add Easy extensions to your `localextensions.xml` file:
-```
-<extension dir="easycore" />
-<extension dir="easytype" />    
-<extension dir="easybackoffice" />    
-<extension dir="easyrest" />
-```
-3. Run `ant clean all`
-4. Run `ant initialize -Dtenant=master`
-5. Start SAP Commerce Cloud server with `<HYBRIS_HOME>/bin/platform/hybrisserver.sh`
+### Install the Easy Framework
+Install `Easy Extension Framework` as explained in the [documentation](https://sap.github.io/easy-extension-framework/install-for-existing-setup.html).
 
-### Configure local Easy repository
+### Configure Local Easy repository
 Next you'll have to configure the Git repository where the tutorial extension is stored. If you want to play around locally with the extension we suggest you to create a local easy repository that will simplify and speed up your development.
-Follow these steps:
-- Clone locally the [Easy Extension Sample](https://github.com/SAP-samples/easy-extension-samples) repository
-- Login into the backoffice and find the Easy node on the Navigation Tree, open Easy Core, Repositories and click on the + button to create a new "local repository"
-![img.png](./images/img.png)
-- populate the wizard giving the repo a code, name and the path of your local File System where you've cloned the remote easy-extension-samples repo
-![img_1.png](./images/img_1.png)
+Follow these [steps](https://sap.github.io/easy-extension-framework/configuring-an-easy-repository-in-backoffice/):
+- Clone locally the [Easy Extension Sample](https://github.tools.sap/cx-boosters/easy-extension-samples/tree/easy-0.2) repository (branch compatible to the installed Easy Extension Framework version. For example: The compatible branch for `v0.x` of Easy Extension Framework is `easy-0.x`).
+- Configure it as the Local Repository as explained in the [documentation](https://sap.github.io/easy-extension-framework/configuring-an-easy-repository-in-backoffice.html#configuring-a-local-repository).
 
 ### Install Delivery Slot Management Btp Easy extension
 Easy extensions have to be installed through the Administration Console:

@@ -374,8 +374,6 @@
       "autocreate": "false",
       "generate": "false",
       "superType": "AbstractOrder",
-      "modelClassName" : "DeliverySlotManagementCartModel",
-      "superTypeModelClass": "de.hybris.platform.core.model.order.CartModel",
       "attributes": [
         {
           "qualifier": "deliveryslotmanagement",
@@ -403,8 +401,6 @@
       "autocreate": "false",
       "generate": "false",
       "superType": "AbstractOrder",
-      "modelClassName" : "DeliverySlotManagementOrderModel",
-      "superTypeModelClass": "de.hybris.platform.core.model.order.OrderModel",
       "attributes": [
         {
           "qualifier": "deliveryslotmanagement",
