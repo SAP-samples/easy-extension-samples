@@ -64,7 +64,7 @@ Given this is a demo extension and not a production ready code, we have simplifi
 Here are the instructions to configure locally the extension and make it work. The extension has been developed to work with the standard `electronics-spa accelerator`, although it should easily work with other SAP accelerators as well with small changes.
 
 ### Install the BTP Kyma Microservice
-Follow the instructions at [Delivery Slot Management Services on BTP](https://github.tools.sap/cx-boosters/easy-btp-delivery-slot-management/blob/main/deliveryslotmanagement-btp/README.md)
+Download the [Delivery Slot Management Services on BTP](https://github.com/SAP-samples/easy-extension-samples/releases/download/samples-dependencies/easy-btp-delivery-slot-management-1.0.0.zip). Refer to the documentation after extracting it from the `README.md` file.
 
 ### Install SAP Commerce Platform
 
@@ -115,7 +115,5 @@ Here's how you can test your endpoints levaraging Swagger:
 5. On the Swagger page, select the endpoint you want to test, click _Try it out_ and fill the required parameters
 ![img_8.png](./images/img_8.png)
 
-## Setup Spartacus library
-The one described above is the procedure to set up the easy extension on your local environment. Then to complete the integration with your Spartacus frontend (remember to make it work you should use Spartacus libraries 5.2 that are compatible with Commerce 2205), you'll have two options:
-- you can use the published library following the istructions: [Use the library](https://github.tools.sap/cx-boosters/easy-extension-samples-spa#use-the-library). The name of the library is _delivery-slot-management_ and _DeliverySlotManagementModule_ is the name of the angular module. You first need to setup access to the Jfrog repository where libraries are hosted following the instructions here: [Repository Setup](https://github.tools.sap/cx-boosters/easy-extension-samples-spa#repository-setup)
-- if you want to see the source code of the spartacus library, then simply replace your spartacus project with the one of the https://github.tools.sap/cx-boosters/easy-extension-samples-spa repository
+## Setup SAP Composable Storefront (Spartacus) library
+The one described above is the procedure to set up the easy extension on your local environment. Then to complete the integration with your Spartacus frontend (remember to make it work you should use Spartacus libraries version 2211.20.1 or higher that are compatible with Commerce v2211). You must install the [Delivery Slot Management SPA](https://www.npmjs.com/package/@spartacus-easy/delivery-slot-management) library to your SAP Composable Storefront setup to use the Delivery Slot Management user experience with your SAP Composable Storefront Setup as per the [NPM documentation](https://www.npmjs.com/package/@spartacus-easy/delivery-slot-management)  

@@ -8,4 +8,4 @@ You can simply install this extension, test its REST endpoints and then use it a
 
 ## Next step
 You're now ready to take a look at the frontend part of the tutorial. 
-For this, clone the main branch of the [Samples SPA](https://github.com/SAP-samples/easy-extension-samples-spa.git) repository on your local machine and then follow the instructions of the `README.md` file under `projects/easy/easy-tutorial-step7`
+For this, clone the main branch of the `https://github.com/SAP-samples/easy-extension-samples-spa.git` repository on your local machine and then follow the instructions of the `README.md` file under `projects/easy/easy-tutorial-step7`

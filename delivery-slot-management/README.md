@@ -110,7 +110,7 @@ The extension provides a couple of tests that have been prepared using the Spock
 - A unit test for the DeliverySlotService backend service
 - A rest test for one of the Easy Rest endpoint defined by the extension
 
-To make them work, simply run _gradle test_ from the root of the project, youl'll see also a generated report under the _build/reports_ folder
+To make them work, simply run _gradle test_ from the root of the project, you'll see also a generated report under the _build/reports_ folder
 
 ### Test using Swagger
 Here's how you can test your endpoints levaraging Swagger:
@@ -123,7 +123,5 @@ Here's how you can test your endpoints levaraging Swagger:
 5. On the Swagger page, select the endpoint you want to test, click _Try it out_ and fill the required parameters
 ![img_8.png](./images/img_8.png)
 
-## Setup Spartacus library
-The one described above is the procedure to set up the easy extension on your local environment. Then to complete the integration with your Spartacus frontend (remember to make it work you should use Spartacus libraries 5.2 that are compatible with Commerce 2205), you'll have two options:
-- you can use the published library following the istructions: [Use the library](https://github.tools.sap/cx-boosters/easy-extension-samples-spa#use-the-library). The name of the library is _delivery-slot-management_ and _DeliverySlotManagementModule_ is the name of the angular module. You first need to setup access to the Jfrog repository where libraries are hosted following the instructions here: [Repository Setup](https://github.tools.sap/cx-boosters/easy-extension-samples-spa#repository-setup)
-- if you want to see the source code of the spartacus library, then simply replace your spartacus project with the one of the https://github.tools.sap/cx-boosters/easy-extension-samples-spa repository
+## Setup SAP Composable Storefront (Spartacus) library
+The one described above is the procedure to set up the easy extension on your local environment. Then to complete the integration with your Spartacus frontend (remember to make it work you should use Spartacus libraries version 2211.20.1 or higher that are compatible with Commerce v2211). You must install the [Delivery Slot Management SPA](https://www.npmjs.com/package/@spartacus-easy/delivery-slot-management) library to your SAP Composable Storefront setup to use the Delivery Slot Management user experience with your SAP Composable Storefront Setup as per the [NPM documentation](https://www.npmjs.com/package/@spartacus-easy/delivery-slot-management)  
