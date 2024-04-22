@@ -51,7 +51,8 @@ class AvailableSlotsController implements EasyRestServiceController {
         def warehouse = warehouseService.getWarehouseForCode(warehouseCode)
 
         def availableSlots = deliverySlotService.getAvailableDeliverySlots(Date.from(startTime.atZone(ZoneId.systemDefault()).toInstant()), Date.from(endTime.atZone(ZoneId.systemDefault()).toInstant()), warehouse)
-        def availableSlotsMap = availableSlots.collectEntries { [it.getCode(), it.getCode()] }
+
+        def availableSlotsMap = availableSlots.isEmpty() ? [:] : availableSlots.collectEntries { [it.code, it.code] }
         def allSlots = deliverySlotService.getAllDeliverySlots(Date.from(startTime.atZone(ZoneId.systemDefault()).toInstant()), Date.from(endTime.atZone(ZoneId.systemDefault()).toInstant()), warehouse)
         if (availableSlots) {
             response.'responseCode' = 200
@@ -69,8 +70,8 @@ class AvailableSlotsController implements EasyRestServiceController {
         def slotsGroupedByDays = allSlots.groupBy { it.getStarttime().toInstant().atZone(ZoneId.systemDefault()).toLocalDate().getDayOfWeek() }
         def allSlotsData = [
                 totalDays         : slotsGroupedByDays.size(),
-                slotsPerDay       : slotsGroupedByDays.values().stream().findFirst().get().size(),
-                slotsConfiguration: allSlots.collect {
+                slotsPerDay       : slotsGroupedByDays.size() > 0 ? slotsGroupedByDays.values().stream().findFirst().get().size() : 0,
+                slotsConfiguration: allSlots.size() > 0 ? allSlots.collect {
                     [
                             code     : it.getCode(),
                             vehicle  : it.getVehicle().getCode(),
@@ -80,7 +81,7 @@ class AvailableSlotsController implements EasyRestServiceController {
                             weekDay  : it.getStarttime().toInstant().atZone(ZoneId.systemDefault()).toLocalDate().getDayOfWeek(),
                             available: availableSlotsMap.containsKey(it.getCode())
                     ]
-                }
+                } : null
         ]
         return allSlotsData
     }

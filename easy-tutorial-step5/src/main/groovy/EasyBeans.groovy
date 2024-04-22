@@ -4,7 +4,10 @@ import com.sap.cx.boosters.easy.easytutorialstep5.controller.CancelDeliveryContr
 import com.sap.cx.boosters.easy.easytutorialstep5.controller.ChangeDeliveryController
 import com.sap.cx.boosters.easy.easytutorialstep5.controller.ConfirmDeliveryController
 import com.sap.cx.boosters.easy.easytutorialstep5.controller.GetBookedDeliveryController
+import com.sap.cx.boosters.easy.easytutorialstep5.models.VehicleModel
 import com.sap.cx.boosters.easy.easytutorialstep5.service.impl.DefaultDeliverySlotService
+import com.sap.cx.boosters.easy.easytutorialstep5.service.impl.DefaultVehicleService
+import com.sap.cx.boosters.easy.easytutorialstep5.slotgenerator.impl.DefaultDeliverySlotGenerator
 import de.hybris.platform.core.model.order.CartModel
 import de.hybris.platform.servicelayer.internal.dao.DefaultGenericDao
 
@@ -12,6 +15,12 @@ logger.info "[${extension.id}] registering Spring beans ..."
 
 easyCoreBeans {
     logger.info "[${extension.id}] registering Spring core beans ..."
+
+    vehicleGenericDao(DefaultGenericDao, VehicleModel._TYPECODE)
+
+    vehicleService(DefaultVehicleService)
+
+    deliverySlotGenerator(DefaultDeliverySlotGenerator)
 
     deliverySlotService(DefaultDeliverySlotService)
 

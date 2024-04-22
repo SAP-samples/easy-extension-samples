@@ -1,3 +1,1 @@
-REMOVE Vehicle;code[unique=true]
-;Vehicle1
-;Vehicle2
+#TODO Add the ImpEx Remove statements to cleanup the vehicles from system during uninstallation

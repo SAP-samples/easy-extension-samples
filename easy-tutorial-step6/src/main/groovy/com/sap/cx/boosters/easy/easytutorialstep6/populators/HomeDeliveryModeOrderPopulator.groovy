@@ -13,8 +13,8 @@ class HomeDeliveryModeOrderPopulator implements Populator<OrderModel, OrderData>
 
     @Override
     void populate(OrderModel source, OrderData orderData) throws ConversionException {
-        if (source.metaClass.deliveryMode.code.startsWith("homedelivery")) {
-            def dsm = source.metaClass.deliveryslotmanagement
+        if (source.deliveryMode.code.startsWith('homedelivery')) {
+            def dsm = source.getProperty('deliveryslotmanagement')
             orderData.deliveryMode.description = "You'll receive your items on: ${dsm.getDeliveryslot().getStarttime().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"))}"
         }
     }

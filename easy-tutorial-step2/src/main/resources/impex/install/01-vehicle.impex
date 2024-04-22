@@ -1,3 +1,1 @@
-INSERT_UPDATE Vehicle;code[unique=true];name[lang=en]
-;Vehicle1;Vehicle 1;
-;Vehicle2;Vehicle 2;
+# TODO Add the INSERT_UPDATE statements to create the vehicles to be used for delivery

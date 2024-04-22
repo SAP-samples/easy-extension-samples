@@ -1,5 +1,1 @@
-REMOVE DeliverySlot[batchmode=true];itemType(code)[unique=true]
-                           ;DeliverySlot
-
-REMOVE DeliverySlotManagement[batchmode=true];itemType(code)[unique=true]
-                                   ;DeliverySlotManagement
+#TODO Ass the ImpEx REMOVE statements to cleanup the delivery slots during the uninstallation process

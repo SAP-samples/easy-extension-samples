@@ -1,9 +1,12 @@
 import com.sap.cx.boosters.easy.easytutorialstep6.controller.*
 import com.sap.cx.boosters.easy.easytutorialstep6.handler.DeliverySlotManagementAttributeHandler
+import com.sap.cx.boosters.easy.easytutorialstep6.models.VehicleModel
 import com.sap.cx.boosters.easy.easytutorialstep6.placeorderhook.HomeDeliveryCommercePlaceOrderMethodHook
 import com.sap.cx.boosters.easy.easytutorialstep6.populators.HomeDeliveryModeOrderPopulator
 import com.sap.cx.boosters.easy.easytutorialstep6.service.impl.DefaultDeliverySlotCleanupService
 import com.sap.cx.boosters.easy.easytutorialstep6.service.impl.DefaultDeliverySlotService
+import com.sap.cx.boosters.easy.easytutorialstep6.service.impl.DefaultVehicleService
+import com.sap.cx.boosters.easy.easytutorialstep6.slotgenerator.impl.DefaultDeliverySlotGenerator
 import de.hybris.platform.core.model.order.CartModel
 import de.hybris.platform.servicelayer.internal.dao.DefaultGenericDao
 
@@ -11,6 +14,12 @@ logger.info "[${extension.id}] registering Spring beans ..."
 
 easyCoreBeans {
     logger.info "[${extension.id}] registering Spring core beans ..."
+
+    vehicleGenericDao(DefaultGenericDao, VehicleModel._TYPECODE)
+
+    vehicleService(DefaultVehicleService)
+
+    deliverySlotGenerator(DefaultDeliverySlotGenerator)
 
     deliverySlotService(DefaultDeliverySlotService)
 
