@@ -124,4 +124,6 @@ Here's how you can test your endpoints levaraging Swagger:
 ![img_8.png](./images/img_8.png)
 
 ## Setup SAP Composable Storefront (Spartacus) library
-The one described above is the procedure to set up the easy extension on your local environment. Then to complete the integration with your Spartacus frontend (remember to make it work you should use Spartacus libraries version 2211.20.1 or higher that are compatible with Commerce v2211). You must install the [Delivery Slot Management SPA](https://www.npmjs.com/package/@spartacus-easy/delivery-slot-management) library to your SAP Composable Storefront setup to use the Delivery Slot Management user experience with your SAP Composable Storefront Setup as per the [NPM documentation](https://www.npmjs.com/package/@spartacus-easy/delivery-slot-management)  
+The one described above is the procedure to set up the easy extension on your local environment. Then to complete the integration with your Spartacus frontend (remember to make it work you should use Spartacus libraries version 2211.20.1 or higher that are compatible with Commerce v2211). You must install the following SAP libraries to your SAP Composable Storefront setup to use the Delivery Slot Management user experience:
+- [Delivery Slot Management SPA](https://www.npmjs.com/package/@spartacus-easy/delivery-slot-management)
+- [Easy Rest SPA](https://www.npmjs.com/package/@spartacus-easy/rest)
