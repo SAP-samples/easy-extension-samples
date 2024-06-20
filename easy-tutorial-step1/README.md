@@ -5,6 +5,7 @@ In this tutorial, we will build a new extension to add new features that do not 
 To understand what we will build during this tutorial, you can check the final outcome: [delivery-slot-management](https://github.tools.sap/cx-boosters/easy-extension-samples/tree/main/delivery-slot-management/README.md) extension. You will find in the documentation the list of features.
 
 In this tutorial, you will learn:
+- How to setup your development environment
 - [How to extend SAP Commerce data model](../easy-tutorial-step2)
 - [How to create and override Spring Beans](../easy-tutorial-step3)
 - [How to create new REST endpoints](../easy-tutorial-step4)
