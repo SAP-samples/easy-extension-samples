@@ -61,9 +61,9 @@ To set up the **easy-tutorial-step1** extension in your local IDE you need to:
    ```gradle
    gradle clean build
    ```
-2. import the repository directory project into IDEA by clicking on File &rarr; Open &rarr; Select the easy directory
+2. Drag and Drop the easy folder to Intellij IDEA or Import the repository directory project by clicking on File &rarr; Open &rarr; Select the easy folder
 
-That's it! You should now be able to develop with your IDE and also when needed you can start the Remote debugging and debug the groovy code of easy extension that you installed. 
+That's it! You should now be able to develop with your IDE and also when needed you can start the Remote debugging and debug the Groovy code of easy extension that you installed. 
 
 ### Install Easy Tutorial Step 1 extension
 Easy extensions can be installed either through the Administration Console, using swagger console or using gradle command:
@@ -77,6 +77,12 @@ Easy extensions can be installed either through the Administration Console, usin
 > **Note:** We recommend you to repeat the last step also for the **Easy Api** extension by clicking on the <button style="padding: 10px; background-color: #0066cc; color: white; border: none; border-radius: 4px; cursor: pointer;">&nbsp;+&nbsp;</button> button against the **Easy Api** extension. This will give you access to a Swagger endpoint so that you can easily test the endpoints of the tutorial extension and use gradle commandline for easy extension development
 
 #### Installing using Swagger Console
+
+- Go to https://localhost:9002/easyrest/swagger-ui/
+- Go to *Easy API* > *POST* */easyapi/repository/{repositoryCode}/extension/{extensionCode}/install*
+- Indicate the `repositoryCode` and the `extensionCode`
+- Click on the 'Execute' button
+- Note the `eventId` and check the status using Easy API > POST /easyapi/geteasyeventlogs/{enventId}
 
 #### Installing using Gradle Commandline 
 - Validate/Configure your repository configurations for gradle by ensuring that the repository code configured in backoffice matches the following property in `gradle.propertes` available at the root of your locally checked out repository:
