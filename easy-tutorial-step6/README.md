@@ -1,4 +1,4 @@
-# Easy Tutorial Step 6
+# Easy Tutorial Step 6 - Integrate with Composable storefront
 
 ## Overview
 In this last step of the tutorial, you will learn how to connect the frontend SAP Commerce Cloud Composable storefront (aka Spartacus) and your custom REST API you have created so far to.
