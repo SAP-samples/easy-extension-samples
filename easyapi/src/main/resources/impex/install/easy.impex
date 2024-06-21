@@ -814,6 +814,13 @@ UPDATE EasyRest; Name[unique=true]; easyRestGroup(Name);
 ; installExtension; Easy API; 
 ; reinstallExtension; Easy API; 
 ; unstallExtension; Easy API; 
-; getEasyEventLogs; Easy API; 
+; getEasyEventLogs; Easy API;
+
+INSERT_UPDATE EasyApiKey; id[unique = true]; key[unique = true]
+"#% beforeEach:
+line.put(2,org.apache.commons.lang.RandomStringUtils.random(10,true,true));
+";
+; apiKey1; <random key>
+; apiKey2; <random key>
 
 
