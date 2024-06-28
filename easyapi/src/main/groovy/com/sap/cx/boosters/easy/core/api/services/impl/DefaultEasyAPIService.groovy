@@ -1,15 +1,22 @@
 package com.sap.cx.boosters.easy.core.api.services.impl
 
 import com.sap.cx.boosters.easy.core.api.services.EasyAPIService
+import de.hybris.platform.servicelayer.search.FlexibleSearchService
 import groovy.json.JsonOutput
 
+import javax.annotation.Resource
+
 class DefaultEasyAPIService implements EasyAPIService {
+
+    public static final QUERY_GET_API_KEY = 'select {pk} from {EasyApiKey as eak} where {eak.key} = ?key'
+
+    @Resource
+    private FlexibleSearchService flexibleSearchService
 
     @Override
     boolean isValidAPIKey(Map ctx) {
         String apiKey = ctx.headers['x-api-key']
-
-        return apiKey == "123456"
+        return flexibleSearchService.search(QUERY_GET_API_KEY, [key: apiKey]).getCount() > 0;
     }
 
     @Override
