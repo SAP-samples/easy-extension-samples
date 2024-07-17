@@ -1,4 +1,4 @@
 "#%
-de.hybris.platform.core.Registry.getApplicationContext().getBean(""deliverySlotGenerator"").generateSlotsForNextXDays(""warehouse_e"", 30, ""Vehicle1"", 3);
-de.hybris.platform.core.Registry.getApplicationContext().getBean(""deliverySlotGenerator"").generateSlotsForNextXDays(""ap_warehouse_e"", 30, ""Vehicle1"", 3);
+de.hybris.platform.core.Registry.getApplicationContext().getBean(""deliverySlotGenerator"").generateSlotsForNextXDays(""apparel_uk"", ""warehouse_e"", 30, ""Vehicle1"", 3);
+de.hybris.platform.core.Registry.getApplicationContext().getBean(""deliverySlotGenerator"").generateSlotsForNextXDays(""apparel_uk"", ""ap_warehouse_e"", 30, ""Vehicle1"", 3);
 "

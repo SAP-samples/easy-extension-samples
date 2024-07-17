@@ -28,7 +28,7 @@ class DefaultDeliverySlotGenerator implements DeliverySlotsGenerator {
     private DeliverySlotService deliverySlotService
 
     @Override
-    void generateSlots(String warehouseCode, String from, String to, String vehicleCode, int available) {
+    void generateSlots(String storeUid, String warehouseCode, String from, String to, String vehicleCode, int available) {
         def warehouse = warehouseService.getWarehouseForCode(warehouseCode)
         def vehicle = vehicleService.getForCode(vehicleCode)
         DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
@@ -44,7 +44,7 @@ class DefaultDeliverySlotGenerator implements DeliverySlotsGenerator {
             LocalDateTime dayStart = slotStartTime.withHour(7).withMinute(59).withSecond(59)
             LocalDateTime dayEnd = slotStartTime.withHour(20).withMinute(0).withSecond(0)
             if (slotStartTime.isAfter(dayStart) && slotEndTime.isBefore(dayEnd)) {
-                def code = String.format('%s_%s-%s', warehouseCode, codeDateFormat.format(slotStartTime), codeDateFormat.format(slotEndTime))
+                def code = String.format('%s_%s_%s-%s', storeUid, warehouseCode, codeDateFormat.format(slotStartTime), codeDateFormat.format(slotEndTime))
                 if (null == deliverySlotService.findSlotByCode(code)) {
                     DeliverySlotModel deliverySlot = modelService.create(DeliverySlotModel)
 
@@ -65,10 +65,10 @@ class DefaultDeliverySlotGenerator implements DeliverySlotsGenerator {
     }
 
     @Override
-    void generateSlotsForNextXDays(String warehouseCode, int daysCount, String vehicleCode, int available) {
+    void generateSlotsForNextXDays(String storeUid, String warehouseCode, int daysCount, String vehicleCode, int available) {
         DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
         String from = dateFormatter.format(LocalDateTime.now())
         String to = dateFormatter.format(LocalDateTime.now().plusDays(daysCount))
-        this.generateSlots(warehouseCode, from, to, vehicleCode, available)
+        this.generateSlots(storeUid, warehouseCode, from, to, vehicleCode, available)
     }
 }
