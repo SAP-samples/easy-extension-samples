@@ -18,8 +18,6 @@ Let's first see the Business Entities that we need to model for the Home Deliver
 - Delivery Slot: this entity holds the avaialbility details of a time slot that customer can book for a specific day, vehicle and warehouse. 
 - Delivery Slot Management: this entity represents a customer booking for a specific slot. If the booking is still related to a cart, then its status will be BOOKED; once the order will be placed on the commerce shop and an order will be created, then also the associated booking will change its status to CONFIRMED.
 
-
-
 Our extension has implemented the Home Delivery process of the checkout flow for the ecommerce site but it didn't implement anything of the OMS features required to manage the post order activities.
 Let's now see more in detail the features that have been implemented.
 
@@ -82,19 +80,27 @@ Follow these [steps](https://sap.github.io/easy-extension-framework/configuring-
 - Clone locally the [Easy Extension Sample](https://github.tools.sap/cx-boosters/easy-extension-samples/tree/easy-0.2) repository (branch compatible to the installed Easy Extension Framework version. For example: The compatible branch for `v0.x` of Easy Extension Framework is `easy-0.x`).
 - Configure it as the Local Repository as explained in the [documentation](https://sap.github.io/easy-extension-framework/configuring-an-easy-repository-in-backoffice.html#configuring-a-local-repository).
 
-### Install Delivery Slot Management Btp Easy extension
+### Install Delivery Slot Management BTP Easy extension
 Easy extensions have to be installed through the Administration Console:
-- Connect to the hac and log in
-- If you've correctly created your Easy local repository, you should see under the Easy tab, the repository with the list of easy extensions retrieved:
+- Connect to the HAC and log in
+- Before installing the extension, you need to set the following properties in HAC in case the default values using the demo BTP service configuration defined in [easy.properties](/delivery-slot-management-btp/src/main/resources/easy.properties) are not correct 
+```
+deliveryslotmanagement.btp.url
+deliveryslotmanagement.btp.spec.url
+deliveryslotmanagement.btp.oauth.url
+deliveryslotmanagement.btp.oauth.clientId
+deliveryslotmanagement.btp.oauth.clientSecret
+```
+- If you've correctly created your Easy local repository, you should see under the `Easy` tab, the repository with the list of easy extensions retrieved:
 ![img_2.png](./images/img_2.png)
 - Click the "Update" button to be sure you've the latest version of your local repository: the update button will refresh the copy of the repositories that is stored in the _data_ dir of Commerce
-- Click on the "+" button next to the "Delivery Slot Management Btp" extension and wait the installation procedure is completed: if there are no errors you should see a successful blue message banner in the hac, if something went wrong during installation, a red message banner will pop up in the hac. In this case you'll have to check the server log to see what is the problem
+- Click on the "+" button next to the "Delivery Slot Management BTP" extension and wait the installation procedure is completed: if there are no errors you should see a successful blue message banner in the HAC, if something went wrong during installation, a red message banner will pop up in the hac. In this case you'll have to check the server log to see what is the problem
 - We suggest you to repeat the last step also for the "Easy Api" extension that will give you access to a Swagger endpoint so that you can easily test the endpoints of the tutorial extension 
 
-## How to test
+## How to Test
 There are different ways you can test the extension:
 - you can use the Spock framework and define Unit test for your backend services, classes
-- you can still use Spock together with a Rest library to test your API rest endpoints
+- you can still use Spock together with a REST library to test your API rest endpoints
 - you can leverage the Swagger framework to test your endpoints
 
 ### Test using Spock and Gradle
