@@ -3,8 +3,8 @@ package com.sap.cx.boosters.easy.core.api.controllers
 class UpdateRepositoryController extends AbstractEasyEventController {
 
     @Override
-    protected String getEventId(String repositoryCode, String extensionId, Boolean async) {
-        return easyInstaller.updateRepository(repositoryCode, async)
+    protected String getEventId(Map<String, Object> eventData) {
+        return easyInstaller.updateRepository(eventData.repository as String, eventData.async as boolean)
     }
 
     @Override
