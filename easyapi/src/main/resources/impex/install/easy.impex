@@ -1,8 +1,8 @@
 INSERT_UPDATE EasyRestGroup; Name[unique=true]; allowedAuthorities(uid);
-; Easy API; ; 
+; Easy API; ;
 
 INSERT_UPDATE EasyRest; Name[unique = true]; Path; SSL; CSRF; Method(code); Format(code); ContentType(code); AuthenticationMethod(code); Secret; SpringBean; Script; CacheControl(code); CacheControlMaxAge; CacheTTL; SwaggerSummary; SwaggerParameters; SwaggerRequestBody; SwaggerResponses;
-; swagger; swagger; true; false; GET; NONE; JSON; NONE; ; swaggerController; ; NO_CACHE; 0; -1; ; ; ; ; 
+; swagger; swagger; true; false; GET; NONE; JSON; NONE; ; swaggerController; ; NO_CACHE; 0; -1; ; ; ; ;
 
 INSERT_UPDATE EasyRest; Name[unique = true]; Path; SSL; CSRF; Method(code); Format(code); ContentType(code); AuthenticationMethod(code); Secret; SpringBean; Script; CacheControl(code); CacheControlMaxAge; CacheTTL; SwaggerSummary; SwaggerParameters; SwaggerRequestBody; SwaggerResponses;
 ; updateRepository; easyapi/repository/{repositoryCode}/update; true; false; POST; NONE; JSON; NONE; "123456" ; updateRepositoryController; ; NO_CACHE; 0; -1; ; "[
@@ -33,7 +33,7 @@ INSERT_UPDATE EasyRest; Name[unique = true]; Path; SSL; CSRF; Method(code); Form
         }
     }
  }
-}"; 
+}";
 ; getExtensions; easyapi/repository/{repositoryCode}/extensions; true; false; GET; NONE; JSON; NONE; "123456" ; getExtensionsController; ; NO_CACHE; 0; -1; ; "[
     {
         ""in"":""path"",
@@ -120,8 +120,8 @@ INSERT_UPDATE EasyRest; Name[unique = true]; Path; SSL; CSRF; Method(code); Form
             }
         }
     }
-}"; 
-; installExtension; easyapi/repository/{repositoryCode}/extension/{extensionCode}/install; true; false; POST; NONE; JSON; NONE; "123456" ; installExtensionController; ; NO_CACHE; 0; -1; ; "[
+}";
+; installExtension; easyapi/repository/{repositoryCode}/extension/{extensionCode}/install; true; false; POST; JSON; JSON; NONE; "123456" ; installExtensionController; ; NO_CACHE; 0; -1; ; "[
     {
         ""in"":""path"",
         ""name"":""repositoryCode"",
@@ -144,7 +144,17 @@ INSERT_UPDATE EasyRest; Name[unique = true]; Path; SSL; CSRF; Method(code); Form
         ""type"": ""boolean"",
         ""default"": true
     }
-]"; ; "
+]";"
+{
+ ""content"": {
+  ""application/json"": {
+    ""schema"": {
+      ""type"":""object""
+    }
+  }
+ }
+}
+" ; "
 {
   ""200"": {
     ""content"": {
@@ -156,7 +166,7 @@ INSERT_UPDATE EasyRest; Name[unique = true]; Path; SSL; CSRF; Method(code); Form
         }
     }
  }
-}"; 
+}";
 ; reinstallExtension; easyapi/repository/{repositoryCode}/extension/{extensionCode}/reinstall; true; false; POST; NONE; JSON; NONE; "123456" ; reinstallExtensionController; ; NO_CACHE; 0; -1; ; "[
     {
         ""in"":""path"",
@@ -192,7 +202,7 @@ INSERT_UPDATE EasyRest; Name[unique = true]; Path; SSL; CSRF; Method(code); Form
         }
     }
  }
-}"; 
+}";
 ; unstallExtension; easyapi/repository/{repositoryCode}/extension/{extensionCode}/uninstall; true; false; POST; NONE; JSON; NONE; "123456" ; uninstallExtensionController; ; NO_CACHE; 0; -1; ; "[
     {
         ""in"":""path"",
@@ -228,7 +238,7 @@ INSERT_UPDATE EasyRest; Name[unique = true]; Path; SSL; CSRF; Method(code); Form
         }
     }
  }
-}"; 
+}";
 ; getRepositories; easyapi/repositories; true; false; GET; NONE; JSON; NONE; "123456" ;getRepositoriesController ; ; NO_CACHE; 0; -1; ; ; ; "
 {
   ""200"": {
@@ -247,8 +257,8 @@ INSERT_UPDATE EasyRest; Name[unique = true]; Path; SSL; CSRF; Method(code); Form
         }
     }
  }
- 
-}"; 
+
+}";
 ; getEasyEventLogs; easyapi/geteasyeventlogs/{eventId}; true; false; GET; NONE; JSON; NONE; "123456" ; getEasyEventStatusController; ; NO_CACHE; 0; -1; ; "[
     {
         ""in"":""path"",
@@ -805,7 +815,7 @@ INSERT_UPDATE EasyRest; Name[unique = true]; Path; SSL; CSRF; Method(code); Form
       }
     }
   }
-}"; 
+}";
 UPDATE EasyRest; Name[unique=true]; easyRestGroup(Name);
 ; swagger; Easy API;
 ; getRepositories; Easy API;
@@ -822,5 +832,10 @@ line.put(2,org.apache.commons.lang.RandomStringUtils.random(10,true,true));
 ";
 ; apiKey1; <random key>
 ; apiKey2; <random key>
+; getExtensions; Easy API;
+; installExtension; Easy API;
+; reinstallExtension; Easy API;
+; unstallExtension; Easy API;
+; getEasyEventLogs; Easy API;
 
 

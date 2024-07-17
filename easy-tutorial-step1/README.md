@@ -20,14 +20,14 @@ In this step of the tutorial, you will learn how to setup Easy Extension Framewo
 ## Setup
 Here are the instructions to configure locally the extension and make it works. The extension has been developed to work with the standard electronics-spa accelerator, although it can work easily with other spa accelerators as well with small changes.
 
-[Here](https://sap.github.io/easy-extension-framework/getting-started/) you can find more details on the installation procedure.
+[Here](https://sap.github.io/easy-extension-framework/getting-started.html) you can find more details on the installation procedure.
 
 ### Install SAP Commerce Platform
 
-First thing is then to install the latest 2205 commerce version. Follow the official documentation:
+First thing is then to install the latest 2211 commerce version. Follow the official documentation:
 
-- [Using the Installer Recipes](https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/8be4e0379b294fbabf36d26e7ca4169d/cb3ff964e4784073a70f06165efbac8a.html?locale=en-US&version=v2205) to install using the cx recipe
-- [Installing SAP Commerce Cloud Manually](https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/8be4e0379b294fbabf36d26e7ca4169d/8bf5cfea86691014a00e9705a3c84074.html?locale=en-US&version=v2205) to install manually if you know the required extensions to set up the electronics or apparel-uk accelerator
+- [Using the Installer Recipes](https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/8be4e0379b294fbabf36d26e7ca4169d/cb3ff964e4784073a70f06165efbac8a.html?locale=en-US) to install using the cx recipe
+- [Installing SAP Commerce Cloud Manually](https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/8be4e0379b294fbabf36d26e7ca4169d/8bf5cfea86691014a00e9705a3c84074.html?locale=en-US) to install manually if you know the required extensions to set up the electronics or apparel-uk accelerator
 
 ### Install the Easy Framework
 Install `Easy Extension Framework` as explained in the [documentation](https://sap.github.io/easy-extension-framework/install-for-existing-setup.html).
@@ -40,7 +40,7 @@ Follow these [steps](https://sap.github.io/easy-extension-framework/configuring-
 
 ### Configure Easy Extension Development Environment
 The easy extensions development environment setup is based on [Gradle](https://gradle.org/). Following are the steps to setup the environment:
-1. Install [Gradle](https://gradle.org/) as per the instructions available at [Gradle Installation](https://gradle.org/install/)
+1. Install [Gradle](https://gradle.org/) 8.8 as per the instructions available at [Gradle Installation](https://gradle.org/install/)
 2. Configure the following global gradle configurations for your environment in `<USER_HOME>/.gradle/gradle.properties` file:
    ```properties
    # The base url of the easy api for your SAP Commerce Cloud. Below if for a local SAP Commerce Cloud Server

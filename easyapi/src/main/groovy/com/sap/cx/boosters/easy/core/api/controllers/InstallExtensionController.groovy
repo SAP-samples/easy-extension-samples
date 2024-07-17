@@ -3,8 +3,8 @@ package com.sap.cx.boosters.easy.core.api.controllers
 class InstallExtensionController extends AbstractEasyEventController {
 
     @Override
-    protected String getEventId(String repositoryCode, String extensionId, Boolean async) {
-        return easyInstaller.install(repositoryCode, extensionId, async)
+    protected String getEventId(Map<String, Object> eventData) {
+        return easyInstaller.install(eventData.repository as String, eventData.extensionId as String, eventData.configuration as Map<String, Object>, eventData.async as boolean)
     }
 
     @Override

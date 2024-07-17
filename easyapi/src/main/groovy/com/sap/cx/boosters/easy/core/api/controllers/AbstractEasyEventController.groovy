@@ -10,25 +10,27 @@ abstract class AbstractEasyEventController extends AbstractEasyApiController {
 
     @Override
     def executeInternal(def ctx) {
-
-        def repositoryCode = ctx.pathParameters.repositoryCode?.toString()
-        def extensionId = ctx.pathParameters.extensionCode?.toString()
-        def async = ctx.parameters.async as Boolean
+        def eventData = [:] as Map<String, Object>
+        eventData.repository = ctx.pathParameters.repositoryCode?.toString()
+        eventData.extensionId = ctx.pathParameters.extensionCode?.toString()
+        eventData.configuration = ctx.body
+        eventData.async = ctx.parameters.async as Boolean
 
         def responseBody = [:]
-        responseBody.'eventId' = getEventId(repositoryCode, extensionId, async)
+
+        responseBody.'eventId' = getEventId(eventData)
 
         def messageFragment
-        if (extensionId == null) {
-            messageFragment = "repository '$repositoryCode'"
+        if (eventData.extensionId == null) {
+            messageFragment = "repository '$eventData.repository'"
         } else {
-            messageFragment = "repository '$repositoryCode' and extension '$extensionId'"
+            messageFragment = "repository '$eventData.repository' and extension '$eventData.extensionId'"
         }
         responseBody.'message' = "${getEventType()} request for $messageFragment submitted."
         return responseBody
     }
 
-    protected abstract String getEventId(String repositoryCode, String extensionId, Boolean async)
+    protected abstract String getEventId(Map<String, Object> eventData)
 
     protected abstract String getEventType()
 }
