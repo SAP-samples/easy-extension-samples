@@ -1,0 +1,49 @@
+{
+  "200": {
+    "content": {
+      "application/json": {
+        "example": {
+          "groupId": "com.sap.cx.boosters.easy",
+          "id": "extention-one",
+          "version": {
+            "installed": "0.0.1",
+            "available": "0.0.1"
+          },
+          "easyVersion": {
+            "installed": "0.2",
+            "available": "0.2"
+          },
+          "revision": {
+            "installed": "j9hj9h89y9h",
+            "available": "j9hj9h89y9h"
+          },
+          "name": "Extension One",
+          "thumbnail": "https://www.xxx.com/easy-extensions/extension-one.png",
+          "installed": false,
+          "description": "Extension One Description",
+          "authors": [
+            "Author"
+          ],
+          "vendor": "Vendor",
+          "tags": [
+            "tag",
+            "extension",
+            "one"
+          ],
+          "requires": {
+            "commerce": [
+              "commerceservices"
+            ]
+          },
+          "documentation": "https://www.xxx.com/docs/extension-one.md",
+          "path": "/extention-one",
+          "init": "Init.groovy",
+          "groovy_main_path": "src/main/groovy",
+          "groovy_test_path": "src/test/groovy",
+          "repoCode": "repoCode",
+          "orphaned": false
+        }
+      }
+    }
+  }
+}

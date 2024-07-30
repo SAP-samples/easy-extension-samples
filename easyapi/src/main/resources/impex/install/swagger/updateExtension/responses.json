@@ -1,0 +1,12 @@
+{
+  "200": {
+    "content": {
+      "application/json": {
+        "example": {
+          "eventId": "0000000X ",
+          "message": "Update request for extension demo submitted."
+        }
+      }
+    }
+  }
+}

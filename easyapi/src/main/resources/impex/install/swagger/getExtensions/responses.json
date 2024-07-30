@@ -1,0 +1,92 @@
+{
+  "200": {
+    "content": {
+      "application/json": {
+        "example": [
+          {
+            "groupId": "com.sap.cx.boosters.easy",
+            "id": "extention-one",
+            "version": {
+              "installed": "0.0.1",
+              "available": "0.0.1"
+            },
+            "easyVersion": {
+              "installed": "0.2",
+              "available": "0.2"
+            },
+            "revision": {
+              "installed": "j9hj9h89y9h",
+              "available": "j9hj9h89y9h"
+            },
+            "name": "Extension One",
+            "thumbnail": "https://www.xxx.com/easy-extensions/extension-one.png",
+            "installed": false,
+            "description": "Extension One Description",
+            "authors": [
+              "Author"
+            ],
+            "vendor": "Vendor",
+            "tags": [
+              "tag",
+              "extension",
+              "one"
+            ],
+            "requires": {
+              "commerce": [
+                "commerceservices"
+              ]
+            },
+            "documentation": "https://www.xxx.com/docs/extension-one.md",
+            "path": "/extention-one",
+            "init": "Init.groovy",
+            "groovy_main_path": "src/main/groovy",
+            "groovy_test_path": "src/test/groovy",
+            "repoCode": "repoCode",
+            "orphaned": false
+          },
+          {
+            "groupId": "com.sap.cx.boosters.easy",
+            "id": "extention-two",
+            "version": {
+              "available": "0.0.1"
+            },
+            "easyVersion": {
+              "available": "0.2"
+            },
+            "revision": {
+              "available": "j9hj9h89y9h"
+            },
+            "name": "Extension Two",
+            "thumbnail": "https://www.xxx.com/easy-extensions/extension-one.png",
+            "installed": false,
+            "description": "Extension Two Description",
+            "authors": [
+              "Author"
+            ],
+            "vendor": "Vendor",
+            "tags": [
+              "tag",
+              "extension",
+              "two"
+            ],
+            "requires": {
+              "easy": [
+                "com.sap.cx.boosters.easy:extention-one"
+              ],
+              "commerce": [
+                "commerceservices"
+              ]
+            },
+            "documentation": "https://www.xxx.com/docs/extension-two.md",
+            "path": "/extention-two",
+            "init": "Init.groovy",
+            "groovy_main_path": "src/main/groovy",
+            "groovy_test_path": "src/test/groovy",
+            "repoCode": "repoCode",
+            "orphaned": false
+          }
+        ]
+      }
+    }
+  }
+}

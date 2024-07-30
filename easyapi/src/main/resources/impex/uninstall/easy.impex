@@ -1,11 +1,19 @@
 REMOVE EasyRest; Name[unique = true]
-; swagger;
-; updateRepository
-; getExtensions
-; installExtension
-; reinstallExtension
-; unstallExtension
-; getEasyEventLogs
+               ; swagger
+               ; updateRepository
+               ; getExtensions
+               ; getExtensionDetails
+               ; installExtension
+               ; updateExtension
+               ; reinstallExtension
+               ; uninstallExtension
+               ; getEasyEventLogs
 
-REMOVE EasyRestGroup; Name[unique=true]
-; Easy API
+REMOVE EasyRestGroup; Name[unique = true]
+                    ; Easy API
+
+REMOVE EasyRestApiClient; id[unique = true];
+                        ; easy-api-client
+
+REMOVE Employee; uid[unique = true]
+               ; easy-api-technical-user

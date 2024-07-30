@@ -14,6 +14,8 @@ easyWebBeans('/easyrest') {
 
     getExtensionsController(GetExtensionsController)
 
+    getExtensionDetailsController(GetExtensionDetailsController)
+
     installExtensionController(InstallExtensionController)
 
     reinstallExtensionController(ReInstallExtensionController)
@@ -21,6 +23,7 @@ easyWebBeans('/easyrest') {
     uninstallExtensionController(UninstallExtensionController)
 
     getEasyEventStatusController(GetEasyEventStatusController)
+
 }
 
 logger.info "[${extension.id}] registered spring beans ..."

@@ -1,6 +1,6 @@
 package com.sap.cx.boosters.easy.core.api.controllers
 
-
+import com.fasterxml.jackson.databind.ObjectMapper
 import com.sap.cx.boosters.easy.core.data.EasyRepository
 import com.sap.cx.boosters.easy.core.repository.service.EasyRepositoryService
 import groovy.json.JsonOutput
@@ -21,6 +21,6 @@ class GetRepositoriesController extends AbstractEasyApiController {
             def repository = [code: it.code, name: it.name]
             repositories.add(repository)
         }
-        return JsonOutput.toJson(repositories)
+        return new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(repositories)
     }
 }

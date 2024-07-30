@@ -16,7 +16,7 @@ class DefaultEasyAPIService implements EasyAPIService {
     @Override
     boolean isValidAPIKey(Map ctx) {
         String apiKey = ctx.headers['x-api-key']
-        return flexibleSearchService.search(QUERY_GET_API_KEY, [key: apiKey]).getCount() > 0;
+        return flexibleSearchService.search(QUERY_GET_API_KEY, [key: apiKey]).getCount() > 0
     }
 
     @Override
