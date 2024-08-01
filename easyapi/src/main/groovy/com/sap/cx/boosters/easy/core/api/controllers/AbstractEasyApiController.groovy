@@ -15,13 +15,9 @@ abstract class AbstractEasyApiController implements EasyRestServiceController {
 
     @Override
     Map<String, Object> execute(Map ctx) {
-
-        if (!easyAPIService.isValidAPIKey(ctx)) {
-            return easyAPIService.buildInvalidAPIKeyResponse()
-        } else {
             def response = [:] as Map<String, Object>
             try {
-                response.'body' = JsonOutput.toJson(executeInternal(ctx))
+                response.'body' = executeInternal(ctx)
                 response.'responseCode' = 200
                 return response
             } catch (Exception exception) {
@@ -34,7 +30,6 @@ abstract class AbstractEasyApiController implements EasyRestServiceController {
                 response.'body' = jsonErrors
                 return response
             }
-        }
     }
 
     abstract def executeInternal(def ctx)

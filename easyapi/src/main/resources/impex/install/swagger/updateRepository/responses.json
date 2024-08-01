@@ -1,0 +1,12 @@
+{
+  "200": {
+    "content": {
+      "application/json": {
+        "example": {
+          "eventId": "00000001",
+          "message": "Update request for repository repositoryCode submitted"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+[
+  {
+    "in": "path",
+    "name": "repositoryCode",
+    "description": "Repository code",
+    "required": true,
+    "type": "string"
+  },
+  {
+    "in": "path",
+    "name": "extensionCode",
+    "description": "Extension code",
+    "required": true,
+    "type": "string"
+  },
+  {
+    "in": "query",
+    "name": "async",
+    "description": "Flag to determine if extension should install asynchronously",
+    "required": false,
+    "type": "boolean",
+    "default": true
+  }
+]

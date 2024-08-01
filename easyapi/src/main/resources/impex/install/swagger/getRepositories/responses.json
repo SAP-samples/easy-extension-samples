@@ -1,0 +1,18 @@
+{
+  "200": {
+    "content": {
+      "application/json": {
+        "example": [
+          {
+            "code": "easy-repository-one",
+            "name": "Name of Easy Repository One"
+          },
+          {
+            "code": "easy-repository-two",
+            "name": "Name of Easy Repository Two"
+          }
+        ]
+      }
+    }
+  }
+}
