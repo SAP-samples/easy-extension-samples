@@ -77,9 +77,9 @@ class SwaggerController implements EasyRestServiceController {
                             'operationId': "$path",
                             'summary'    : '',
                             'description': '',
-                            'security'   : null,
-                            'parameters' : null,
-                            'requestBody': null,
+                            'security'   : [],
+                            'parameters' : [],
+                            'requestBody': [],
                             'responses'  : [:],
                             'tags'       : [group]
                     ]
