@@ -3,7 +3,6 @@
     "in": "path",
     "name": "eventId",
     "description": "Event Id",
-    "required": true,
-    "type": "string"
+    "required": true
   }
 ]
