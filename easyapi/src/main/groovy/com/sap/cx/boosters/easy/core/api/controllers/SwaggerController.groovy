@@ -91,7 +91,7 @@ class SwaggerController implements EasyRestServiceController {
             if (it.authenticationMethod == AuthenticationMethod.OAUTH)
                 path[method].security.add([oauth2_password: [], oauth2_clientCredentials: []])
 
-            if (it.secret != null && it.secret != '')
+            if (it.authenticationMethod  == AuthenticationMethod.API_KEY)
                 path[method].security.add(ApiKeyAuth: [])
 
             def swaggerParameters = it.swaggerParameters
