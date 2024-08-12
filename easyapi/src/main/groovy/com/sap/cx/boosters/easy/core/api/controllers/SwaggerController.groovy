@@ -59,7 +59,7 @@ class SwaggerController implements EasyRestServiceController {
                                 ApiKeyAuth              : [
                                         type: 'apiKey',
                                         in  : 'header',
-                                        name: 'X-API-KEY'
+                                        name: 'x-api-key'
                                 ]
                         ]
                 ]

@@ -1,5 +1,6 @@
 package com.sap.cx.boosters.easy.core.api.controllers
 
+import com.sap.cx.boosters.easy.core.api.data.EasyInstallerEventResponse
 import com.sap.cx.boosters.easy.core.installer.EasyInstaller
 
 import javax.annotation.Resource
@@ -14,11 +15,13 @@ abstract class AbstractEasyEventController extends AbstractEasyApiController {
         eventData.repository = ctx.pathParameters.repositoryCode?.toString()
         eventData.extensionId = ctx.pathParameters.extensionCode?.toString()
         eventData.configuration = ctx.body
-        eventData.async = ctx.parameters.async as Boolean
+        if (ctx.parameters.async) {
+            eventData.async = Boolean.valueOf(ctx.parameters.async as String)
+        }
 
-        def responseBody = [:]
+        def responseBody = new EasyInstallerEventResponse()
 
-        responseBody.'eventId' = getEventId(eventData)
+        responseBody.eventId = getEventId(eventData)
 
         def messageFragment
         if (eventData.extensionId == null) {
@@ -26,7 +29,7 @@ abstract class AbstractEasyEventController extends AbstractEasyApiController {
         } else {
             messageFragment = "repository '$eventData.repository' and extension '$eventData.extensionId'"
         }
-        responseBody.'message' = "${getEventType()} request for $messageFragment submitted."
+        responseBody.message = "${getEventType()} request for $messageFragment ${eventData.async ? 'submitted' : 'processed'}."
         return responseBody
     }
 
