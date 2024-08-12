@@ -1,546 +1,549 @@
 {
   "200": {
+    "description": "Logs for an easy event execution",
     "content": {
       "application/json": {
-        "eventId": "00000LLW",
-        "type": "INSTALL_EXTENSION",
-        "extensionId": "easyapi",
-        "extensionVersion": "0.0.2",
-        "repository": "cx-boosters-easy-extensions",
-        "repositoryRevision": "cb4f045",
-        "status": "SUCCESS",
-        "startedAt": "2023-06-22T05:54:52Z",
-        "finishedAt": "2023-06-22T05:55:09Z",
-        "userId": "admin",
-        "masterNodeId": "7",
-        "masterNodeType": "backoffice",
-        "clusterLogData": {
-          "backoffice": [
-            {
-              "localEventId": "00000LLW-7",
-              "status": "SUCCESS",
-              "nodeId": "7",
-              "nodeType": "backoffice",
-              "nodeName": "backoffice-7",
-              "startedAt": "2023-06-22T05:54:52Z",
-              "finishedAt": "2023-06-22T05:54:55Z",
-              "taskLogs": {
-                "EXTENSIONCOPY": {
-                  "status": "SUCCESS",
-                  "startedAt": "2023-06-22T05:54:52Z",
-                  "finishedAt": "2023-06-22T05:54:53.029Z",
-                  "duration": "1029 ms",
-                  "logs": [
-                    "2023-06-22T05:54:52.951Z - [INFO] - Starting to process task 'EXTENSIONCOPY' for event '00000LLW-7' at cluster node '7' ",
-                    "2023-06-22T05:54:52.964Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:54:52.996Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:54:53.029Z - [INFO] - Processed task 'EXTENSIONCOPY' for event '00000LLW-7' at cluster node '7' "
-                  ]
-                },
-                "LOADPROPERTIES": {
-                  "status": "SUCCESS",
-                  "startedAt": "2023-06-22T05:54:53Z",
-                  "finishedAt": "2023-06-22T05:54:53.120Z",
-                  "duration": "120 ms",
-                  "logs": [
-                    "2023-06-22T05:54:53.043Z - [INFO] - Starting to process task 'LOADPROPERTIES' for event '00000LLW-7' at cluster node '7' ",
-                    "2023-06-22T05:54:53.057Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:54:53.075Z - [INFO] - 'easy.properties' file doesn't exist for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. Skipping ... ",
-                    "2023-06-22T05:54:53.094Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:54:53.120Z - [INFO] - Processed task 'LOADPROPERTIES' for event '00000LLW-7' at cluster node '7' "
-                  ]
-                },
-                "LOADMODELCLASSES": {
-                  "status": "SUCCESS",
-                  "startedAt": "2023-06-22T05:54:53Z",
-                  "finishedAt": "2023-06-22T05:54:53.216Z",
-                  "duration": "216 ms",
-                  "logs": [
-                    "2023-06-22T05:54:53.134Z - [INFO] - Starting to process task 'LOADMODELCLASSES' for event '00000LLW-7' at cluster node '7' ",
-                    "2023-06-22T05:54:53.146Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:54:53.165Z - [INFO] - No model classes directory found. Ignoring loading of model classes for extension 'easyapi' of repository 'cx-boosters-easy-extensions'. Skipping ... ",
-                    "2023-06-22T05:54:53.189Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:54:53.216Z - [INFO] - Processed task 'LOADMODELCLASSES' for event '00000LLW-7' at cluster node '7' "
-                  ]
-                },
-                "EASYTYPE": {
-                  "status": "SUCCESS",
-                  "startedAt": "2023-06-22T05:54:53Z",
-                  "finishedAt": "2023-06-22T05:54:53.321Z",
-                  "duration": "321 ms",
-                  "logs": [
-                    "2023-06-22T05:54:53.232Z - [INFO] - Starting to process task 'EASYTYPE' for event '00000LLW-7' at cluster node '7' ",
-                    "2023-06-22T05:54:53.248Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:54:53.276Z - [INFO] - No easy type configured for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. Skipping ... ",
-                    "2023-06-22T05:54:53.294Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:54:53.321Z - [INFO] - Processed task 'EASYTYPE' for event '00000LLW-7' at cluster node '7' "
-                  ]
-                },
-                "LOADBEANS": {
-                  "status": "SUCCESS",
-                  "startedAt": "2023-06-22T05:54:53Z",
-                  "finishedAt": "2023-06-22T05:54:53.962Z",
-                  "duration": "962 ms",
-                  "logs": [
-                    "2023-06-22T05:54:53.335Z - [INFO] - Starting to process task 'LOADBEANS' for event '00000LLW-7' at cluster node '7' ",
-                    "2023-06-22T05:54:53.348Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:54:53.381Z - [INFO] - Loading beans for application '/backoffice' ",
-                    "2023-06-22T05:54:53.869Z - [INFO] - Loaded beans for application '/backoffice' ",
-                    "2023-06-22T05:54:53.934Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:54:53.962Z - [INFO] - Processed task 'LOADBEANS' for event '00000LLW-7' at cluster node '7' "
-                  ]
-                },
-                "IMPEXIMPORT": {
-                  "status": "SUCCESS",
-                  "startedAt": "2023-06-22T05:54:53Z",
-                  "finishedAt": "2023-06-22T05:54:55.314Z",
-                  "duration": "2314 ms",
-                  "logs": [
-                    "2023-06-22T05:54:53.978Z - [INFO] - Starting to process task 'IMPEXIMPORT' for event '00000LLW-7' at cluster node '7' ",
-                    "2023-06-22T05:54:53.992Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:54:54.017Z - [INFO] - Starting impex import for 'easy.impex' ",
-                    "2023-06-22T05:54:55.257Z - [INFO] - Finished impex import for 'easy.impex'. ",
-                    "2023-06-22T05:54:55.280Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:54:55.314Z - [INFO] - Processed task 'IMPEXIMPORT' for event '00000LLW-7' at cluster node '7' "
-                  ]
-                },
-                "INITSCRIPT": {
-                  "status": "SUCCESS",
-                  "startedAt": "2023-06-22T05:54:55Z",
-                  "finishedAt": "2023-06-22T05:54:55.508Z",
-                  "duration": "508 ms",
-                  "logs": [
-                    "2023-06-22T05:54:55.338Z - [INFO] - Starting to process task 'INITSCRIPT' for event '00000LLW-7' at cluster node '7' ",
-                    "2023-06-22T05:54:55.358Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:54:55.457Z - [INFO] - Init script is not available in extension 'easyapi' of repository 'cx-boosters-easy-extensions'. Skipping ... ",
-                    "2023-06-22T05:54:55.480Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:54:55.508Z - [INFO] - Processed task 'INITSCRIPT' for event '00000LLW-7' at cluster node '7' "
-                  ]
-                },
-                "VERSIONUPDATE": {
-                  "status": "SUCCESS",
-                  "startedAt": "2023-06-22T05:54:55Z",
-                  "finishedAt": "2023-06-22T05:54:55.656Z",
-                  "duration": "656 ms",
-                  "logs": [
-                    "2023-06-22T05:54:55.534Z - [INFO] - Starting to process task 'VERSIONUPDATE' for event '00000LLW-7' at cluster node '7' ",
-                    "2023-06-22T05:54:55.551Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:54:55.591Z - [INFO] - Version information updated for extension 'easyapi' of repository 'cx-boosters-easy-extensions' after installation. ",
-                    "2023-06-22T05:54:55.618Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:54:55.656Z - [INFO] - Processed task 'VERSIONUPDATE' for event '00000LLW-7' at cluster node '7' "
-                  ]
-                },
-                "BACKOFFICECONFIGUPDATE": {
-                  "status": "SUCCESS",
-                  "startedAt": "2023-06-22T05:54:55Z",
-                  "finishedAt": "2023-06-22T05:54:55.817Z",
-                  "duration": "817 ms",
-                  "logs": [
-                    "2023-06-22T05:54:55.673Z - [INFO] - Starting to process task 'BACKOFFICECONFIGUPDATE' for event '00000LLW-7' at cluster node '7' ",
-                    "2023-06-22T05:54:55.698Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:54:55.726Z - [INFO] - Initializing backoffice configuration update for extension 'Easy API' ",
-                    "2023-06-22T05:54:55.749Z - [INFO] - No backoffice directory exists in the easy extension to update backoffice configuration. Skipping... ",
-                    "2023-06-22T05:54:55.777Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:54:55.817Z - [INFO] - Processed task 'BACKOFFICECONFIGUPDATE' for event '00000LLW-7' at cluster node '7' "
-                  ]
+        "example": {
+          "eventId": "00000LLW",
+          "type": "INSTALL_EXTENSION",
+          "extensionId": "easyapi",
+          "extensionVersion": "0.0.2",
+          "repository": "cx-boosters-easy-extensions",
+          "repositoryRevision": "cb4f045",
+          "status": "SUCCESS",
+          "startedAt": "2023-06-22T05:54:52Z",
+          "finishedAt": "2023-06-22T05:55:09Z",
+          "userId": "admin",
+          "masterNodeId": "7",
+          "masterNodeType": "backoffice",
+          "clusterLogData": {
+            "backoffice": [
+              {
+                "localEventId": "00000LLW-7",
+                "status": "SUCCESS",
+                "nodeId": "7",
+                "nodeType": "backoffice",
+                "nodeName": "backoffice-7",
+                "startedAt": "2023-06-22T05:54:52Z",
+                "finishedAt": "2023-06-22T05:54:55Z",
+                "taskLogs": {
+                  "EXTENSIONCOPY": {
+                    "status": "SUCCESS",
+                    "startedAt": "2023-06-22T05:54:52Z",
+                    "finishedAt": "2023-06-22T05:54:53.029Z",
+                    "duration": "1029 ms",
+                    "logs": [
+                      "2023-06-22T05:54:52.951Z - [INFO] - Starting to process task 'EXTENSIONCOPY' for event '00000LLW-7' at cluster node '7' ",
+                      "2023-06-22T05:54:52.964Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:54:52.996Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:54:53.029Z - [INFO] - Processed task 'EXTENSIONCOPY' for event '00000LLW-7' at cluster node '7' "
+                    ]
+                  },
+                  "LOADPROPERTIES": {
+                    "status": "SUCCESS",
+                    "startedAt": "2023-06-22T05:54:53Z",
+                    "finishedAt": "2023-06-22T05:54:53.120Z",
+                    "duration": "120 ms",
+                    "logs": [
+                      "2023-06-22T05:54:53.043Z - [INFO] - Starting to process task 'LOADPROPERTIES' for event '00000LLW-7' at cluster node '7' ",
+                      "2023-06-22T05:54:53.057Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:54:53.075Z - [INFO] - 'easy.properties' file doesn't exist for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. Skipping ... ",
+                      "2023-06-22T05:54:53.094Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:54:53.120Z - [INFO] - Processed task 'LOADPROPERTIES' for event '00000LLW-7' at cluster node '7' "
+                    ]
+                  },
+                  "LOADMODELCLASSES": {
+                    "status": "SUCCESS",
+                    "startedAt": "2023-06-22T05:54:53Z",
+                    "finishedAt": "2023-06-22T05:54:53.216Z",
+                    "duration": "216 ms",
+                    "logs": [
+                      "2023-06-22T05:54:53.134Z - [INFO] - Starting to process task 'LOADMODELCLASSES' for event '00000LLW-7' at cluster node '7' ",
+                      "2023-06-22T05:54:53.146Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:54:53.165Z - [INFO] - No model classes directory found. Ignoring loading of model classes for extension 'easyapi' of repository 'cx-boosters-easy-extensions'. Skipping ... ",
+                      "2023-06-22T05:54:53.189Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:54:53.216Z - [INFO] - Processed task 'LOADMODELCLASSES' for event '00000LLW-7' at cluster node '7' "
+                    ]
+                  },
+                  "EASYTYPE": {
+                    "status": "SUCCESS",
+                    "startedAt": "2023-06-22T05:54:53Z",
+                    "finishedAt": "2023-06-22T05:54:53.321Z",
+                    "duration": "321 ms",
+                    "logs": [
+                      "2023-06-22T05:54:53.232Z - [INFO] - Starting to process task 'EASYTYPE' for event '00000LLW-7' at cluster node '7' ",
+                      "2023-06-22T05:54:53.248Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:54:53.276Z - [INFO] - No easy type configured for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. Skipping ... ",
+                      "2023-06-22T05:54:53.294Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:54:53.321Z - [INFO] - Processed task 'EASYTYPE' for event '00000LLW-7' at cluster node '7' "
+                    ]
+                  },
+                  "LOADBEANS": {
+                    "status": "SUCCESS",
+                    "startedAt": "2023-06-22T05:54:53Z",
+                    "finishedAt": "2023-06-22T05:54:53.962Z",
+                    "duration": "962 ms",
+                    "logs": [
+                      "2023-06-22T05:54:53.335Z - [INFO] - Starting to process task 'LOADBEANS' for event '00000LLW-7' at cluster node '7' ",
+                      "2023-06-22T05:54:53.348Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:54:53.381Z - [INFO] - Loading beans for application '/backoffice' ",
+                      "2023-06-22T05:54:53.869Z - [INFO] - Loaded beans for application '/backoffice' ",
+                      "2023-06-22T05:54:53.934Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:54:53.962Z - [INFO] - Processed task 'LOADBEANS' for event '00000LLW-7' at cluster node '7' "
+                    ]
+                  },
+                  "IMPEXIMPORT": {
+                    "status": "SUCCESS",
+                    "startedAt": "2023-06-22T05:54:53Z",
+                    "finishedAt": "2023-06-22T05:54:55.314Z",
+                    "duration": "2314 ms",
+                    "logs": [
+                      "2023-06-22T05:54:53.978Z - [INFO] - Starting to process task 'IMPEXIMPORT' for event '00000LLW-7' at cluster node '7' ",
+                      "2023-06-22T05:54:53.992Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:54:54.017Z - [INFO] - Starting impex import for 'easy.impex' ",
+                      "2023-06-22T05:54:55.257Z - [INFO] - Finished impex import for 'easy.impex'. ",
+                      "2023-06-22T05:54:55.280Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:54:55.314Z - [INFO] - Processed task 'IMPEXIMPORT' for event '00000LLW-7' at cluster node '7' "
+                    ]
+                  },
+                  "INITSCRIPT": {
+                    "status": "SUCCESS",
+                    "startedAt": "2023-06-22T05:54:55Z",
+                    "finishedAt": "2023-06-22T05:54:55.508Z",
+                    "duration": "508 ms",
+                    "logs": [
+                      "2023-06-22T05:54:55.338Z - [INFO] - Starting to process task 'INITSCRIPT' for event '00000LLW-7' at cluster node '7' ",
+                      "2023-06-22T05:54:55.358Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:54:55.457Z - [INFO] - Init script is not available in extension 'easyapi' of repository 'cx-boosters-easy-extensions'. Skipping ... ",
+                      "2023-06-22T05:54:55.480Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:54:55.508Z - [INFO] - Processed task 'INITSCRIPT' for event '00000LLW-7' at cluster node '7' "
+                    ]
+                  },
+                  "VERSIONUPDATE": {
+                    "status": "SUCCESS",
+                    "startedAt": "2023-06-22T05:54:55Z",
+                    "finishedAt": "2023-06-22T05:54:55.656Z",
+                    "duration": "656 ms",
+                    "logs": [
+                      "2023-06-22T05:54:55.534Z - [INFO] - Starting to process task 'VERSIONUPDATE' for event '00000LLW-7' at cluster node '7' ",
+                      "2023-06-22T05:54:55.551Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:54:55.591Z - [INFO] - Version information updated for extension 'easyapi' of repository 'cx-boosters-easy-extensions' after installation. ",
+                      "2023-06-22T05:54:55.618Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:54:55.656Z - [INFO] - Processed task 'VERSIONUPDATE' for event '00000LLW-7' at cluster node '7' "
+                    ]
+                  },
+                  "BACKOFFICECONFIGUPDATE": {
+                    "status": "SUCCESS",
+                    "startedAt": "2023-06-22T05:54:55Z",
+                    "finishedAt": "2023-06-22T05:54:55.817Z",
+                    "duration": "817 ms",
+                    "logs": [
+                      "2023-06-22T05:54:55.673Z - [INFO] - Starting to process task 'BACKOFFICECONFIGUPDATE' for event '00000LLW-7' at cluster node '7' ",
+                      "2023-06-22T05:54:55.698Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:54:55.726Z - [INFO] - Initializing backoffice configuration update for extension 'Easy API' ",
+                      "2023-06-22T05:54:55.749Z - [INFO] - No backoffice directory exists in the easy extension to update backoffice configuration. Skipping... ",
+                      "2023-06-22T05:54:55.777Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:54:55.817Z - [INFO] - Processed task 'BACKOFFICECONFIGUPDATE' for event '00000LLW-7' at cluster node '7' "
+                    ]
+                  }
                 }
               }
-            }
-          ],
-          "integration": [
-            {
-              "localEventId": "00000LLW-1",
-              "status": "SUCCESS",
-              "nodeId": "1",
-              "nodeType": "integration",
-              "nodeName": "integration-1",
-              "startedAt": "2023-06-22T05:55:04Z",
-              "finishedAt": "2023-06-22T05:55:09Z",
-              "taskLogs": {
-                "EXTENSIONCOPY": {
-                  "status": "SUCCESS",
-                  "startedAt": "2023-06-22T05:55:04Z",
-                  "finishedAt": "2023-06-22T05:55:04.900Z",
-                  "duration": "900 ms",
-                  "logs": [
-                    "2023-06-22T05:55:04.832Z - [INFO] - Starting to process task 'EXTENSIONCOPY' for event '00000LLW-1' at cluster node '1' ",
-                    "2023-06-22T05:55:04.843Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:55:04.873Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:55:04.900Z - [INFO] - Processed task 'EXTENSIONCOPY' for event '00000LLW-1' at cluster node '1' "
-                  ]
-                },
-                "LOADPROPERTIES": {
-                  "status": "SUCCESS",
-                  "startedAt": "2023-06-22T05:55:04Z",
-                  "finishedAt": "2023-06-22T05:55:05.000Z",
-                  "duration": "1000 ms",
-                  "logs": [
-                    "2023-06-22T05:55:04.912Z - [INFO] - Starting to process task 'LOADPROPERTIES' for event '00000LLW-1' at cluster node '1' ",
-                    "2023-06-22T05:55:04.937Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:55:04.957Z - [INFO] - 'easy.properties' file doesn't exist for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. Skipping ... ",
-                    "2023-06-22T05:55:04.978Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:55:05.000Z - [INFO] - Processed task 'LOADPROPERTIES' for event '00000LLW-1' at cluster node '1' "
-                  ]
-                },
-                "LOADMODELCLASSES": {
-                  "status": "SUCCESS",
-                  "startedAt": "2023-06-22T05:55:05Z",
-                  "finishedAt": "2023-06-22T05:55:05.091Z",
-                  "duration": "91 ms",
-                  "logs": [
-                    "2023-06-22T05:55:05.013Z - [INFO] - Starting to process task 'LOADMODELCLASSES' for event '00000LLW-1' at cluster node '1' ",
-                    "2023-06-22T05:55:05.026Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:55:05.044Z - [INFO] - No model classes directory found. Ignoring loading of model classes for extension 'easyapi' of repository 'cx-boosters-easy-extensions'. Skipping ... ",
-                    "2023-06-22T05:55:05.066Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:55:05.091Z - [INFO] - Processed task 'LOADMODELCLASSES' for event '00000LLW-1' at cluster node '1' "
-                  ]
-                },
-                "EASYTYPE": {
-                  "status": "SUCCESS",
-                  "startedAt": "2023-06-22T05:55:05Z",
-                  "finishedAt": "2023-06-22T05:55:05.209Z",
-                  "duration": "209 ms",
-                  "logs": [
-                    "2023-06-22T05:55:05.106Z - [INFO] - Starting to process task 'EASYTYPE' for event '00000LLW-1' at cluster node '1' ",
-                    "2023-06-22T05:55:05.118Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:55:05.167Z - [INFO] - No easy type configured for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. Skipping ... ",
-                    "2023-06-22T05:55:05.184Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:55:05.209Z - [INFO] - Processed task 'EASYTYPE' for event '00000LLW-1' at cluster node '1' "
-                  ]
-                },
-                "LOADBEANS": {
-                  "status": "SUCCESS",
-                  "startedAt": "2023-06-22T05:55:05Z",
-                  "finishedAt": "2023-06-22T05:55:06.446Z",
-                  "duration": "1446 ms",
-                  "logs": [
-                    "2023-06-22T05:55:05.223Z - [INFO] - Starting to process task 'LOADBEANS' for event '00000LLW-1' at cluster node '1' ",
-                    "2023-06-22T05:55:05.237Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:55:05.256Z - [INFO] - Loading beans for application '/backoffice' ",
-                    "2023-06-22T05:55:06.303Z - [INFO] - Loaded beans for application '/backoffice' ",
-                    "2023-06-22T05:55:06.353Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:55:06.446Z - [INFO] - Processed task 'LOADBEANS' for event '00000LLW-1' at cluster node '1' "
-                  ]
-                },
-                "IMPEXIMPORT": {
-                  "status": "SUCCESS",
-                  "startedAt": "2023-06-22T05:55:06Z",
-                  "finishedAt": "2023-06-22T05:55:09.520Z",
-                  "duration": "3520 ms",
-                  "logs": [
-                    "2023-06-22T05:55:06.606Z - [INFO] - Starting to process task 'IMPEXIMPORT' for event '00000LLW-1' at cluster node '1' ",
-                    "2023-06-22T05:55:07.097Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:55:07.428Z - [INFO] - Starting impex import for 'easy.impex' ",
-                    "2023-06-22T05:55:09.437Z - [INFO] - Finished impex import for 'easy.impex'. ",
-                    "2023-06-22T05:55:09.498Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:55:09.520Z - [INFO] - Processed task 'IMPEXIMPORT' for event '00000LLW-1' at cluster node '1' "
-                  ]
-                },
-                "INITSCRIPT": {
-                  "status": "SUCCESS",
-                  "startedAt": "2023-06-22T05:55:09Z",
-                  "finishedAt": "2023-06-22T05:55:09.613Z",
-                  "duration": "613 ms",
-                  "logs": [
-                    "2023-06-22T05:55:09.532Z - [INFO] - Starting to process task 'INITSCRIPT' for event '00000LLW-1' at cluster node '1' ",
-                    "2023-06-22T05:55:09.545Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:55:09.575Z - [INFO] - Init script is not available in extension 'easyapi' of repository 'cx-boosters-easy-extensions'. Skipping ... ",
-                    "2023-06-22T05:55:09.591Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:55:09.613Z - [INFO] - Processed task 'INITSCRIPT' for event '00000LLW-1' at cluster node '1' "
-                  ]
-                },
-                "VERSIONUPDATE": {
-                  "status": "SUCCESS",
-                  "startedAt": "2023-06-22T05:55:09Z",
-                  "finishedAt": "2023-06-22T05:55:09.776Z",
-                  "duration": "776 ms",
-                  "logs": [
-                    "2023-06-22T05:55:09.699Z - [INFO] - Starting to process task 'VERSIONUPDATE' for event '00000LLW-1' at cluster node '1' ",
-                    "2023-06-22T05:55:09.712Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:55:09.733Z - [INFO] - Version information updated for extension 'easyapi' of repository 'cx-boosters-easy-extensions' after installation. ",
-                    "2023-06-22T05:55:09.753Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:55:09.776Z - [INFO] - Processed task 'VERSIONUPDATE' for event '00000LLW-1' at cluster node '1' "
-                  ]
-                },
-                "BACKOFFICECONFIGUPDATE": {
-                  "status": "SUCCESS",
-                  "startedAt": "2023-06-22T05:55:09Z",
-                  "finishedAt": "2023-06-22T05:55:09.864Z",
-                  "duration": "864 ms",
-                  "logs": [
-                    "2023-06-22T05:55:09.789Z - [INFO] - Starting to process task 'BACKOFFICECONFIGUPDATE' for event '00000LLW-1' at cluster node '1' ",
-                    "2023-06-22T05:55:09.801Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:55:09.817Z - [INFO] - Initializing backoffice configuration update for extension 'Easy API' ",
-                    "2023-06-22T05:55:09.830Z - [INFO] - No backoffice directory exists in the easy extension to update backoffice configuration. Skipping... ",
-                    "2023-06-22T05:55:09.842Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:55:09.864Z - [INFO] - Processed task 'BACKOFFICECONFIGUPDATE' for event '00000LLW-1' at cluster node '1' "
-                  ]
+            ],
+            "integration": [
+              {
+                "localEventId": "00000LLW-1",
+                "status": "SUCCESS",
+                "nodeId": "1",
+                "nodeType": "integration",
+                "nodeName": "integration-1",
+                "startedAt": "2023-06-22T05:55:04Z",
+                "finishedAt": "2023-06-22T05:55:09Z",
+                "taskLogs": {
+                  "EXTENSIONCOPY": {
+                    "status": "SUCCESS",
+                    "startedAt": "2023-06-22T05:55:04Z",
+                    "finishedAt": "2023-06-22T05:55:04.900Z",
+                    "duration": "900 ms",
+                    "logs": [
+                      "2023-06-22T05:55:04.832Z - [INFO] - Starting to process task 'EXTENSIONCOPY' for event '00000LLW-1' at cluster node '1' ",
+                      "2023-06-22T05:55:04.843Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:55:04.873Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:55:04.900Z - [INFO] - Processed task 'EXTENSIONCOPY' for event '00000LLW-1' at cluster node '1' "
+                    ]
+                  },
+                  "LOADPROPERTIES": {
+                    "status": "SUCCESS",
+                    "startedAt": "2023-06-22T05:55:04Z",
+                    "finishedAt": "2023-06-22T05:55:05.000Z",
+                    "duration": "1000 ms",
+                    "logs": [
+                      "2023-06-22T05:55:04.912Z - [INFO] - Starting to process task 'LOADPROPERTIES' for event '00000LLW-1' at cluster node '1' ",
+                      "2023-06-22T05:55:04.937Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:55:04.957Z - [INFO] - 'easy.properties' file doesn't exist for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. Skipping ... ",
+                      "2023-06-22T05:55:04.978Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:55:05.000Z - [INFO] - Processed task 'LOADPROPERTIES' for event '00000LLW-1' at cluster node '1' "
+                    ]
+                  },
+                  "LOADMODELCLASSES": {
+                    "status": "SUCCESS",
+                    "startedAt": "2023-06-22T05:55:05Z",
+                    "finishedAt": "2023-06-22T05:55:05.091Z",
+                    "duration": "91 ms",
+                    "logs": [
+                      "2023-06-22T05:55:05.013Z - [INFO] - Starting to process task 'LOADMODELCLASSES' for event '00000LLW-1' at cluster node '1' ",
+                      "2023-06-22T05:55:05.026Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:55:05.044Z - [INFO] - No model classes directory found. Ignoring loading of model classes for extension 'easyapi' of repository 'cx-boosters-easy-extensions'. Skipping ... ",
+                      "2023-06-22T05:55:05.066Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:55:05.091Z - [INFO] - Processed task 'LOADMODELCLASSES' for event '00000LLW-1' at cluster node '1' "
+                    ]
+                  },
+                  "EASYTYPE": {
+                    "status": "SUCCESS",
+                    "startedAt": "2023-06-22T05:55:05Z",
+                    "finishedAt": "2023-06-22T05:55:05.209Z",
+                    "duration": "209 ms",
+                    "logs": [
+                      "2023-06-22T05:55:05.106Z - [INFO] - Starting to process task 'EASYTYPE' for event '00000LLW-1' at cluster node '1' ",
+                      "2023-06-22T05:55:05.118Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:55:05.167Z - [INFO] - No easy type configured for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. Skipping ... ",
+                      "2023-06-22T05:55:05.184Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:55:05.209Z - [INFO] - Processed task 'EASYTYPE' for event '00000LLW-1' at cluster node '1' "
+                    ]
+                  },
+                  "LOADBEANS": {
+                    "status": "SUCCESS",
+                    "startedAt": "2023-06-22T05:55:05Z",
+                    "finishedAt": "2023-06-22T05:55:06.446Z",
+                    "duration": "1446 ms",
+                    "logs": [
+                      "2023-06-22T05:55:05.223Z - [INFO] - Starting to process task 'LOADBEANS' for event '00000LLW-1' at cluster node '1' ",
+                      "2023-06-22T05:55:05.237Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:55:05.256Z - [INFO] - Loading beans for application '/backoffice' ",
+                      "2023-06-22T05:55:06.303Z - [INFO] - Loaded beans for application '/backoffice' ",
+                      "2023-06-22T05:55:06.353Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:55:06.446Z - [INFO] - Processed task 'LOADBEANS' for event '00000LLW-1' at cluster node '1' "
+                    ]
+                  },
+                  "IMPEXIMPORT": {
+                    "status": "SUCCESS",
+                    "startedAt": "2023-06-22T05:55:06Z",
+                    "finishedAt": "2023-06-22T05:55:09.520Z",
+                    "duration": "3520 ms",
+                    "logs": [
+                      "2023-06-22T05:55:06.606Z - [INFO] - Starting to process task 'IMPEXIMPORT' for event '00000LLW-1' at cluster node '1' ",
+                      "2023-06-22T05:55:07.097Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:55:07.428Z - [INFO] - Starting impex import for 'easy.impex' ",
+                      "2023-06-22T05:55:09.437Z - [INFO] - Finished impex import for 'easy.impex'. ",
+                      "2023-06-22T05:55:09.498Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:55:09.520Z - [INFO] - Processed task 'IMPEXIMPORT' for event '00000LLW-1' at cluster node '1' "
+                    ]
+                  },
+                  "INITSCRIPT": {
+                    "status": "SUCCESS",
+                    "startedAt": "2023-06-22T05:55:09Z",
+                    "finishedAt": "2023-06-22T05:55:09.613Z",
+                    "duration": "613 ms",
+                    "logs": [
+                      "2023-06-22T05:55:09.532Z - [INFO] - Starting to process task 'INITSCRIPT' for event '00000LLW-1' at cluster node '1' ",
+                      "2023-06-22T05:55:09.545Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:55:09.575Z - [INFO] - Init script is not available in extension 'easyapi' of repository 'cx-boosters-easy-extensions'. Skipping ... ",
+                      "2023-06-22T05:55:09.591Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:55:09.613Z - [INFO] - Processed task 'INITSCRIPT' for event '00000LLW-1' at cluster node '1' "
+                    ]
+                  },
+                  "VERSIONUPDATE": {
+                    "status": "SUCCESS",
+                    "startedAt": "2023-06-22T05:55:09Z",
+                    "finishedAt": "2023-06-22T05:55:09.776Z",
+                    "duration": "776 ms",
+                    "logs": [
+                      "2023-06-22T05:55:09.699Z - [INFO] - Starting to process task 'VERSIONUPDATE' for event '00000LLW-1' at cluster node '1' ",
+                      "2023-06-22T05:55:09.712Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:55:09.733Z - [INFO] - Version information updated for extension 'easyapi' of repository 'cx-boosters-easy-extensions' after installation. ",
+                      "2023-06-22T05:55:09.753Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:55:09.776Z - [INFO] - Processed task 'VERSIONUPDATE' for event '00000LLW-1' at cluster node '1' "
+                    ]
+                  },
+                  "BACKOFFICECONFIGUPDATE": {
+                    "status": "SUCCESS",
+                    "startedAt": "2023-06-22T05:55:09Z",
+                    "finishedAt": "2023-06-22T05:55:09.864Z",
+                    "duration": "864 ms",
+                    "logs": [
+                      "2023-06-22T05:55:09.789Z - [INFO] - Starting to process task 'BACKOFFICECONFIGUPDATE' for event '00000LLW-1' at cluster node '1' ",
+                      "2023-06-22T05:55:09.801Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:55:09.817Z - [INFO] - Initializing backoffice configuration update for extension 'Easy API' ",
+                      "2023-06-22T05:55:09.830Z - [INFO] - No backoffice directory exists in the easy extension to update backoffice configuration. Skipping... ",
+                      "2023-06-22T05:55:09.842Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:55:09.864Z - [INFO] - Processed task 'BACKOFFICECONFIGUPDATE' for event '00000LLW-1' at cluster node '1' "
+                    ]
+                  }
                 }
               }
-            }
-          ],
-          "accstorefront": [
-            {
-              "localEventId": "00000LLW-2",
-              "status": "SUCCESS",
-              "nodeId": "2",
-              "nodeType": "accstorefront",
-              "nodeName": "accstorefront-2",
-              "startedAt": "2023-06-22T05:55:04Z",
-              "finishedAt": "2023-06-22T05:55:08Z",
-              "taskLogs": {
-                "EXTENSIONCOPY": {
-                  "status": "SUCCESS",
-                  "startedAt": "2023-06-22T05:55:04Z",
-                  "finishedAt": "2023-06-22T05:55:04.914Z",
-                  "duration": "914 ms",
-                  "logs": [
-                    "2023-06-22T05:55:04.844Z - [INFO] - Starting to process task 'EXTENSIONCOPY' for event '00000LLW-2' at cluster node '2' ",
-                    "2023-06-22T05:55:04.856Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:55:04.888Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:55:04.914Z - [INFO] - Processed task 'EXTENSIONCOPY' for event '00000LLW-2' at cluster node '2' "
-                  ]
-                },
-                "LOADPROPERTIES": {
-                  "status": "SUCCESS",
-                  "startedAt": "2023-06-22T05:55:04Z",
-                  "finishedAt": "2023-06-22T05:55:05.012Z",
-                  "duration": "1012 ms",
-                  "logs": [
-                    "2023-06-22T05:55:04.931Z - [INFO] - Starting to process task 'LOADPROPERTIES' for event '00000LLW-2' at cluster node '2' ",
-                    "2023-06-22T05:55:04.946Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:55:04.966Z - [INFO] - 'easy.properties' file doesn't exist for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. Skipping ... ",
-                    "2023-06-22T05:55:04.985Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:55:05.012Z - [INFO] - Processed task 'LOADPROPERTIES' for event '00000LLW-2' at cluster node '2' "
-                  ]
-                },
-                "LOADMODELCLASSES": {
-                  "status": "SUCCESS",
-                  "startedAt": "2023-06-22T05:55:05Z",
-                  "finishedAt": "2023-06-22T05:55:05.107Z",
-                  "duration": "107 ms",
-                  "logs": [
-                    "2023-06-22T05:55:05.028Z - [INFO] - Starting to process task 'LOADMODELCLASSES' for event '00000LLW-2' at cluster node '2' ",
-                    "2023-06-22T05:55:05.041Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:55:05.058Z - [INFO] - No model classes directory found. Ignoring loading of model classes for extension 'easyapi' of repository 'cx-boosters-easy-extensions'. Skipping ... ",
-                    "2023-06-22T05:55:05.081Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:55:05.107Z - [INFO] - Processed task 'LOADMODELCLASSES' for event '00000LLW-2' at cluster node '2' "
-                  ]
-                },
-                "EASYTYPE": {
-                  "status": "SUCCESS",
-                  "startedAt": "2023-06-22T05:55:05Z",
-                  "finishedAt": "2023-06-22T05:55:05.208Z",
-                  "duration": "208 ms",
-                  "logs": [
-                    "2023-06-22T05:55:05.121Z - [INFO] - Starting to process task 'EASYTYPE' for event '00000LLW-2' at cluster node '2' ",
-                    "2023-06-22T05:55:05.133Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:55:05.164Z - [INFO] - No easy type configured for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. Skipping ... ",
-                    "2023-06-22T05:55:05.181Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:55:05.208Z - [INFO] - Processed task 'EASYTYPE' for event '00000LLW-2' at cluster node '2' "
-                  ]
-                },
-                "LOADBEANS": {
-                  "status": "SUCCESS",
-                  "startedAt": "2023-06-22T05:55:05Z",
-                  "finishedAt": "2023-06-22T05:55:05.300Z",
-                  "duration": "300 ms",
-                  "logs": [
-                    "2023-06-22T05:55:05.222Z - [INFO] - Starting to process task 'LOADBEANS' for event '00000LLW-2' at cluster node '2' ",
-                    "2023-06-22T05:55:05.236Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:55:05.267Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:55:05.300Z - [INFO] - Processed task 'LOADBEANS' for event '00000LLW-2' at cluster node '2' "
-                  ]
-                },
-                "IMPEXIMPORT": {
-                  "status": "SUCCESS",
-                  "startedAt": "2023-06-22T05:55:05Z",
-                  "finishedAt": "2023-06-22T05:55:07.337Z",
-                  "duration": "2337 ms",
-                  "logs": [
-                    "2023-06-22T05:55:05.316Z - [INFO] - Starting to process task 'IMPEXIMPORT' for event '00000LLW-2' at cluster node '2' ",
-                    "2023-06-22T05:55:05.334Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:55:05.358Z - [INFO] - Starting impex import for 'easy.impex' ",
-                    "2023-06-22T05:55:07.084Z - [INFO] - Finished impex import for 'easy.impex'. ",
-                    "2023-06-22T05:55:07.184Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:55:07.337Z - [INFO] - Processed task 'IMPEXIMPORT' for event '00000LLW-2' at cluster node '2' "
-                  ]
-                },
-                "INITSCRIPT": {
-                  "status": "SUCCESS",
-                  "startedAt": "2023-06-22T05:55:07Z",
-                  "finishedAt": "2023-06-22T05:55:07.914Z",
-                  "duration": "914 ms",
-                  "logs": [
-                    "2023-06-22T05:55:07.364Z - [INFO] - Starting to process task 'INITSCRIPT' for event '00000LLW-2' at cluster node '2' ",
-                    "2023-06-22T05:55:07.380Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:55:07.406Z - [INFO] - Init script is not available in extension 'easyapi' of repository 'cx-boosters-easy-extensions'. Skipping ... ",
-                    "2023-06-22T05:55:07.512Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:55:07.914Z - [INFO] - Processed task 'INITSCRIPT' for event '00000LLW-2' at cluster node '2' "
-                  ]
-                },
-                "VERSIONUPDATE": {
-                  "status": "SUCCESS",
-                  "startedAt": "2023-06-22T05:55:07Z",
-                  "finishedAt": "2023-06-22T05:55:08.238Z",
-                  "duration": "1238 ms",
-                  "logs": [
-                    "2023-06-22T05:55:07.931Z - [INFO] - Starting to process task 'VERSIONUPDATE' for event '00000LLW-2' at cluster node '2' ",
-                    "2023-06-22T05:55:07.947Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:55:08.022Z - [INFO] - Version information updated for extension 'easyapi' of repository 'cx-boosters-easy-extensions' after installation. ",
-                    "2023-06-22T05:55:08.078Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:55:08.238Z - [INFO] - Processed task 'VERSIONUPDATE' for event '00000LLW-2' at cluster node '2' "
-                  ]
-                },
-                "BACKOFFICECONFIGUPDATE": {
-                  "status": "SUCCESS",
-                  "startedAt": "2023-06-22T05:55:08Z",
-                  "finishedAt": "2023-06-22T05:55:08.421Z",
-                  "duration": "421 ms",
-                  "logs": [
-                    "2023-06-22T05:55:08.296Z - [INFO] - Starting to process task 'BACKOFFICECONFIGUPDATE' for event '00000LLW-2' at cluster node '2' ",
-                    "2023-06-22T05:55:08.337Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:55:08.361Z - [INFO] - Initializing backoffice configuration update for extension 'Easy API' ",
-                    "2023-06-22T05:55:08.375Z - [INFO] - No backoffice directory exists in the easy extension to update backoffice configuration. Skipping... ",
-                    "2023-06-22T05:55:08.390Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:55:08.421Z - [INFO] - Processed task 'BACKOFFICECONFIGUPDATE' for event '00000LLW-2' at cluster node '2' "
-                  ]
+            ],
+            "accstorefront": [
+              {
+                "localEventId": "00000LLW-2",
+                "status": "SUCCESS",
+                "nodeId": "2",
+                "nodeType": "accstorefront",
+                "nodeName": "accstorefront-2",
+                "startedAt": "2023-06-22T05:55:04Z",
+                "finishedAt": "2023-06-22T05:55:08Z",
+                "taskLogs": {
+                  "EXTENSIONCOPY": {
+                    "status": "SUCCESS",
+                    "startedAt": "2023-06-22T05:55:04Z",
+                    "finishedAt": "2023-06-22T05:55:04.914Z",
+                    "duration": "914 ms",
+                    "logs": [
+                      "2023-06-22T05:55:04.844Z - [INFO] - Starting to process task 'EXTENSIONCOPY' for event '00000LLW-2' at cluster node '2' ",
+                      "2023-06-22T05:55:04.856Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:55:04.888Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:55:04.914Z - [INFO] - Processed task 'EXTENSIONCOPY' for event '00000LLW-2' at cluster node '2' "
+                    ]
+                  },
+                  "LOADPROPERTIES": {
+                    "status": "SUCCESS",
+                    "startedAt": "2023-06-22T05:55:04Z",
+                    "finishedAt": "2023-06-22T05:55:05.012Z",
+                    "duration": "1012 ms",
+                    "logs": [
+                      "2023-06-22T05:55:04.931Z - [INFO] - Starting to process task 'LOADPROPERTIES' for event '00000LLW-2' at cluster node '2' ",
+                      "2023-06-22T05:55:04.946Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:55:04.966Z - [INFO] - 'easy.properties' file doesn't exist for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. Skipping ... ",
+                      "2023-06-22T05:55:04.985Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:55:05.012Z - [INFO] - Processed task 'LOADPROPERTIES' for event '00000LLW-2' at cluster node '2' "
+                    ]
+                  },
+                  "LOADMODELCLASSES": {
+                    "status": "SUCCESS",
+                    "startedAt": "2023-06-22T05:55:05Z",
+                    "finishedAt": "2023-06-22T05:55:05.107Z",
+                    "duration": "107 ms",
+                    "logs": [
+                      "2023-06-22T05:55:05.028Z - [INFO] - Starting to process task 'LOADMODELCLASSES' for event '00000LLW-2' at cluster node '2' ",
+                      "2023-06-22T05:55:05.041Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:55:05.058Z - [INFO] - No model classes directory found. Ignoring loading of model classes for extension 'easyapi' of repository 'cx-boosters-easy-extensions'. Skipping ... ",
+                      "2023-06-22T05:55:05.081Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:55:05.107Z - [INFO] - Processed task 'LOADMODELCLASSES' for event '00000LLW-2' at cluster node '2' "
+                    ]
+                  },
+                  "EASYTYPE": {
+                    "status": "SUCCESS",
+                    "startedAt": "2023-06-22T05:55:05Z",
+                    "finishedAt": "2023-06-22T05:55:05.208Z",
+                    "duration": "208 ms",
+                    "logs": [
+                      "2023-06-22T05:55:05.121Z - [INFO] - Starting to process task 'EASYTYPE' for event '00000LLW-2' at cluster node '2' ",
+                      "2023-06-22T05:55:05.133Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:55:05.164Z - [INFO] - No easy type configured for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. Skipping ... ",
+                      "2023-06-22T05:55:05.181Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:55:05.208Z - [INFO] - Processed task 'EASYTYPE' for event '00000LLW-2' at cluster node '2' "
+                    ]
+                  },
+                  "LOADBEANS": {
+                    "status": "SUCCESS",
+                    "startedAt": "2023-06-22T05:55:05Z",
+                    "finishedAt": "2023-06-22T05:55:05.300Z",
+                    "duration": "300 ms",
+                    "logs": [
+                      "2023-06-22T05:55:05.222Z - [INFO] - Starting to process task 'LOADBEANS' for event '00000LLW-2' at cluster node '2' ",
+                      "2023-06-22T05:55:05.236Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:55:05.267Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:55:05.300Z - [INFO] - Processed task 'LOADBEANS' for event '00000LLW-2' at cluster node '2' "
+                    ]
+                  },
+                  "IMPEXIMPORT": {
+                    "status": "SUCCESS",
+                    "startedAt": "2023-06-22T05:55:05Z",
+                    "finishedAt": "2023-06-22T05:55:07.337Z",
+                    "duration": "2337 ms",
+                    "logs": [
+                      "2023-06-22T05:55:05.316Z - [INFO] - Starting to process task 'IMPEXIMPORT' for event '00000LLW-2' at cluster node '2' ",
+                      "2023-06-22T05:55:05.334Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:55:05.358Z - [INFO] - Starting impex import for 'easy.impex' ",
+                      "2023-06-22T05:55:07.084Z - [INFO] - Finished impex import for 'easy.impex'. ",
+                      "2023-06-22T05:55:07.184Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:55:07.337Z - [INFO] - Processed task 'IMPEXIMPORT' for event '00000LLW-2' at cluster node '2' "
+                    ]
+                  },
+                  "INITSCRIPT": {
+                    "status": "SUCCESS",
+                    "startedAt": "2023-06-22T05:55:07Z",
+                    "finishedAt": "2023-06-22T05:55:07.914Z",
+                    "duration": "914 ms",
+                    "logs": [
+                      "2023-06-22T05:55:07.364Z - [INFO] - Starting to process task 'INITSCRIPT' for event '00000LLW-2' at cluster node '2' ",
+                      "2023-06-22T05:55:07.380Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:55:07.406Z - [INFO] - Init script is not available in extension 'easyapi' of repository 'cx-boosters-easy-extensions'. Skipping ... ",
+                      "2023-06-22T05:55:07.512Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:55:07.914Z - [INFO] - Processed task 'INITSCRIPT' for event '00000LLW-2' at cluster node '2' "
+                    ]
+                  },
+                  "VERSIONUPDATE": {
+                    "status": "SUCCESS",
+                    "startedAt": "2023-06-22T05:55:07Z",
+                    "finishedAt": "2023-06-22T05:55:08.238Z",
+                    "duration": "1238 ms",
+                    "logs": [
+                      "2023-06-22T05:55:07.931Z - [INFO] - Starting to process task 'VERSIONUPDATE' for event '00000LLW-2' at cluster node '2' ",
+                      "2023-06-22T05:55:07.947Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:55:08.022Z - [INFO] - Version information updated for extension 'easyapi' of repository 'cx-boosters-easy-extensions' after installation. ",
+                      "2023-06-22T05:55:08.078Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:55:08.238Z - [INFO] - Processed task 'VERSIONUPDATE' for event '00000LLW-2' at cluster node '2' "
+                    ]
+                  },
+                  "BACKOFFICECONFIGUPDATE": {
+                    "status": "SUCCESS",
+                    "startedAt": "2023-06-22T05:55:08Z",
+                    "finishedAt": "2023-06-22T05:55:08.421Z",
+                    "duration": "421 ms",
+                    "logs": [
+                      "2023-06-22T05:55:08.296Z - [INFO] - Starting to process task 'BACKOFFICECONFIGUPDATE' for event '00000LLW-2' at cluster node '2' ",
+                      "2023-06-22T05:55:08.337Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:55:08.361Z - [INFO] - Initializing backoffice configuration update for extension 'Easy API' ",
+                      "2023-06-22T05:55:08.375Z - [INFO] - No backoffice directory exists in the easy extension to update backoffice configuration. Skipping... ",
+                      "2023-06-22T05:55:08.390Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:55:08.421Z - [INFO] - Processed task 'BACKOFFICECONFIGUPDATE' for event '00000LLW-2' at cluster node '2' "
+                    ]
+                  }
                 }
               }
-            }
-          ],
-          "api": [
-            {
-              "localEventId": "00000LLW-0",
-              "status": "SUCCESS",
-              "nodeId": "0",
-              "nodeType": "api",
-              "nodeName": "api-0",
-              "startedAt": "2023-06-22T05:55:04Z",
-              "finishedAt": "2023-06-22T05:55:08Z",
-              "taskLogs": {
-                "EXTENSIONCOPY": {
-                  "status": "SUCCESS",
-                  "startedAt": "2023-06-22T05:55:04Z",
-                  "finishedAt": "2023-06-22T05:55:04.916Z",
-                  "duration": "916 ms",
-                  "logs": [
-                    "2023-06-22T05:55:04.844Z - [INFO] - Starting to process task 'EXTENSIONCOPY' for event '00000LLW-0' at cluster node '0' ",
-                    "2023-06-22T05:55:04.856Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:55:04.888Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:55:04.916Z - [INFO] - Processed task 'EXTENSIONCOPY' for event '00000LLW-0' at cluster node '0' "
-                  ]
-                },
-                "LOADPROPERTIES": {
-                  "status": "SUCCESS",
-                  "startedAt": "2023-06-22T05:55:04Z",
-                  "finishedAt": "2023-06-22T05:55:05.014Z",
-                  "duration": "1014 ms",
-                  "logs": [
-                    "2023-06-22T05:55:04.934Z - [INFO] - Starting to process task 'LOADPROPERTIES' for event '00000LLW-0' at cluster node '0' ",
-                    "2023-06-22T05:55:04.948Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:55:04.968Z - [INFO] - 'easy.properties' file doesn't exist for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. Skipping ... ",
-                    "2023-06-22T05:55:04.988Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:55:05.014Z - [INFO] - Processed task 'LOADPROPERTIES' for event '00000LLW-0' at cluster node '0' "
-                  ]
-                },
-                "LOADMODELCLASSES": {
-                  "status": "SUCCESS",
-                  "startedAt": "2023-06-22T05:55:05Z",
-                  "finishedAt": "2023-06-22T05:55:05.109Z",
-                  "duration": "109 ms",
-                  "logs": [
-                    "2023-06-22T05:55:05.028Z - [INFO] - Starting to process task 'LOADMODELCLASSES' for event '00000LLW-0' at cluster node '0' ",
-                    "2023-06-22T05:55:05.041Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:55:05.059Z - [INFO] - No model classes directory found. Ignoring loading of model classes for extension 'easyapi' of repository 'cx-boosters-easy-extensions'. Skipping ... ",
-                    "2023-06-22T05:55:05.084Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:55:05.109Z - [INFO] - Processed task 'LOADMODELCLASSES' for event '00000LLW-0' at cluster node '0' "
-                  ]
-                },
-                "EASYTYPE": {
-                  "status": "SUCCESS",
-                  "startedAt": "2023-06-22T05:55:05Z",
-                  "finishedAt": "2023-06-22T05:55:05.205Z",
-                  "duration": "205 ms",
-                  "logs": [
-                    "2023-06-22T05:55:05.123Z - [INFO] - Starting to process task 'EASYTYPE' for event '00000LLW-0' at cluster node '0' ",
-                    "2023-06-22T05:55:05.137Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:55:05.161Z - [INFO] - No easy type configured for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. Skipping ... ",
-                    "2023-06-22T05:55:05.180Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:55:05.205Z - [INFO] - Processed task 'EASYTYPE' for event '00000LLW-0' at cluster node '0' "
-                  ]
-                },
-                "LOADBEANS": {
-                  "status": "SUCCESS",
-                  "startedAt": "2023-06-22T05:55:05Z",
-                  "finishedAt": "2023-06-22T05:55:05.763Z",
-                  "duration": "763 ms",
-                  "logs": [
-                    "2023-06-22T05:55:05.219Z - [INFO] - Starting to process task 'LOADBEANS' for event '00000LLW-0' at cluster node '0' ",
-                    "2023-06-22T05:55:05.232Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:55:05.260Z - [INFO] - Loading beans for application '/easyrest' ",
-                    "2023-06-22T05:55:05.716Z - [INFO] - Loaded beans for application '/easyrest' ",
-                    "2023-06-22T05:55:05.737Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:55:05.763Z - [INFO] - Processed task 'LOADBEANS' for event '00000LLW-0' at cluster node '0' "
-                  ]
-                },
-                "IMPEXIMPORT": {
-                  "status": "SUCCESS",
-                  "startedAt": "2023-06-22T05:55:05Z",
-                  "finishedAt": "2023-06-22T05:55:08.406Z",
-                  "duration": "3406 ms",
-                  "logs": [
-                    "2023-06-22T05:55:05.777Z - [INFO] - Starting to process task 'IMPEXIMPORT' for event '00000LLW-0' at cluster node '0' ",
-                    "2023-06-22T05:55:05.790Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:55:05.820Z - [INFO] - Starting impex import for 'easy.impex' ",
-                    "2023-06-22T05:55:08.354Z - [INFO] - Finished impex import for 'easy.impex'. ",
-                    "2023-06-22T05:55:08.379Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:55:08.406Z - [INFO] - Processed task 'IMPEXIMPORT' for event '00000LLW-0' at cluster node '0' "
-                  ]
-                },
-                "INITSCRIPT": {
-                  "status": "SUCCESS",
-                  "startedAt": "2023-06-22T05:55:08Z",
-                  "finishedAt": "2023-06-22T05:55:08.564Z",
-                  "duration": "564 ms",
-                  "logs": [
-                    "2023-06-22T05:55:08.423Z - [INFO] - Starting to process task 'INITSCRIPT' for event '00000LLW-0' at cluster node '0' ",
-                    "2023-06-22T05:55:08.494Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:55:08.519Z - [INFO] - Init script is not available in extension 'easyapi' of repository 'cx-boosters-easy-extensions'. Skipping ... ",
-                    "2023-06-22T05:55:08.538Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:55:08.564Z - [INFO] - Processed task 'INITSCRIPT' for event '00000LLW-0' at cluster node '0' "
-                  ]
-                },
-                "VERSIONUPDATE": {
-                  "status": "SUCCESS",
-                  "startedAt": "2023-06-22T05:55:08Z",
-                  "finishedAt": "2023-06-22T05:55:08.664Z",
-                  "duration": "664 ms",
-                  "logs": [
-                    "2023-06-22T05:55:08.580Z - [INFO] - Starting to process task 'VERSIONUPDATE' for event '00000LLW-0' at cluster node '0' ",
-                    "2023-06-22T05:55:08.593Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:55:08.615Z - [INFO] - Version information updated for extension 'easyapi' of repository 'cx-boosters-easy-extensions' after installation. ",
-                    "2023-06-22T05:55:08.638Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:55:08.664Z - [INFO] - Processed task 'VERSIONUPDATE' for event '00000LLW-0' at cluster node '0' "
-                  ]
-                },
-                "BACKOFFICECONFIGUPDATE": {
-                  "status": "SUCCESS",
-                  "startedAt": "2023-06-22T05:55:08Z",
-                  "finishedAt": "2023-06-22T05:55:08.784Z",
-                  "duration": "784 ms",
-                  "logs": [
-                    "2023-06-22T05:55:08.694Z - [INFO] - Starting to process task 'BACKOFFICECONFIGUPDATE' for event '00000LLW-0' at cluster node '0' ",
-                    "2023-06-22T05:55:08.707Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:55:08.727Z - [INFO] - Initializing backoffice configuration update for extension 'Easy API' ",
-                    "2023-06-22T05:55:08.740Z - [INFO] - No backoffice directory exists in the easy extension to update backoffice configuration. Skipping... ",
-                    "2023-06-22T05:55:08.752Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
-                    "2023-06-22T05:55:08.784Z - [INFO] - Processed task 'BACKOFFICECONFIGUPDATE' for event '00000LLW-0' at cluster node '0' "
-                  ]
+            ],
+            "api": [
+              {
+                "localEventId": "00000LLW-0",
+                "status": "SUCCESS",
+                "nodeId": "0",
+                "nodeType": "api",
+                "nodeName": "api-0",
+                "startedAt": "2023-06-22T05:55:04Z",
+                "finishedAt": "2023-06-22T05:55:08Z",
+                "taskLogs": {
+                  "EXTENSIONCOPY": {
+                    "status": "SUCCESS",
+                    "startedAt": "2023-06-22T05:55:04Z",
+                    "finishedAt": "2023-06-22T05:55:04.916Z",
+                    "duration": "916 ms",
+                    "logs": [
+                      "2023-06-22T05:55:04.844Z - [INFO] - Starting to process task 'EXTENSIONCOPY' for event '00000LLW-0' at cluster node '0' ",
+                      "2023-06-22T05:55:04.856Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:55:04.888Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:55:04.916Z - [INFO] - Processed task 'EXTENSIONCOPY' for event '00000LLW-0' at cluster node '0' "
+                    ]
+                  },
+                  "LOADPROPERTIES": {
+                    "status": "SUCCESS",
+                    "startedAt": "2023-06-22T05:55:04Z",
+                    "finishedAt": "2023-06-22T05:55:05.014Z",
+                    "duration": "1014 ms",
+                    "logs": [
+                      "2023-06-22T05:55:04.934Z - [INFO] - Starting to process task 'LOADPROPERTIES' for event '00000LLW-0' at cluster node '0' ",
+                      "2023-06-22T05:55:04.948Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:55:04.968Z - [INFO] - 'easy.properties' file doesn't exist for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. Skipping ... ",
+                      "2023-06-22T05:55:04.988Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:55:05.014Z - [INFO] - Processed task 'LOADPROPERTIES' for event '00000LLW-0' at cluster node '0' "
+                    ]
+                  },
+                  "LOADMODELCLASSES": {
+                    "status": "SUCCESS",
+                    "startedAt": "2023-06-22T05:55:05Z",
+                    "finishedAt": "2023-06-22T05:55:05.109Z",
+                    "duration": "109 ms",
+                    "logs": [
+                      "2023-06-22T05:55:05.028Z - [INFO] - Starting to process task 'LOADMODELCLASSES' for event '00000LLW-0' at cluster node '0' ",
+                      "2023-06-22T05:55:05.041Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:55:05.059Z - [INFO] - No model classes directory found. Ignoring loading of model classes for extension 'easyapi' of repository 'cx-boosters-easy-extensions'. Skipping ... ",
+                      "2023-06-22T05:55:05.084Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:55:05.109Z - [INFO] - Processed task 'LOADMODELCLASSES' for event '00000LLW-0' at cluster node '0' "
+                    ]
+                  },
+                  "EASYTYPE": {
+                    "status": "SUCCESS",
+                    "startedAt": "2023-06-22T05:55:05Z",
+                    "finishedAt": "2023-06-22T05:55:05.205Z",
+                    "duration": "205 ms",
+                    "logs": [
+                      "2023-06-22T05:55:05.123Z - [INFO] - Starting to process task 'EASYTYPE' for event '00000LLW-0' at cluster node '0' ",
+                      "2023-06-22T05:55:05.137Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:55:05.161Z - [INFO] - No easy type configured for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. Skipping ... ",
+                      "2023-06-22T05:55:05.180Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:55:05.205Z - [INFO] - Processed task 'EASYTYPE' for event '00000LLW-0' at cluster node '0' "
+                    ]
+                  },
+                  "LOADBEANS": {
+                    "status": "SUCCESS",
+                    "startedAt": "2023-06-22T05:55:05Z",
+                    "finishedAt": "2023-06-22T05:55:05.763Z",
+                    "duration": "763 ms",
+                    "logs": [
+                      "2023-06-22T05:55:05.219Z - [INFO] - Starting to process task 'LOADBEANS' for event '00000LLW-0' at cluster node '0' ",
+                      "2023-06-22T05:55:05.232Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:55:05.260Z - [INFO] - Loading beans for application '/easyrest' ",
+                      "2023-06-22T05:55:05.716Z - [INFO] - Loaded beans for application '/easyrest' ",
+                      "2023-06-22T05:55:05.737Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:55:05.763Z - [INFO] - Processed task 'LOADBEANS' for event '00000LLW-0' at cluster node '0' "
+                    ]
+                  },
+                  "IMPEXIMPORT": {
+                    "status": "SUCCESS",
+                    "startedAt": "2023-06-22T05:55:05Z",
+                    "finishedAt": "2023-06-22T05:55:08.406Z",
+                    "duration": "3406 ms",
+                    "logs": [
+                      "2023-06-22T05:55:05.777Z - [INFO] - Starting to process task 'IMPEXIMPORT' for event '00000LLW-0' at cluster node '0' ",
+                      "2023-06-22T05:55:05.790Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:55:05.820Z - [INFO] - Starting impex import for 'easy.impex' ",
+                      "2023-06-22T05:55:08.354Z - [INFO] - Finished impex import for 'easy.impex'. ",
+                      "2023-06-22T05:55:08.379Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:55:08.406Z - [INFO] - Processed task 'IMPEXIMPORT' for event '00000LLW-0' at cluster node '0' "
+                    ]
+                  },
+                  "INITSCRIPT": {
+                    "status": "SUCCESS",
+                    "startedAt": "2023-06-22T05:55:08Z",
+                    "finishedAt": "2023-06-22T05:55:08.564Z",
+                    "duration": "564 ms",
+                    "logs": [
+                      "2023-06-22T05:55:08.423Z - [INFO] - Starting to process task 'INITSCRIPT' for event '00000LLW-0' at cluster node '0' ",
+                      "2023-06-22T05:55:08.494Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:55:08.519Z - [INFO] - Init script is not available in extension 'easyapi' of repository 'cx-boosters-easy-extensions'. Skipping ... ",
+                      "2023-06-22T05:55:08.538Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:55:08.564Z - [INFO] - Processed task 'INITSCRIPT' for event '00000LLW-0' at cluster node '0' "
+                    ]
+                  },
+                  "VERSIONUPDATE": {
+                    "status": "SUCCESS",
+                    "startedAt": "2023-06-22T05:55:08Z",
+                    "finishedAt": "2023-06-22T05:55:08.664Z",
+                    "duration": "664 ms",
+                    "logs": [
+                      "2023-06-22T05:55:08.580Z - [INFO] - Starting to process task 'VERSIONUPDATE' for event '00000LLW-0' at cluster node '0' ",
+                      "2023-06-22T05:55:08.593Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:55:08.615Z - [INFO] - Version information updated for extension 'easyapi' of repository 'cx-boosters-easy-extensions' after installation. ",
+                      "2023-06-22T05:55:08.638Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:55:08.664Z - [INFO] - Processed task 'VERSIONUPDATE' for event '00000LLW-0' at cluster node '0' "
+                    ]
+                  },
+                  "BACKOFFICECONFIGUPDATE": {
+                    "status": "SUCCESS",
+                    "startedAt": "2023-06-22T05:55:08Z",
+                    "finishedAt": "2023-06-22T05:55:08.784Z",
+                    "duration": "784 ms",
+                    "logs": [
+                      "2023-06-22T05:55:08.694Z - [INFO] - Starting to process task 'BACKOFFICECONFIGUPDATE' for event '00000LLW-0' at cluster node '0' ",
+                      "2023-06-22T05:55:08.707Z - [INFO] - Starting task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:55:08.727Z - [INFO] - Initializing backoffice configuration update for extension 'Easy API' ",
+                      "2023-06-22T05:55:08.740Z - [INFO] - No backoffice directory exists in the easy extension to update backoffice configuration. Skipping... ",
+                      "2023-06-22T05:55:08.752Z - [INFO] - Completed task for easy extension 'easyapi' of repository 'cx-boosters-easy-extensions'. ",
+                      "2023-06-22T05:55:08.784Z - [INFO] - Processed task 'BACKOFFICECONFIGUPDATE' for event '00000LLW-0' at cluster node '0' "
+                    ]
+                  }
                 }
               }
-            }
-          ]
+            ]
+          }
         }
       }
     }
