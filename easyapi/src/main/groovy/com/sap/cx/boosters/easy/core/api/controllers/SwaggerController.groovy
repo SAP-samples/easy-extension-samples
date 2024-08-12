@@ -79,7 +79,7 @@ class SwaggerController implements EasyRestServiceController {
                             'description': '',
                             'security'   : [],
                             'parameters' : [],
-                            'requestBody': [],
+                            'requestBody': {},
                             'responses'  : [:],
                             'tags'       : [group]
                     ]
