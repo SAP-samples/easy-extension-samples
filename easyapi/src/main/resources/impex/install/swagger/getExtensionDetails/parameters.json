@@ -3,14 +3,12 @@
     "in": "path",
     "name": "repositoryCode",
     "description": "Repository code",
-    "required": true,
-    "type": "string"
+    "required": true
   },
   {
     "in": "path",
     "name": "extensionId",
     "description": "Extension Id",
-    "required": true,
-    "type": "string"
+    "required": true
   }
 ]

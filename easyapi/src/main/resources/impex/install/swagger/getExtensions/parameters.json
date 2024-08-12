@@ -3,7 +3,6 @@
     "in": "path",
     "name": "repositoryCode",
     "description": "Repository code",
-    "required": true,
-    "type": "string"
+    "required": true
   }
 ]
