@@ -18,6 +18,7 @@ import org.mockito.Mock
 
 import static org.junit.Assert.assertNull
 import static org.mockito.Mockito.mock
+import static org.mockito.Mockito.spy
 import static org.mockito.Mockito.when
 import static org.mockito.MockitoAnnotations.openMocks
 
@@ -42,7 +43,7 @@ class DeliverySlotServiceTest {
     @Test
     void testBookedDeliverySlot() {
         def cart = mock(CartModel)
-        def slot = mock(DeliverySlotManagementModel)
+        def slot = spy(DeliverySlotManagementModel)
         def searchResult = new SearchResultImpl<DeliverySlotManagementModel>(List.of(slot), 1, -1, 0)
         when(flexibleSearchService.search(DefaultDeliverySlotService.QUERY_GET_SLOT_MANAGEMENT_BY_CART, [cart: cart])).thenReturn(searchResult)
 
