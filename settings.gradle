@@ -18,3 +18,5 @@ include 'easy-tutorial-step5'
 include 'easy-tutorial-step6'
 include 'easyapi'
 include 'helloworld'
+
+include 'alternatecurrencyprice'
