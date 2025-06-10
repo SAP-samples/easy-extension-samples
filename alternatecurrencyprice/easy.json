@@ -1,0 +1,20 @@
+{
+    "groupId": "com.sap.cx.boosters.easy.extension",
+    "id": "alternatecurrencyprice",
+    "name": "Crypto Currency Price",
+    "version": "0.0.1",
+    "easyVersion": "0.3",
+    "requires": {
+      "easy" : [],
+      "commerce": []
+    },
+    "description": "Demonstrates the product price display in Configured Crypto currency",
+    "documentation": "",
+    "thumbnail": "",
+    "authors": [
+      "Amit Panwar"
+    ],
+    "vendor": "",
+    "tags": [
+    ]
+}

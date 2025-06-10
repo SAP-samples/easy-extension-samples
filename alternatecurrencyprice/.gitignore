@@ -1,0 +1,22 @@
+# Ignore Gradle
+gradle
+.gradle
+build
+gradlew.*
+
+# Ignore intelliJ
+.idea/
+*.iml
+
+# Ignore Eclipse 
+.project
+.classpath
+.settings/
+bin/
+
+# Ignore VS Code
+.vscode/
+
+# System-specific files
+.DS_Store
+Thumbs.db
