@@ -1,4 +1,4 @@
-import com.sap.cx.boosters.easy.extension.alternatecurrencyprice.mapper.PriceDataMapper
+import com.sap.cx.boosters.easy.extension.alternatecurrencyprice.mapper.impl.PriceMetaClassMapper
 import com.sap.cx.boosters.easy.extension.alternatecurrencyprice.populator.ProductCryptoPricePopulator
 import com.sap.cx.boosters.easy.extension.alternatecurrencyprice.priceconversion.service.impl.DefaultPriceConversionService
 import de.hybris.platform.commercefacades.product.data.PriceData
@@ -13,8 +13,9 @@ println "Registering core beans for ${extension.id}"
 PriceData.metaClass.cryptoPrice = ''
 PriceWsDTO.metaClass.cryptoPrice = ''
 
-def addPopulator(String populatorList, Populator populator) {
-    def matches = spring.getBean(populatorList, DefaultPopulatorList).populators.findAll { it.class.name == populator.class.name }
+static def addPopulator(DefaultPopulatorList populatorList, Populator populator) {
+
+    def matches = populatorList.populators.findAll { it.class.name == populator.class.name }
     populatorList.populators.removeAll(matches)
     populatorList.populators.add(populator)
 }
@@ -24,18 +25,19 @@ easyCoreBeans {
 
     productCryptoPricePopulator(ProductCryptoPricePopulator)
 
-    addPopulator('defaultProductPricePopulatorList', productCryptoPricePopulator as Populator)
+    addPopulator(defaultProductPricePopulatorList as DefaultPopulatorList, productCryptoPricePopulator as Populator)
 
     registerAlias('defaultProductPricePopulatorList', 'productPricePopulatorList')
 
 }
 
 easyWebBeans('/occ/springmvc-v2') {
-    priceDataMapper(PriceDataMapper) {
-        it.parent = ref('abstractCustomMapper')
-    }
     priceWsDTOFieldSetLevelMapping.levelMapping.DEFAULT = 'currencyIso,priceType,value,maxQuantity,minQuantity,formattedValue,cryptoPrice'
     priceWsDTOFieldSetLevelMapping.levelMapping.FULL = 'currencyIso,priceType,value,maxQuantity,minQuantity,formattedValue,cryptoPrice'
+
+    priceMetaClassMapper(PriceMetaClassMapper){
+        it.parent = ref('abstractCustomMapper')
+    }
 }
 
 logger.info "[${extension.id}] beans registered ..."
