@@ -1,0 +1,33 @@
+{
+  "itemtypes": [
+    {
+      "code": "BaseStore",
+      "autocreate": "false",
+      "generate": "false",
+      "attributes": [
+        {
+          "qualifier": "cryptoCurrency",
+          "type": "Currency",
+          "typeClass": "de.hybris.platform.core.model.c2l.CurrencyModel",
+          "name": [
+            {
+              "lang": "en",
+              "value": "Crypto Currency"
+            }
+          ],
+          "persistence": {
+            "type": "property",
+            "column": "p_cryptoCurrency"
+          },
+          "modifiers": {
+            "unique": "false",
+            "initial": "false",
+            "optional": "true",
+            "write": "true",
+            "partof": "false"
+          }
+        }
+      ]
+    }
+  ]
+}

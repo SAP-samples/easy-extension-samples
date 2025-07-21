@@ -1,0 +1,18 @@
+#*******************************#
+#***  Consumed Destinations  ***#
+#*******************************#
+REMOVE ConsumedDestination;id[unique=true]
+;coinGeckoDestination
+
+#****************************#
+#***  Destination Target  ***#
+#****************************#
+REMOVE DestinationTarget;id[unique=true]
+;coinGeckoDestinationTarget;
+
+#******************#
+#***  Endpoints ***#
+#******************#
+REMOVE Endpoint;id[unique=true];version[unique=true]
+;coinGeckoEnpoint;3
+

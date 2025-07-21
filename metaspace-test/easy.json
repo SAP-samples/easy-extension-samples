@@ -1,0 +1,20 @@
+{
+    "groupId": "com.sap.cx.boosters.easy.extension",
+    "id": "metaspacetest",
+    "name": "Easy Metaspace Test",
+    "version": "0.0.1",
+    "easyVersion": "0.3",
+    "requires": {
+      "easy" : [],
+      "commerce": []
+    },
+    "description": "Test Easy Extensions impact on JVM Metaspace Usage",
+    "documentation": "",
+    "thumbnail": "",
+    "authors": [
+      "Dharmendra Khandelwal"
+    ],
+    "vendor": "",
+    "tags": [
+    ]
+}

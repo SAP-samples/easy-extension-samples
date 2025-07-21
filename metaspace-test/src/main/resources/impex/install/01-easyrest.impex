@@ -1,0 +1,24 @@
+INSERT_UPDATE Currency;isocode[unique=true];name[lang=en];conversion;digits;symbol
+;BTC;"Bitcoin";1;9;₿
+;ETH;"Ethereum";1;9;Ξ
+
+UPDATE BaseStore;uid[unique=true];cryptoCurrency(isocode)
+;electronics;BTC
+
+#******************#
+#***  Endpoints ***#
+#******************#
+INSERT_UPDATE Endpoint;id[unique=true];version[unique=true];specUrl;name
+;coinGeckoEnpoint;3;https://api.coingecko.com/api/v3/simple/price;coinGeckoEnpoint
+
+#****************************#
+#***  Destination Target  ***#
+#****************************#
+INSERT_UPDATE DestinationTarget;id[unique=true]
+;coinGeckoDestinationTarget;
+
+#*******************************#
+#***  Consumed Destinations  ***#
+#*******************************#
+INSERT_UPDATE ConsumedDestination;id[unique=true];url;endpoint(id,version);credential(id);active;destinationTarget(id)[default=coinGeckoDestinationTarget]
+;coinGeckoDestination;https://api.coingecko.com/api/v3/simple/price;coinGeckoEnpoint:3;;true
