@@ -5,6 +5,3 @@ gradle
 build
 gradlew*
 .idea
-.DS_Store
-.class
-.eclipsebin
