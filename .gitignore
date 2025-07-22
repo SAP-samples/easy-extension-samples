@@ -7,3 +7,4 @@ gradlew*
 .idea
 .DS_Store
 .class
+.eclipsebin
