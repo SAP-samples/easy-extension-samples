@@ -6,3 +6,4 @@ build
 gradlew*
 .idea
 .DS_Store
+.class
