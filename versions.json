@@ -1,6 +1,7 @@
 [
     {"version":"v0.2","url":"/easy-extension-framework/v0.2","isCurrent":false},
     {"version":"v0.3","url":"/easy-extension-framework/v0.3","isCurrent":false},
-    {"version":"v0.4","url":"/easy-extension-framework/","isCurrent":true},
+    {"version":"v0.4","url":"/easy-extension-framework/v0.3","isCurrent":false},
+    {"version":"v0.5","url":"/easy-extension-framework/","isCurrent":true},
     {"version":"main","url":"/easy-extension-framework/main","isCurrent":false}
 ]
