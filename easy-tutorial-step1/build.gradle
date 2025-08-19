@@ -1,4 +1,4 @@
 plugins {
-    id "io.github.yannickrobin.easy-gradle-plugin" version "0.0.8"
+    id "io.github.yannickrobin.easy-gradle-plugin" version "0.0.9"
 }
 
