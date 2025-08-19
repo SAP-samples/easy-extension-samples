@@ -2,7 +2,7 @@ package com.sap.cx.boosters.easy.helloworld.service
 
 import de.hybris.platform.servicelayer.config.ConfigurationService
 
-import javax.annotation.Resource
+import jakarta.annotation.Resource
 
 class HelloWorldService {
 

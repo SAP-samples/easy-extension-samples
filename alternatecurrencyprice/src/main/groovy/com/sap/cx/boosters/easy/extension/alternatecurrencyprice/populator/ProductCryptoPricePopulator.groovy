@@ -13,7 +13,7 @@ import de.hybris.platform.store.services.BaseStoreService
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
-import javax.annotation.Resource
+import jakarta.annotation.Resource
 
 class ProductCryptoPricePopulator<SOURCE extends ProductModel, TARGET extends ProductData> extends ProductPricePopulator<SOURCE, TARGET> {
 

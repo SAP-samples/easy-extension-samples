@@ -2,8 +2,8 @@
     "groupId": "com.sap.cx.boosters.easy.extension",
     "id": "alternatecurrencyprice",
     "name": "Crypto Currency Price",
-    "version": "0.4.1",
-    "easyVersion": "0.4",
+    "version": "0.6.1",
+    "easyVersion": "0.6",
     "requires": {
       "easy" : [],
       "commerce": []

@@ -3,7 +3,7 @@ package com.sap.cx.boosters.easy.core.api.controllers
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.sap.cx.boosters.easy.core.event.logger.EasyLogger
 
-import javax.annotation.Resource
+import jakarta.annotation.Resource
 
 class GetEasyEventStatusController extends AbstractEasyApiController {
 

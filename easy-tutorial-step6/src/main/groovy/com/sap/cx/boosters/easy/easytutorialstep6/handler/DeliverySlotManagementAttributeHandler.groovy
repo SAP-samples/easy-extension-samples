@@ -5,7 +5,7 @@ import de.hybris.platform.core.model.order.AbstractOrderModel
 import de.hybris.platform.servicelayer.model.attribute.AbstractDynamicAttributeHandler
 import de.hybris.platform.servicelayer.search.FlexibleSearchService
 
-import javax.annotation.Resource
+import jakarta.annotation.Resource
 
 class DeliverySlotManagementAttributeHandler extends AbstractDynamicAttributeHandler<DeliverySlotManagementModel, AbstractOrderModel> {
     private static final def QUERY_GET_ABSTRACT_ORDER = 'select {pk} from {DeliverySlotManagement as dsm} where {dsm.abstractorder} = ?abstractorder'

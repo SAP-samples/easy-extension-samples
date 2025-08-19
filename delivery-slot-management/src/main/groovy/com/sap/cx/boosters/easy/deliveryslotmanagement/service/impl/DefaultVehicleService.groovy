@@ -4,7 +4,7 @@ import com.sap.cx.boosters.easy.deliveryslotmanagement.models.VehicleModel
 import com.sap.cx.boosters.easy.deliveryslotmanagement.service.VehicleService
 import de.hybris.platform.servicelayer.internal.dao.GenericDao
 
-import javax.annotation.Resource
+import jakarta.annotation.Resource
 
 import static de.hybris.platform.servicelayer.util.ServicesUtil.validateIfSingleResult
 import static de.hybris.platform.servicelayer.util.ServicesUtil.validateParameterNotNull

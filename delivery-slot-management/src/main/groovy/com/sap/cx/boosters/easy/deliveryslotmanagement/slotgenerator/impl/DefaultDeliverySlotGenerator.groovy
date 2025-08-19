@@ -7,7 +7,7 @@ import com.sap.cx.boosters.easy.deliveryslotmanagement.slotgenerator.DeliverySlo
 import de.hybris.platform.ordersplitting.WarehouseService
 import de.hybris.platform.servicelayer.model.ModelService
 
-import javax.annotation.Resource
+import jakarta.annotation.Resource
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.ZoneId

@@ -8,7 +8,7 @@ import de.hybris.platform.commercewebservicescommons.errors.exceptions.CartExcep
 import de.hybris.platform.order.InvalidCartException
 import org.slf4j.LoggerFactory
 
-import javax.annotation.Resource
+import jakarta.annotation.Resource
 
 class HomeDeliveryCommercePlaceOrderMethodHook implements CommercePlaceOrderMethodHook {
 

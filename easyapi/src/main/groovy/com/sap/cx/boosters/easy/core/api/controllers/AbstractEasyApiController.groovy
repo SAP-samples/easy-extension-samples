@@ -5,7 +5,7 @@ import com.sap.cx.boosters.easyrest.controller.EasyRestServiceController
 import groovy.json.JsonOutput
 import org.slf4j.LoggerFactory
 
-import javax.annotation.Resource
+import jakarta.annotation.Resource
 
 abstract class AbstractEasyApiController implements EasyRestServiceController {
     private static final def LOG = LoggerFactory.getLogger(getClass())

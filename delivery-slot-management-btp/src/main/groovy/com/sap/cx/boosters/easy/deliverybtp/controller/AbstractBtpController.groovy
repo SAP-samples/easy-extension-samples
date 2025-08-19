@@ -13,7 +13,7 @@ import org.slf4j.LoggerFactory
 import org.springframework.http.HttpMethod
 import org.springframework.web.client.RestClientResponseException
 
-import javax.annotation.Resource
+import jakarta.annotation.Resource
 
 abstract class AbstractBtpController implements EasyRestServiceController {
 

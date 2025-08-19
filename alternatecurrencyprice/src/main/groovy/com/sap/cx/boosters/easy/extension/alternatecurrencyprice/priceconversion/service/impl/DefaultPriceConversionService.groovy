@@ -12,7 +12,7 @@ import org.springframework.http.HttpHeaders
 import org.springframework.http.HttpMethod
 import org.springframework.http.MediaType
 
-import javax.annotation.Resource
+import jakarta.annotation.Resource
 import java.time.Instant
 import java.util.concurrent.ConcurrentHashMap
 

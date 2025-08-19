@@ -5,7 +5,7 @@ import com.sap.cx.boosters.easy.core.data.EasyRepository
 import com.sap.cx.boosters.easy.core.repository.service.EasyRepositoryService
 import de.hybris.platform.servicelayer.exceptions.UnknownIdentifierException
 
-import javax.annotation.Resource
+import jakarta.annotation.Resource
 
 class GetExtensionsController extends AbstractEasyApiController {
 

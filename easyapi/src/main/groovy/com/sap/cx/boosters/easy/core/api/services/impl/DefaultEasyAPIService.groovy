@@ -4,7 +4,7 @@ import com.sap.cx.boosters.easy.core.api.services.EasyAPIService
 import de.hybris.platform.servicelayer.search.FlexibleSearchService
 import groovy.json.JsonOutput
 
-import javax.annotation.Resource
+import jakarta.annotation.Resource
 
 class DefaultEasyAPIService implements EasyAPIService {
 

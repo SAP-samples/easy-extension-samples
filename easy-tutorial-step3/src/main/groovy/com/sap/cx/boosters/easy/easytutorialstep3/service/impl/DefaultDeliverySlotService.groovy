@@ -10,7 +10,7 @@ import de.hybris.platform.ordersplitting.model.WarehouseModel
 import de.hybris.platform.servicelayer.model.ModelService
 import de.hybris.platform.servicelayer.search.FlexibleSearchService
 
-import javax.annotation.Resource
+import jakarta.annotation.Resource
 
 class DefaultDeliverySlotService implements DeliverySlotService {
 

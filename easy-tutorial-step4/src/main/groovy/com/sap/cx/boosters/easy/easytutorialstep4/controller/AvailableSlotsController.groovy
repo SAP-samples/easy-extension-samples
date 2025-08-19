@@ -9,7 +9,7 @@ import de.hybris.platform.servicelayer.config.ConfigurationService
 import de.hybris.platform.servicelayer.internal.dao.DefaultGenericDao
 import groovy.json.JsonBuilder
 
-import javax.annotation.Resource
+import jakarta.annotation.Resource
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.ZoneId

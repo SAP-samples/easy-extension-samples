@@ -5,7 +5,7 @@ import com.sap.cx.boosters.easyrest.controller.EasyRestServiceController
 import de.hybris.platform.core.model.order.CartModel
 import de.hybris.platform.servicelayer.internal.dao.GenericDao
 
-import javax.annotation.Resource
+import jakarta.annotation.Resource
 
 class CancelDeliveryController implements EasyRestServiceController {
 

@@ -5,7 +5,7 @@ import com.sap.cx.boosters.easy.core.data.EasyRepository
 import com.sap.cx.boosters.easy.core.repository.service.EasyRepositoryService
 import groovy.json.JsonOutput
 
-import javax.annotation.Resource
+import jakarta.annotation.Resource
 
 class GetRepositoriesController extends AbstractEasyApiController {
 

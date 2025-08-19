@@ -14,7 +14,7 @@ import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.client.RestClientResponseException
 
-import javax.annotation.Resource
+import jakarta.annotation.Resource
 
 class HomeDeliveryModeOrderPopulatorBtp implements Populator<OrderModel, OrderData> {
 

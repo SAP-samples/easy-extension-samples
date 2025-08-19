@@ -3,7 +3,7 @@ package com.sap.cx.boosters.easy.core.api.controllers
 import com.sap.cx.boosters.easy.core.api.data.EasyInstallerEventResponse
 import com.sap.cx.boosters.easy.core.installer.EasyInstaller
 
-import javax.annotation.Resource
+import jakarta.annotation.Resource
 
 abstract class AbstractEasyEventController extends AbstractEasyApiController {
     @Resource

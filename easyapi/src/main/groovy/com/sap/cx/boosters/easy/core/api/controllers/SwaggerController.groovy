@@ -7,7 +7,7 @@ import com.sap.cx.boosters.easyrest.service.EasyRestService
 import groovy.json.JsonOutput
 import groovy.json.JsonSlurper
 
-import javax.annotation.Resource
+import jakarta.annotation.Resource
 
 class SwaggerController implements EasyRestServiceController {
 

@@ -6,7 +6,7 @@ import de.hybris.platform.core.model.order.CartModel
 import de.hybris.platform.servicelayer.internal.dao.GenericDao
 import groovy.json.JsonBuilder
 
-import javax.annotation.Resource
+import jakarta.annotation.Resource
 
 class BookDeliveryController implements EasyRestServiceController {
 

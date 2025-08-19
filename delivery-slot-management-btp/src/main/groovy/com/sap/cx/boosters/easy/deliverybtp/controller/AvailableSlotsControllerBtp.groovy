@@ -5,7 +5,7 @@ import de.hybris.platform.ordersplitting.WarehouseService
 import de.hybris.platform.servicelayer.config.ConfigurationService
 import org.springframework.http.HttpMethod
 
-import javax.annotation.Resource
+import jakarta.annotation.Resource
 import java.time.LocalDate
 import java.time.LocalDateTime
 

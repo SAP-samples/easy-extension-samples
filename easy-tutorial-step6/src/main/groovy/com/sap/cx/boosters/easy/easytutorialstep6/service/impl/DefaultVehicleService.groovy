@@ -5,7 +5,7 @@ import com.sap.cx.boosters.easy.easytutorialstep6.service.VehicleService
 import de.hybris.platform.servicelayer.internal.dao.GenericDao
 import static de.hybris.platform.servicelayer.util.ServicesUtil.validateIfSingleResult
 
-import javax.annotation.Resource
+import jakarta.annotation.Resource
 
 import static de.hybris.platform.servicelayer.util.ServicesUtil.validateParameterNotNull
 

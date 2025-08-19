@@ -3,7 +3,7 @@ package com.sap.cx.boosters.easy.helloworld.controller
 import com.sap.cx.boosters.easy.helloworld.service.HelloWorldService
 import com.sap.cx.boosters.easyrest.controller.EasyRestServiceController
 
-import javax.annotation.Resource
+import jakarta.annotation.Resource
 
 class HelloWorldController implements EasyRestServiceController {
 

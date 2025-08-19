@@ -9,7 +9,7 @@ import de.hybris.platform.ordersplitting.model.WarehouseModel
 import de.hybris.platform.servicelayer.model.ModelService
 import org.apache.commons.lang3.time.DateFormatUtils
 
-import javax.annotation.Resource
+import jakarta.annotation.Resource
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.ZoneId

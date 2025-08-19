@@ -2,8 +2,8 @@
     "groupId": "com.sap.cx.boosters.easy",
     "id": "EasyTutorialStep4",
     "name": "Easy Tutorial Step 4",
-    "version": "0.4.3",
-    "easyVersion": "0.4",
+    "version": "0.6.3",
+    "easyVersion": "0.6",
     "description": "Easy tutorial Step 4: REST endpoints",
     "documentation": "https://github.com/apanwar/easy-extensions/blob/main/README.md",
     "authors": [

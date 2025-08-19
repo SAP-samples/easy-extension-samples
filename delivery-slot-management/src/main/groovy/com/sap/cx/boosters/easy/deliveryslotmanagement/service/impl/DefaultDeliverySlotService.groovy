@@ -12,7 +12,7 @@ import de.hybris.platform.servicelayer.model.ModelService
 import de.hybris.platform.servicelayer.search.FlexibleSearchService
 import org.slf4j.LoggerFactory
 
-import javax.annotation.Resource
+import jakarta.annotation.Resource
 
 class DefaultDeliverySlotService implements DeliverySlotService {
 

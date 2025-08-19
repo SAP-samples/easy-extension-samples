@@ -5,7 +5,7 @@ import com.sap.cx.boosters.easyrest.controller.EasyRestServiceController
 import de.hybris.platform.commerceservices.order.dao.CommerceOrderDao
 import groovy.json.JsonBuilder
 
-import javax.annotation.Resource
+import jakarta.annotation.Resource
 
 class ConfirmDeliveryController implements EasyRestServiceController {
 
