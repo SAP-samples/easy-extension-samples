@@ -6,7 +6,7 @@ import de.hybris.platform.apiregistryservices.model.ConsumedDestinationModel
 import de.hybris.platform.apiregistryservices.services.DestinationService
 import de.hybris.platform.outboundservices.client.IntegrationRestTemplateFactory
 import de.hybris.platform.servicelayer.config.ConfigurationService
-import org.apache.commons.configuration.Configuration
+import org.apache.commons.configuration2.Configuration
 import org.junit.Before
 import org.junit.Test
 import org.mockito.InjectMocks

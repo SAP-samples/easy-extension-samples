@@ -48,7 +48,7 @@ class DefaultPriceConversionService implements PriceConversionService {
      * @return the converted price
      */
     @Override
-    BigDecimal getCryptoPrice(BigDecimal price, String priceCurrency, String cryptoCurrency) {
+    BigDecimal getCryptoPrice(BigDecimal price, String cryptoCurrency, String priceCurrency) {
         String cacheKey = "${cryptoCurrency}_${priceCurrency}".toLowerCase()
 
         // Check if cached and valid

@@ -19,14 +19,13 @@ class SwaggerController implements EasyRestServiceController {
 
     @Override
     Map<String, Object> execute(Map ctx) {
-        def response = [:]
-
         JsonSlurper slurper = new JsonSlurper()
 
-        String hostname = ctx.headers.host
-        String tokenUrl = "https://" + hostname + "/authorizationserver/oauth/token"
+        String baseUrl = resolveBaseUrl(ctx?.headers?.host)
+        String tokenUrl = baseUrl + '/authorizationserver/oauth/token'
+        String authorizationUrl = baseUrl + '/authorizationserver/oauth/authorize'
 
-        def openAPI = [
+        Map<String, Object> openAPI = [
                 openapi   : '3.0.3',
                 servers   : [
                         [
@@ -40,90 +39,135 @@ class SwaggerController implements EasyRestServiceController {
                 paths     : [:],
                 components: [
                         securitySchemes: [
-                                oauth2_password         : [
+                                oauth2_authorizationCode: [
                                         type : 'oauth2',
+                                        description: 'OAuth2 Authorization Code flow',
                                         flows: [
-                                                password: [
-                                                        tokenUrl: "$tokenUrl"
-                                                ],
+                                                authorizationCode: [
+                                                        authorizationUrl: "$authorizationUrl",
+                                                        tokenUrl        : "$tokenUrl",
+                                                        refreshUrl      : "$tokenUrl",
+                                                        scopes          : [
+                                                                'openid'        : 'OpenID Connect scope',
+                                                                'profile'       : 'Profile information',
+                                                                'email'         : 'Email address',
+                                                                'offline_access': 'Refresh token support'
+                                                        ]
+                                                ]
                                         ]
                                 ],
                                 oauth2_clientCredentials: [
                                         type : 'oauth2',
+                                        description: 'OAuth2 Client Credentials flow',
                                         flows: [
                                                 clientCredentials: [
-                                                        tokenUrl: "$tokenUrl"
+                                                        tokenUrl  : "$tokenUrl",
+                                                        refreshUrl: "$tokenUrl",
+                                                        scopes    : [
+                                                                'easyrest.read' : 'Read access to Easy REST endpoints',
+                                                                'easyrest.write': 'Write access to Easy REST endpoints'
+                                                        ]
                                                 ]
                                         ]
                                 ],
-                                ApiKeyAuth              : [
+                                "APIKeyAuth"            : [
                                         type: 'apiKey',
+                                        description: 'API Key Authentication',
                                         in  : 'header',
                                         name: 'x-api-key'
+                                ],
+                                "JavaWebTokens"         : [
+                                        type: 'http',
+                                        description: 'JWT Authentication',
+                                        scheme: 'bearer',
+                                        bearerFormat: 'JWT'
                                 ]
                         ]
                 ]
-        ]
+        ] as Map<String, Object>
 
         def easyRests = easyRestService.getAllEasyRests()
+        def tags = [] as Set<String>
 
         easyRests.each {
-
-            def path = it.path
             String method = it.method.code.toLowerCase()
-            String group = it.easyRestGroup ? it.easyRestGroup.name : "Default"
-            path = [
-                    (method): [
-                            'operationId': "$path",
-                            'summary'    : '',
-                            'description': '',
-                            'security'   : [],
-                            'parameters' : [],
-                            'requestBody': [],
-                            'responses'  : [:],
-                            'tags'       : [group]
-                    ]
+            String pathKey = '/' + it.path
+            String group = it.easyRestGroup?.name ?: 'Default'
+            tags.add(group)
+
+            def operation = [
+                    operationId: buildOperationId(method, it.path),
+                    summary    : it.swaggerSummary ?: '',
+                    description: it.swaggerDescription ?: '',
+                    security   : buildSecurityRequirements(it.authenticationMethod),
+                    parameters : parseJsonIfPresent(it.swaggerParameters, slurper) ?: [],
+                    responses  : parseJsonIfPresent(it.swaggerResponses, slurper) ?: [
+                            '200': [description: 'Successful response']
+                    ],
+                    tags       : [group]
             ]
 
-            path[method].summary = it.swaggerSummary
-            path[method].description = it.swaggerDescription
-
-            if (it.authenticationMethod == AuthenticationMethod.OAUTH)
-                path[method].security.add([oauth2_password: [], oauth2_clientCredentials: []])
-
-            if (it.authenticationMethod  == AuthenticationMethod.API_KEY)
-                path[method].security.add(ApiKeyAuth: [])
-
-            def swaggerParameters = it.swaggerParameters
-            if (swaggerParameters != null && swaggerParameters != '') {
-                def jsonParameters = slurper.parseText(swaggerParameters)
-                path[method].parameters = jsonParameters
-            }
-
             if (it.formatText != null && it.formatText != '') {
-                def swaggerRequestBody = it.swaggerRequestBody
-                if (swaggerRequestBody != null && swaggerRequestBody != '') {
-                    def jsonRequestBody = slurper.parseText(swaggerRequestBody)
-                    path[method].requestBody = jsonRequestBody
+                def requestBody = parseJsonIfPresent(it.swaggerRequestBody, slurper)
+                if (requestBody != null) {
+                    operation.requestBody = requestBody
                 }
             }
 
-            response = [
-                    'description': ''
-            ]
-
-            def swaggerResponses = it.swaggerResponses
-            if (swaggerResponses != null && swaggerResponses != '') {
-                def jsonResponses = slurper.parseText(swaggerResponses)
-                path[method].responses = jsonResponses
-            }
-
-            openAPI.paths.put('/' + it.path, path)
+            def pathItem = openAPI.paths[pathKey] ?: [:]
+            pathItem[method] = operation
+            openAPI.paths[pathKey] = pathItem
         }
 
-        def jsonSwagger = JsonOutput.toJson(openAPI)
-        response.body = jsonSwagger
+        openAPI.tags = tags.collect { [name: it] }.sort { it.name }
 
-        return response
+        def jsonSwagger = JsonOutput.toJson(openAPI)
+        return [
+                description: '',
+                body       : jsonSwagger
+        ]
+    }
+
+    private static String resolveBaseUrl(String hostHeader) {
+        if (!hostHeader) {
+            return ''
+        }
+
+        if (hostHeader.startsWith('http://') || hostHeader.startsWith('https://')) {
+            return hostHeader
+        }
+
+        return 'https://' + hostHeader
+    }
+
+    private static String buildOperationId(String method, String path) {
+        String normalizedPath = (path ?: 'unknown').replaceAll('[^a-zA-Z0-9_]', '_')
+        return method + '_' + normalizedPath
+    }
+
+    private static Object parseJsonIfPresent(String payload, JsonSlurper slurper) {
+        if (!payload?.trim()) {
+            return null
+        }
+        return slurper.parseText(payload)
+    }
+
+    private static List<Map<String, Object>> buildSecurityRequirements(AuthenticationMethod authenticationMethod) {
+        if (authenticationMethod == AuthenticationMethod.OAUTH) {
+            return [
+                    [oauth2_authorizationCode: ['openid', 'profile', 'email']],
+                    [oauth2_clientCredentials: ['easyrest.read']]
+            ]
+        }
+
+        if (authenticationMethod == AuthenticationMethod.API_KEY) {
+            return [[APIKeyAuth: []]]
+        }
+
+        if (authenticationMethod == AuthenticationMethod.JWT) {
+            return [[JavaWebTokens: []]]
+        }
+
+        return []
     }
 }

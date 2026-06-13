@@ -3,8 +3,7 @@ package com.sap.cx.boosters.easy.helloworld.spock
 import com.sap.cx.boosters.easy.helloworld.service.HelloWorldService
 import de.hybris.bootstrap.annotations.UnitTest
 import de.hybris.platform.servicelayer.config.ConfigurationService
-import org.apache.commons.configuration.Configuration
-import org.junit.Test
+import org.apache.commons.configuration2.Configuration
 import spock.lang.Specification
 
 @UnitTest

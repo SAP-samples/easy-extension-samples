@@ -3,6 +3,7 @@ package com.sap.cx.boosters.easy.helloworld.spock
 
 import io.restassured.RestAssured
 import io.restassured.builder.RequestSpecBuilder
+import org.junit.jupiter.api.Assumptions
 import spock.lang.Specification
 
 import static io.restassured.RestAssured.given
@@ -14,19 +15,17 @@ class HelloWorldControllerTest extends Specification {
         def requestSpec = new RequestSpecBuilder().setBaseUri(System.getProperty("easyRestBaseUrl")).build()
         RestAssured.useRelaxedHTTPSValidation()
 
-        given:
-        def request = given(requestSpec)
+        def response = null
+        try {
+            response = given(requestSpec).get('/easyHelloWorld?firstname:Yannick')
 
-        when:
-        def response = request.get('/easyHelloWorld?firstname:Yannick')
-
-        and:
-        if (response.statusCode() == 404) {
-            println "API is not available, skipping test."
-            return
+        } catch (Exception e) {
+            println "Skipping test due to connection failure: ${e.class.simpleName} - ${e.message}"
+            Assumptions.assumeTrue(false, "Connection unavailable, skipping test")
         }
 
-        then:
+        expect:
+        Assumptions.assumeTrue(response?.statusCode() != 404, "API returned 404, skipping test")
         response.then()
                 .statusCode(200)
                 .body('message', equalTo('hello Yannick'))

@@ -5,30 +5,29 @@ package com.sap.cx.boosters.easy.delivery
 
 import io.restassured.builder.RequestSpecBuilder
 import io.restassured.RestAssured
+import org.junit.jupiter.api.Assumptions
 import spock.lang.Specification
 
 import static io.restassured.RestAssured.given
 
 class EasyRestTest extends Specification {
 
+    def requestSpec = new RequestSpecBuilder().setBaseUri(System.getProperty("easyRestBaseUrl")).build()
+
     def "test availableSlots"() {
-        def requestSpec = new RequestSpecBuilder().setBaseUri(System.getProperty("easyRestBaseUrl")).build()
         RestAssured.useRelaxedHTTPSValidation()
 
-        given:
-        def request = given(requestSpec)
-
-        when:
-        def response = request.get('/electronics-spa/users/anonymous/carts/testDeliverySlotCartGUID/getAvailableSlots')
-
-        and:
-        if (response.statusCode() == 404) {
-            println "API is not available, skipping test."
-            return
+        def response = null
+        try {
+            response = given(requestSpec)
+                    .get('/electronics-spa/users/anonymous/carts/testDeliverySlotCartGUID/getAvailableSlots')
+        } catch (Exception e) {
+            println "Skipping test due to connection failure: ${e.class.simpleName} - ${e.message}"
+            Assumptions.assumeTrue(false, "Connection unavailable, skipping test")
         }
 
-        then:
+        expect:
+        Assumptions.assumeTrue(response?.statusCode() != 404, "API returned 404, skipping test")
         response.then().statusCode(200)
-
     }
 }
