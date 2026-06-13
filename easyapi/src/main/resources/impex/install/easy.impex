@@ -1,9 +1,9 @@
 $swaggerConfigResourcePath = $extensionPath/src/main/resources/impex/install/swagger
-$swaggerPameters = SwaggerParameters[translator=de.hybris.platform.commerceservices.impex.impl.FileLoaderValueTranslator]
-$swaggerRequestBody = SwaggerRequestBody[translator=de.hybris.platform.commerceservices.impex.impl.FileLoaderValueTranslator]
-$swaggerResponses = SwaggerResponses[translator=de.hybris.platform.commerceservices.impex.impl.FileLoaderValueTranslator]
+$swaggerPameters = swaggerParameters[translator=de.hybris.platform.commerceservices.impex.impl.FileLoaderValueTranslator]
+$swaggerRequestBody = swaggerRequestBody[translator=de.hybris.platform.commerceservices.impex.impl.FileLoaderValueTranslator]
+$swaggerResponses = swaggerResponses[translator=de.hybris.platform.commerceservices.impex.impl.FileLoaderValueTranslator]
 
-INSERT_UPDATE EasyRestGroup; Name[unique = true]; allowedAuthorities(uid);
+INSERT_UPDATE EasyRestGroup; name[unique = true]; allowedAuthorities(uid);
                            ; Easy API           ;                        ;
 
 INSERT_UPDATE Employee; uid[unique = true]      ; name                    ; groups(uid)
@@ -12,10 +12,10 @@ INSERT_UPDATE Employee; uid[unique = true]      ; name                    ; grou
 INSERT_UPDATE EasyRestApiClient; id[unique = true]; active; description[lang = en]             ; easyRestGroups(Name); user(uid)
                                ; easy-api-client  ; true  ; The client for accessing Easy APIs ; Easy API            ; easy-api-technical-user
 
-INSERT_UPDATE EasyRest; Name[unique = true]; Path    ; SSL  ; CSRF  ; Method(code); Format(code); ContentType(code); AuthenticationMethod(code); SpringBean        ; Script; CacheControl(code); CacheControlMaxAge; CacheTTL; SwaggerSummary; $swaggerPameters; $swaggerRequestBody; $swaggerResponses;
+INSERT_UPDATE EasyRest; name[unique = true]; path    ; ssl  ; csrf  ; method(code); format(code); contentType(code); authenticationMethod(code); springBean        ; script; cacheControl(code); cacheControlMaxAge; cacheTTL; swaggerSummary; $swaggerPameters; $swaggerRequestBody; $swaggerResponses;
                       ; swagger            ; swagger ; true ; false ; GET         ; NONE        ; JSON             ; NONE                      ; swaggerController ;       ; NO_CACHE          ; 0                 ; -1      ;               ;                 ;                    ;                  ;
 
-INSERT_UPDATE EasyRest; Name[unique = true] ; Path                                                                    ; SSL  ; CSRF  ; Method(code); Format(code); ContentType(code); AuthenticationMethod(code); SpringBean                    ; Script; CacheControl(code); CacheControlMaxAge; CacheTTL; SwaggerSummary; $swaggerPameters                                               ; $swaggerRequestBody                                           ; $swaggerResponses
+INSERT_UPDATE EasyRest; name[unique = true] ; path                                                                    ; ssl  ; csrf  ; method(code); format(code); contentType(code); authenticationMethod(code); springBean                    ; script; cacheControl(code); cacheControlMaxAge; cacheTTL; swaggerSummary; $swaggerPameters                                               ; $swaggerRequestBody                                           ; $swaggerResponses
                       ; updateRepository    ; easyapi/repository/{repositoryCode}/update                              ; true ; false ; POST        ; NONE        ; JSON             ; API_KEY                   ; updateRepositoryController    ;       ; NO_CACHE          ; 0                 ; -1      ;               ; $swaggerConfigResourcePath/updateRepository/parameters.json    ;                                                               ; $swaggerConfigResourcePath/updateRepository/responses.json
                       ; getExtensions       ; easyapi/repository/{repositoryCode}/extensions                          ; true ; false ; GET         ; NONE        ; JSON             ; API_KEY                   ; getExtensionsController       ;       ; NO_CACHE          ; 0                 ; -1      ;               ; $swaggerConfigResourcePath/getExtensions/parameters.json       ;                                                               ; $swaggerConfigResourcePath/getExtensions/responses.json
                       ; getExtensionDetails ; easyapi/repository/{repositoryCode}/extension/{extensionId}             ; true ; false ; GET         ; NONE        ; JSON             ; API_KEY                   ; getExtensionDetailsController ;       ; NO_CACHE          ; 0                 ; -1      ;               ; $swaggerConfigResourcePath/getExtensionDetails/parameters.json ;                                                               ; $swaggerConfigResourcePath/getExtensionDetails/responses.json
@@ -26,7 +26,7 @@ INSERT_UPDATE EasyRest; Name[unique = true] ; Path                              
                       ; getRepositories     ; easyapi/repositories                                                    ; true ; false ; GET         ; NONE        ; JSON             ; API_KEY                   ; getRepositoriesController     ;       ; NO_CACHE          ; 0                 ; -1      ;               ;                                                                ;                                                               ; $swaggerConfigResourcePath/getRepositories/responses.json
                       ; getEasyEventLogs    ; easyapi/geteasyeventlogs/{eventId}                                      ; true ; false ; GET         ; NONE        ; JSON             ; API_KEY                   ; getEasyEventStatusController  ;       ; NO_CACHE          ; 0                 ; -1      ;               ; $swaggerConfigResourcePath/getEasyEventLogs/parameters.json    ;                                                               ; $swaggerConfigResourcePath/getEasyEventLogs/responses.json
 
-UPDATE EasyRest; Name[unique = true] ; easyRestGroup(Name);
+UPDATE EasyRest; name[unique = true] ; easyRestGroup(Name);
                ; swagger             ; Easy API           ;
                ; getRepositories     ; Easy API           ;
                ; updateRepository    ; Easy API           ;
