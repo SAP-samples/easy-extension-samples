@@ -4,6 +4,7 @@ import com.sap.cx.boosters.easy.core.helper.EasyCoreHelper
 import com.sap.cx.boosters.easyrest.controller.EasyRestServiceController
 import com.sap.cx.boosters.easyrest.enums.AuthenticationMethod
 import com.sap.cx.boosters.easyrest.service.EasyRestService
+import com.sap.cx.boosters.easyrest.enums.EndpointType
 import groovy.json.JsonOutput
 import groovy.json.JsonSlurper
 
@@ -26,67 +27,91 @@ class SwaggerController implements EasyRestServiceController {
         String authorizationUrl = baseUrl + '/authorizationserver/oauth/authorize'
 
         Map<String, Object> openAPI = [
-                openapi   : '3.0.3',
+                openapi   : '3.0.1',
                 servers   : [
                         [
-                                url: '/easyrest'
+                                url: "${baseUrl}/easyrest",
+                                description: 'Generated server url'
                         ]
                 ],
                 info      : [
                         title  : 'Easy REST API',
+                        description: 'This API allows you to manage all of the Easy Rest APIs',
+                        license: [
+                                name: 'Licensing information',
+                                url : 'https://sap.github.io/easy-extension-framework/latest/#licensing'
+                        ],
                         version: easyCoreHelper.getDeployedEasyVersion()
+                ],
+                externalDocs: [
+                        description: 'Easy Extension Framework Documentation',
+                        url        : "https://sap.github.io/easy-extension-framework/"
+                ],
+                security  : [
+                        [oauth2_authorization_code: ['basic']],
+                        [oauth2_client_credentials: ['extended']]
                 ],
                 paths     : [:],
                 components: [
                         securitySchemes: [
-                                oauth2_authorizationCode: [
+                                oauth2_client_credentials: [
+                                        type : 'oauth2',
+                                        description: 'OAuth2 Client Credentials flow',
+                                        flows: [
+                                                clientCredentials: [
+                                                        tokenUrl  : "$tokenUrl",
+                                                        scopes    : [
+                                                                extended: ''
+                                                        ]
+                                                ]
+                                        ]
+                                ],
+                                oauth2_authorization_code: [
                                         type : 'oauth2',
                                         description: 'OAuth2 Authorization Code flow',
                                         flows: [
                                                 authorizationCode: [
                                                         authorizationUrl: "$authorizationUrl",
                                                         tokenUrl        : "$tokenUrl",
-                                                        refreshUrl      : "$tokenUrl",
                                                         scopes          : [
-                                                                'openid'        : 'OpenID Connect scope',
-                                                                'profile'       : 'Profile information',
-                                                                'email'         : 'Email address',
-                                                                'offline_access': 'Refresh token support'
+                                                                basic       : ''
                                                         ]
                                                 ]
                                         ]
                                 ],
-                                oauth2_clientCredentials: [
-                                        type : 'oauth2',
-                                        description: 'OAuth2 Client Credentials flow',
-                                        flows: [
-                                                clientCredentials: [
-                                                        tokenUrl  : "$tokenUrl",
-                                                        refreshUrl: "$tokenUrl",
-                                                        scopes    : [
-                                                                'easyrest.read' : 'Read access to Easy REST endpoints',
-                                                                'easyrest.write': 'Write access to Easy REST endpoints'
-                                                        ]
-                                                ]
-                                        ]
-                                ],
-                                "APIKeyAuth"            : [
+                                api_key_auth            : [
                                         type: 'apiKey',
                                         description: 'API Key Authentication',
                                         in  : 'header',
                                         name: 'x-api-key'
                                 ],
-                                "JavaWebTokens"         : [
+                                jwt_auth         : [
                                         type: 'http',
                                         description: 'JWT Authentication',
                                         scheme: 'bearer',
                                         bearerFormat: 'JWT'
                                 ]
                         ]
+                ],
+                'x-sap-api-type': 'Rest',
+                'x-sap-shortText': 'Enables you to manage all of the Easy Rest endpoints.',
+                'x-sap-stateInfo': [
+                        state: 'Active'
+                ],
+                'x-servers': [
+                        [
+                                templates: [
+                                        url: [
+                                                description: 'SAP Commerce Cloud server URL where the application is deployed.'
+                                        ]
+                                ],
+                                description: 'Easy Rest API base url',
+                                url: 'https://{url}/easyrest',
+                        ]
                 ]
         ] as Map<String, Object>
 
-        def easyRests = easyRestService.getAllEasyRests()
+        def easyRests = easyRestService.getAllEasyRests(EndpointType.EASY_REST)
         def tags = [] as Set<String>
 
         easyRests.each {
@@ -155,8 +180,8 @@ class SwaggerController implements EasyRestServiceController {
     private static List<Map<String, Object>> buildSecurityRequirements(AuthenticationMethod authenticationMethod) {
         if (authenticationMethod == AuthenticationMethod.OAUTH) {
             return [
-                    [oauth2_authorizationCode: ['openid', 'profile', 'email']],
-                    [oauth2_clientCredentials: ['easyrest.read']]
+                    [oauth2_authorization_code: ['basic']],
+                    [oauth2_client_credentials: ['extended']]
             ]
         }
 
